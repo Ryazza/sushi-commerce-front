@@ -7,8 +7,12 @@
     border: 1px solid grey;
     border-radius: 10px 0 10px 0;
     background-color: rgba(73, 89, 91, 0.99);
+    text-decoration: none;
 }
-
+.Register_connectBtn:hover {
+    transition-duration: 600ms;
+    color: white;
+}
 .Register_input {
     border-radius: 0;
     border: none;
@@ -24,6 +28,59 @@
     box-shadow: none;
 }
 
+.errorInput {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid red;
+}
+
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+    box-shadow: none;
+}
+
 .Register_label {
     font-size: 18px;
+}
+
+.Register_btn {
+    color: #334547;
+    background-color: #F3D8BF;
+    font-size: 20px;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    padding-right: 40px;
+    padding-bottom: 15px;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgba(73, 89, 91, 0.99);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
 }
