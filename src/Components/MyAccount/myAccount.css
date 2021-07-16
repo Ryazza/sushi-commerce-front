@@ -1,0 +1,13 @@
+.myAccount_leftMenu {
+    background-color: #B9D7DC;
+    border-radius: 10px;
+}
+.myAccount_me {
+    font-size: 22px;
+}
+.myAccount_img--disconnect {
+    width: 20px;
+}
+.myAccount_separatorMenu {
+    border-top: 1px solid grey;
+}

@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-calendrier-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-case-à-cocher-vérifiée-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-chercher-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-cross-mark-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-fermer-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +50,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Projet_epitech/Semestre_2/MERN_IRC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/Assets" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\Rya\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\211.7628.21\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\public\Assets" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -90,7 +102,7 @@
       <workItem from="1626189441718" duration="1575000" />
       <workItem from="1626214391924" duration="264000" />
       <workItem from="1626353212168" duration="10593000" />
-      <workItem from="1626435690735" duration="18774000" />
+      <workItem from="1626435690735" duration="22309000" />
     </task>
     <servers />
   </component>
