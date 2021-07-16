@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './connexion.css';
-
+import {Link} from "react-router-dom";
+import logo from '../../Assets/logo.png';
 
 export default class Connexion extends Component {
     render() {
@@ -8,7 +9,7 @@ export default class Connexion extends Component {
             <Fragment>
                 <nav className="navbar navbar-expand-lg navBar_mainContainer">
                     <div className="container-fluid">
-                        <a href="#" className="navbar-brand p-0"><img src={process.env.PUBLIC_URL + '../../Assets/logo.png'}/></a>
+                        <Link href="#" className="navbar-brand p-0"><img className="logo" src={process.env.PUBLIC_URL + logo}/></Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"                         aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"> </span>
                         </button>
@@ -23,11 +24,11 @@ export default class Connexion extends Component {
                     </button>
                     <form id="connexionForm">
                         <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="formGroupEmailConnexion" placeholder="name@example.com"/>
+                        <input type="email" className="form-control" id="formGroupEmailConnexion" placeholder="name@example.com"/>
                             <label htmlFor="formGroupEmailConnexion">Adresse e-mail :</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input type="password" className="form-control" id="formGroupPwdConnexion"/>
+                            <input type="password" className="form-control" id="formGroupPwdConnexion" placeholder="name@example.com"/>
                             <label htmlFor="formGroupPwdConnexion">Mot de passe :</label>
                         </div>
                         <div className="form-check">

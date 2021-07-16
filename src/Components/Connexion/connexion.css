@@ -3,6 +3,10 @@
      margin-top: 10%;
  }
 
+.logo {
+     width: 60%;
+ }
+
  nav {
      background-color: #334547;
  }
@@ -77,5 +81,4 @@
 
 #connexion .btn:focus{
     outline: none;
-
 }
