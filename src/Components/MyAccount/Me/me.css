@@ -1,0 +1,31 @@
+.me_disabled {
+    color: #959595;
+}
+
+#Me_GenderInput--style input[type='radio']:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid grey;
+}
+
+#Me_GenderInput--style input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgba(127, 127, 127, 0.99);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid grey;
+}
