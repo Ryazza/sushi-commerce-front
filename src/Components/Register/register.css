@@ -1,0 +1,29 @@
+.Register_main {
+    background-color: #334547;
+    border-radius: 10px;
+}
+
+.Register_connectBtn {
+    border: 1px solid grey;
+    border-radius: 10px 0 10px 0;
+    background-color: rgba(73, 89, 91, 0.99);
+}
+
+.Register_input {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #F3D8BF;
+}
+
+.Register_input:focus {
+    border-bottom: 1px solid #F3D8BF;
+}
+
+.Register_input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.Register_label {
+    font-size: 18px;
+}
