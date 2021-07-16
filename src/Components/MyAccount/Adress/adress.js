@@ -1,8 +1,8 @@
 import React, {Component, Fragment} from 'react';
 
-import './me.css';
+import './adress.css';
 
-class MyAccount extends Component {
+class Adress extends Component {
 
     constructor(props) {
         super(props);
@@ -10,10 +10,10 @@ class MyAccount extends Component {
     render() {
         return (
             <Fragment>
-                <p>me components works</p>
+                <p>adress components works</p>
             </Fragment>
         )
     }
 }
 
-export default MyAccount
+export default Adress

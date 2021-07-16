@@ -1,5 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import Me from "./Me/me"
+import Adress from "./Adress/adress"
+import Ordered from "./Ordered/ordered"
+import Panier from "./Panier/panier"
 
 import './myAccount.css';
 
@@ -13,6 +16,21 @@ class MyAccount extends Component {
         this.handleChangeForAdress = this.handleChangeForAdress.bind(this);
         this.handleChangeForOrdered = this.handleChangeForOrdered.bind(this);
         this.handleChangeForPanier = this.handleChangeForPanier.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
+    }
+
+    componentDidUpdate() {
+        if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
+        else document.getElementById('myAccount_btnMe').classList.remove('myAccount_selectedBtn');
+        if (this.state.adress === true) document.getElementById('myAccount_btnAdress').classList.add('myAccount_selectedBtn');
+        else document.getElementById('myAccount_btnAdress').classList.remove('myAccount_selectedBtn');
+        if (this.state.ordered === true) document.getElementById('myAccount_btnOrdered').classList.add('myAccount_selectedBtn');
+        else document.getElementById('myAccount_btnOrdered').classList.remove('myAccount_selectedBtn');
+        if (this.state.panier === true) document.getElementById('myAccount_btnPanier').classList.add('myAccount_selectedBtn');
+        else document.getElementById('myAccount_btnPanier').classList.remove('myAccount_selectedBtn');
     }
 
     handleChangeForMe() {
@@ -37,34 +55,45 @@ class MyAccount extends Component {
         let ordered = this.state.ordered;
         let panier = this.state.panier;
 
+
         return (
             <Fragment>
                 <div className="container-fluid mt-5">
                     <div className="row justify-content-center">
                         <div className="col-2 myAccount_leftMenu pt-2">
                             <div className="myAccount_me text-center">Nom Prénom</div>
-                            <div className="text-center text-danger mt-2 mb-4"><img src={process.env.PUBLIC_URL + '/assets/icons8-fermer-96.png'} alt="Boutton de déconnection" class="myAccount_img--disconnect"/> Me déconnecter</div>
-                            <div className="row myAccount_separatorMenu">
+                            <div className="row justify-content-center">
+                                <button className=" btn btn-default text-center text-danger mb-2">
+                                    <img src={process.env.PUBLIC_URL + '/assets/icons8-fermer-96.png'} alt="Boutton de déconnection" className="myAccount_img--disconnect"/>
+                                    Me déconnecter
+                                </button>
+                            </div>
+                            <div className="row myAccount_separatorMenu" id="myAccount_btnMe">
                                 <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForMe}>Mes informations</button>
                             </div>
-                            <div className="row myAccount_separatorMenu">
+                            <div className="row myAccount_separatorMenu" id="myAccount_btnAdress">
                                 <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForAdress}>Mes adresses</button>
                             </div>
-                            <div className="row myAccount_separatorMenu">
+                            <div className="row myAccount_separatorMenu" id="myAccount_btnOrdered">
                                 <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForOrdered}>Mes commandes</button>
                             </div>
-                            <div className="row myAccount_separatorMenu">
+                            <div className="row myAccount_separatorMenu" id="myAccount_btnPanier">
                                 <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForPanier}>Mon panier</button>
                             </div>
                         </div>
                         <div className="col-8">
                             {(() => {
                                 switch (true) {
-                                    case me:   return (<Me />);
-                                    case adress: return "#00FF00";
-                                    case ordered:  return "#0000FF";
-                                    case panier:  return "#0000FF";
-                                    default:      return (<Me />);
+                                    case me:
+                                        return (<Me/>);
+                                    case adress:
+                                        return (<Adress/>);
+                                    case ordered:
+                                        return (<Ordered/>);
+                                    case panier:
+                                        return (<Panier/>);
+                                    default:
+                                        return (<Me/>);
                                 }
                             })()}
                         </div>

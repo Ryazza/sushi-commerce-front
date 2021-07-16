@@ -11,3 +11,6 @@
 .myAccount_separatorMenu {
     border-top: 1px solid grey;
 }
+.myAccount_selectedBtn {
+    background-color: #707f82;
+}

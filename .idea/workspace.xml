@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Adress/adress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Adress/adress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Ordered/ordered.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Ordered/ordered.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Panier/panier.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Panier/panier.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/Assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/MyAccount" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -52,6 +59,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\src\Components\MyAccount" />
       <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\public\Assets" />
     </key>
   </component>
@@ -94,7 +102,7 @@
       <workItem from="1626189441718" duration="1575000" />
       <workItem from="1626214391924" duration="264000" />
       <workItem from="1626353212168" duration="10593000" />
-      <workItem from="1626435690735" duration="22881000" />
+      <workItem from="1626435690735" duration="24408000" />
     </task>
     <servers />
   </component>

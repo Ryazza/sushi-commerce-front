@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 import './me.css';
 
-class MyAccount extends Component {
+class Me extends Component {
 
     constructor(props) {
         super(props);
@@ -16,4 +16,4 @@ class MyAccount extends Component {
     }
 }
 
-export default MyAccount
+export default Me
