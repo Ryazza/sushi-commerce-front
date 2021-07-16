@@ -36,6 +36,7 @@ export default class Connexion extends Component {
                                     Se rappeler de moi
                                 </label>
                         </div>
+                        <input type="button" className="btn btn-primary " value="Se connecter"/>
                     </form>
                 </div>
             </Fragment>

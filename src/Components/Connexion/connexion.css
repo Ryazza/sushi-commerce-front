@@ -66,3 +66,16 @@
     border-radius: 0;
     background-color: #334547;
 }
+
+#connexion .btn {
+    background-color: #F3D8BF;
+    color: #334547;
+    border: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#connexion .btn:focus{
+    outline: none;
+
+}

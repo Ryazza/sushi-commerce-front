@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d07f1eec-b722-488a-aa2b-67d3f33c0382" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sushi-commerce-front.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sushi-commerce-front.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
@@ -44,7 +43,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1626436277092</updated>
-      <workItem from="1626436280541" duration="7422000" />
+      <workItem from="1626436280541" duration="7954000" />
     </task>
     <servers />
   </component>
