@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
 
+import Bus from "./Utils/Bus";
+
+import Navbar from './Components/Navbar/navbar'
+
+window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Navbar></Navbar>
+            <Switch>
+                <Route path="/" >
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
