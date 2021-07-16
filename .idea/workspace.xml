@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-calendrier-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-case-à-cocher-vérifiée-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-chercher-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-cross-mark-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/icons8-fermer-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +94,7 @@
       <workItem from="1626189441718" duration="1575000" />
       <workItem from="1626214391924" duration="264000" />
       <workItem from="1626353212168" duration="10593000" />
-      <workItem from="1626435690735" duration="22309000" />
+      <workItem from="1626435690735" duration="22881000" />
     </task>
     <servers />
   </component>
