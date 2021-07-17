@@ -152,7 +152,7 @@ class Register extends Component {
                                     </div>
                                 </div>
                                 <h1 className="h2 text-center font_lobster global_fontColor--cream mt-5 mb-5">Information personelles</h1>
-                                <div className="col-8 pt-3 pb-3">
+                                <div className="col-8 pt-3 pb-3" id="Register_GenderInput--style">
                                     <label className="Register_label global_fontColor--cream mb-4">Civilité</label>
                                     <div className="form-floating row mb-4">
                                         <div className="col-4">

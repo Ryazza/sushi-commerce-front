@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/DeleteAccount/deleteAccount.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/DeleteAccount/deleteAccount.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Register/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Register/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Register/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +43,19 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Projet_epitech/Semestre_2/MERN_IRC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/MyAccount" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\Rya\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\211.7628.21\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\src\Components\MyAccount" />
+      <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\public\Assets" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -89,7 +96,7 @@
       <workItem from="1626189441718" duration="1575000" />
       <workItem from="1626214391924" duration="264000" />
       <workItem from="1626353212168" duration="10593000" />
-      <workItem from="1626435690735" duration="17344000" />
+      <workItem from="1626435690735" duration="32901000" />
     </task>
     <servers />
   </component>

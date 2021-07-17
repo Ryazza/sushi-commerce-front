@@ -13,3 +13,7 @@
 .global_bgColor--blackCyan:focus {
     background-color: #334547;
 }
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
