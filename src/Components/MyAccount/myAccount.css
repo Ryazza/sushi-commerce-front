@@ -14,3 +14,13 @@
 .myAccount_selectedBtn {
     background-color: #707f82;
 }
+
+#myAccount_btnPanier {
+    border-radius: 0 0 10px 10px;
+}
+
+/*Bootstrap modify*/
+.btn-check:focus+.btn, .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
