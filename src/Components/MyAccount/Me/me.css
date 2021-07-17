@@ -1,7 +1,14 @@
 .me_disabled {
     color: #959595;
 }
-
+.me_btnSubmit {
+    color: #F3D8BF;
+    background-color: #334547;
+    font-size: 22px;
+}
+.me_title {
+    color: #39484B;
+}
 #Me_GenderInput--style input[type='radio']:after {
     width: 18px;
     height: 18px;

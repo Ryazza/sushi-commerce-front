@@ -63,7 +63,7 @@ class MyAccount extends Component {
 
         return (
             <Fragment>
-                <div className="container-fluid mt-5">
+                <div className="container-fluid mt-3">
                     <div className="row justify-content-center">
                         <div className="col-2 pt-2">
                             <div className="row myAccount_leftMenu justify-content-center">
