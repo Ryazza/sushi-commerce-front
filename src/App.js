@@ -5,6 +5,8 @@ import './App.css';
 import Bus from "./Utils/Bus";
 
 import Navbar from './Components/Navbar/navbar'
+import Register from './Components/Register/register'
+import MyAccount from './Components/MyAccount/myAccount'
 
 import Connexion from "./Components/Connexion/connexion";
 
@@ -15,10 +17,15 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/login" >
-                    <Connexion/>
+                <Route path="/account">
+                    <Navbar />
+                    <MyAccount />
+                </Route>
+                <Route path="/register" >
+                    <Register />
                 </Route>
                 <Route path="/" >
+                    <Navbar />
                 </Route>
             </Switch>
         </Router>

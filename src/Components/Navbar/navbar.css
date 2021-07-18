@@ -1,3 +1,64 @@
+.font_lobster {
+    font-family: 'Lobster', cursive;
+}
 
+.navBar_mainContainer {
+    background-color: #39484b;
+    color: #F3D8BF;
+}
 
+.navBar_searchBar--label {
+    font-size: 20px;
+}
 
+.navBar_searchBar {
+    width: 65vw;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F3D8BF;
+    color: white;
+}
+
+.navBar_searchBar:focus {
+    background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    box-shadow: none;
+    border-bottom: 2px solid #F3D8BF;
+    color: white;
+}
+
+.navBar_link {
+    color: #F3D8BF;
+    font-size: 20px;
+}
+.navBar_link:hover {
+    transition-duration: 600ms;
+    color: white;
+    font-size: 20px;
+}
+.navBar_logo {
+    width: 200px
+}
+
+.sousNavTemporaire {
+    height: 3vh;
+    background-color: #B9D7DC;
+}
+/* Responsive */
+
+@media (max-width: 992px) {
+    .navBar_searchBar {
+        width: 97vw;
+    }
+}
+@media (max-width: 768px) {
+    .navBar_searchBar {
+        width: 95vw;
+    }
+}
+@media (max-width: 350px) {
+    .navBar_searchBar {
+        width: initial;
+    }
+}

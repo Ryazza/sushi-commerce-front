@@ -1,0 +1,19 @@
+.font_lobster {
+    font-family: 'Lobster', cursive;
+}
+.global_fontColor--cream {
+    color: #F3D8BF;
+}
+.global_fontColor--cream:focus {
+    color: #F3D8BF;
+}
+.global_bgColor--blackCyan {
+    background-color: #334547;
+}
+.global_bgColor--blackCyan:focus {
+    background-color: #334547;
+}
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}

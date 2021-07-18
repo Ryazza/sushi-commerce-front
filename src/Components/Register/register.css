@@ -1,0 +1,86 @@
+.Register_main {
+    background-color: #334547;
+    border-radius: 10px;
+}
+
+.Register_connectBtn {
+    border: 1px solid grey;
+    border-radius: 10px 0 10px 0;
+    background-color: rgba(73, 89, 91, 0.99);
+    text-decoration: none;
+}
+.Register_connectBtn:hover {
+    transition-duration: 600ms;
+    color: white;
+}
+.Register_input {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #F3D8BF;
+}
+
+.Register_input:focus {
+    border-bottom: 1px solid #F3D8BF;
+}
+
+.Register_input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.errorInput {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid red;
+}
+
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+    box-shadow: none;
+}
+
+.Register_label {
+    font-size: 18px;
+}
+
+.Register_btn {
+    color: #334547;
+    background-color: #F3D8BF;
+    font-size: 20px;
+}
+
+#Register_birth::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    padding-right: 40px;
+    padding-bottom: 15px;
+}
+
+#Register_GenderInput--style input[type='radio']:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+#Register_GenderInput--style input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgba(73, 89, 91, 0.99);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
