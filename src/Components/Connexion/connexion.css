@@ -59,13 +59,17 @@
 
 .Login_registerBtn {
     border: 1px solid grey;
-    border-radius: 10px 0 10px 0;
+    border-radius: 0px 10px 0px 10px;
     background-color: rgba(73, 89, 91, 0.99);
     text-decoration: none;
 }
 
 .Login_registerBtn:hover {
     transition-duration: 600ms;
+}
+
+.home__login .logo {
+    width: 80%;
 }
 
 #connexion .btn:focus{

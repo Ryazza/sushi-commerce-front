@@ -4,10 +4,37 @@ import {Link} from "react-router-dom";
 import logo from '../../Assets/logo.png';
 export default class Connexion extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {email: "", password:""};
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+    }
+
+
+    handleChangeEmail(event) {
+        this.setState({email: event.target.value});
+    }
+
+    handleChangePassword(event) {
+        this.setState({password : event.target.value});
+    }
+
+    validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    validateLogin(){
+        let validate = {email:false, password: false};
+        let email = document.getElementById("Login_email");
+        let pwd = document.getElementById("Login_password");
+    }
+
     render() {
         return (
             <Fragment>
-                <nav className="navbar navbar-expand-lg navBar_mainContainer">
+                <nav className="navbar navbar-expand-lg navBar_mainContainer home__login">
                     <div className="container-fluid">
                         <Link href="#" className="navbar-brand p-0"><img className="logo" src={process.env.PUBLIC_URL + logo}/></Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"                         aria-expanded="false" aria-label="Toggle navigation">
