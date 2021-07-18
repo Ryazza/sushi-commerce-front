@@ -1,6 +1,15 @@
 .font_lobster {
     font-family: 'Lobster', cursive;
 }
+
+.font_cabin {
+    font-family: 'Cabin', sans-serif;
+}
+
+.font_montserrat {
+    font-family: 'Montserrat', serif;
+}
+
 .global_fontColor--cream {
     color: #F3D8BF;
 }
@@ -13,6 +22,23 @@
 .global_bgColor--blackCyan:focus {
     background-color: #334547;
 }
+
+
+.global_fontColorTest--charcoal {
+    background-color: #424C55;
+}
+
+.global_fontColorTest--alabaster {
+    color: #F1F0EA;
+}
+.global_fontColorTestCTA--cerulean {
+    background-color: #66A182;
+}
+.global_fontColorTestCTA--whiteSmoke {
+    background-color: #EFEFEF;
+}
+
+
 .form-control:focus {
     outline: none;
     box-shadow: none;

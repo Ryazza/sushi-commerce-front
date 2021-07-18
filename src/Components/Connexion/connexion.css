@@ -1,38 +1,16 @@
- #connexion {
-     color: #F3D8BF!important;
-     margin-top: 10%;
+.Login_main {
+    background-color: #334547;
+    border-radius: 10px;
+}
+
+
+ a {
+     text-decoration: none;
  }
 
-.logo {
-     width: 60%;
- }
+ a:hover {
+     color: whitesmoke;
 
- nav {
-     background-color: #334547;
- }
-
- .form-floating, .form-control  {
-     background-color: transparent!important;
- }
-
- .connexionBtn {
-     background-color: #334547;
-     padding: 10px 5px;
-     text-align: center;
-     font-size: 20px;
-     border-radius: 10px 0px 0 0;
-     border: none;
-     color: #F3D8BF!important;
- }
-
- .inscriptionBtn {
-     background-color: #49595B;
-     padding: 10px 5px;
-     text-align: center;
-     font-size: 20px;
-     border-radius: 0px 10px 0 0;
-     border: none;
-     color: #F3D8BF!important;
  }
 
  #connexionForm {
@@ -71,12 +49,23 @@
     background-color: #334547;
 }
 
-#connexion .btn {
-    background-color: #F3D8BF;
+.Login_btn {
     color: #334547;
-    border: none;
-    margin-top: 20px;
-    text-align: center;
+    background-color: #F3D8BF;
+    font-size: 20px;
+    width: auto;
+}
+
+
+.Login_registerBtn {
+    border: 1px solid grey;
+    border-radius: 10px 0 10px 0;
+    background-color: rgba(73, 89, 91, 0.99);
+    text-decoration: none;
+}
+
+.Login_registerBtn:hover {
+    transition-duration: 600ms;
 }
 
 #connexion .btn:focus{
