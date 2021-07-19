@@ -26,3 +26,9 @@
     outline: none;
     box-shadow: none;
 }
+.modal-footer {
+    border-top: none;
+}
+.modal-header {
+    border-bottom: none;
+}
