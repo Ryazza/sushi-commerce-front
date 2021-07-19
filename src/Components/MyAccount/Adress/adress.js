@@ -130,7 +130,7 @@ class Adress extends Component {
             <Fragment>
                 <div className="row justify-content-center">
                     <div className="col-6">
-                        <h1 className="h2 font_lobster text-center">
+                        <h1 className="h2 font_montserrat text-center">
                             Adresses
                         </h1>
                         <div className="fs-5 text-center">
@@ -141,7 +141,7 @@ class Adress extends Component {
                         </div>
                         <div className="row justify-content-center mt-4 mb-5">
                             <div className="col-2 text-center">
-                                <button className="btn btn-default adress_btnSubmit font_lobster" data-bs-toggle="modal" data-bs-target="#newAdressBtn">
+                                <button className="btn btn-default adress_btnSubmit font_montserrat" data-bs-toggle="modal" data-bs-target="#newAdressBtn">
                                     Ajouter
                                 </button>
                             </div>
@@ -152,7 +152,7 @@ class Adress extends Component {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title font_lobster h3" id="exampleModalLabel">Ajouter une adresse</h5>
+                                <h5 className="modal-title font_montserrat h3" id="exampleModalLabel">Ajouter une adresse</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
@@ -184,7 +184,7 @@ class Adress extends Component {
                                         </div>
                                         <div className="row justify-content-center mt-3">
                                             <div className="col-3">
-                                                <button type="button" className="btn btn-default adress_btnSubmit font_lobster text-center" onClick={this.handleSubmitAdress}>Ajouter</button>
+                                                <button type="button" className="btn btn-default adress_btnSubmit global_fontColorCTA global_fontColor--whiteSmoke font_montserrat text-center" onClick={this.handleSubmitAdress}>Ajouter</button>
                                             </div>
                                         </div>
                                     </form>
