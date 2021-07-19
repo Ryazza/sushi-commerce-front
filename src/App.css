@@ -10,31 +10,14 @@
     font-family: 'Montserrat', serif;
 }
 
-.global_fontColor--cream {
-    color: #F3D8BF;
-}
-.global_fontColor--cream:focus {
-    color: #F3D8BF;
-}
-.global_bgColor--blackCyan {
-    background-color: #334547;
-}
-.global_bgColor--blackCyan:focus {
-    background-color: #334547;
-}
-
-
 .global_fontColorTest--charcoal {
     background-color: #424C55;
 }
 
-.global_fontColorTest--alabaster {
-    color: #F1F0EA;
+.global_fontColorCTA {
+    background-color: #a2c8da;
 }
-.global_fontColorTestCTA--cerulean {
-    background-color: #66A182;
-}
-.global_fontColorTestCTA--whiteSmoke {
+.global_bgColor--whiteSmoke {
     background-color: #EFEFEF;
 }
 

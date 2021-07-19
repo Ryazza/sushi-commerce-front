@@ -9,11 +9,13 @@ export default class Connexion extends Component {
         this.state = {email: "", password:""};
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.validateLogin = this.validateLogin.bind(this);
     }
 
 
     handleChangeEmail(event) {
         this.setState({email: event.target.value});
+        console.log(this.state.email);
     }
 
     handleChangePassword(event) {
@@ -22,33 +24,28 @@ export default class Connexion extends Component {
 
 
     validateLogin(){
-        let validate = {email:false, password: false};
+        let email = document.getElementById('Login_email');
+        let pwd = document.getElementById('Login_password');
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (!re.test(this.state.email)) {
-            validate.email = false;
+            email.classList.add("is-invalid");
+            email.classList.remove(" is-valid");
         } else {
-            validate.email = true;
+            email.classList.add('is-valid');
+            email.classList.remove('is-invalid');
         }
         if (this.state.password.length < 2) {
-            validate.password = false;
+            pwd.classList.add("is-invalid");
+            pwd.classList.remove("is-valid");
         } else {
-            validate.password = true;
+            pwd.classList.add('is-valid');
+            pwd.classList.remove('is-invalid');
         }
-    }
-
-    
-    handleSubmitRegister(event) {
-        event.preventDefault();
-        let valid = this.validateLogin();
-        if(valid === true) {
+        if (re.test(this.state.email) && this.state.password>2) {
             let form = {
                 email: this.state.email,
                 password: this.state.password,
-                gender: this.state.gender,
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                birth: this.state.birth
             }
             //todo requete
         }
@@ -85,7 +82,7 @@ export default class Connexion extends Component {
                                     </div>
                                 </div>
                                 <div className="row justify-content-center mt-3">
-                                    <button className="btn btn-default col-2 Login_btn" onClick={this.handleSubmitRegister}>Se connecter</button>
+                                    <button className="btn btn-default col-2 Login_btn" onClick={this.validateLogin}>Se connecter</button>
                                 </div>
                             </div>
                         </div>

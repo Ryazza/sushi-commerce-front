@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Assets/logo-big-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/RegisterTest/registerTest.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/RegisterTest/registerTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Connexion/connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Connexion/connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ConnexionTest/connexionTest.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ConnexionTest/connexionTest.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ConnexionTest/connexionTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ConnexionTest/connexionTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Register/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Register/register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -49,10 +60,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components" />
       <recent name="C:\Users\marie\Documents\sushi-commerce-front\src\Assets" />
       <recent name="C:\Users\marie\Documents\sushi-commerce-front\src\Components" />
       <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\src\Components\MyAccount" />
       <recent name="C:\Users\Rya\Documents\Projet_En_Cours\e-commerce\sushi-commerce-front\public\Assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Assets" />
     </key>
   </component>
   <component name="RunManager">

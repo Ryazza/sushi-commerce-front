@@ -9,6 +9,7 @@ import Register from './Components/Register/register'
 import MyAccount from './Components/MyAccount/myAccount'
 import Connexion from "./Components/Connexion/connexion";
 import ConnexionTest from "./Components/ConnexionTest/connexionTest";
+import RegisterTest from "./Components/RegisterTest/registerTest";
 
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
@@ -29,6 +30,9 @@ function App() {
                 </Route>
                 <Route path="/loginTest" >
                     <ConnexionTest />
+                </Route>
+                <Route path="/registerTest" >
+                    <RegisterTest/>
                 </Route>
                 <Route path="/" >
                     <Navbar />
