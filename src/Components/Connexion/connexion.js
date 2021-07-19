@@ -20,15 +20,38 @@ export default class Connexion extends Component {
         this.setState({password : event.target.value});
     }
 
-    validateEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
 
     validateLogin(){
         let validate = {email:false, password: false};
-        let email = document.getElementById("Login_email");
-        let pwd = document.getElementById("Login_password");
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (!re.test(this.state.email)) {
+            validate.email = false;
+        } else {
+            validate.email = true;
+        }
+        if (this.state.password.length < 2) {
+            validate.password = false;
+        } else {
+            validate.password = true;
+        }
+    }
+
+    
+    handleSubmitRegister(event) {
+        event.preventDefault();
+        let valid = this.validateLogin();
+        if(valid === true) {
+            let form = {
+                email: this.state.email,
+                password: this.state.password,
+                gender: this.state.gender,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                birth: this.state.birth
+            }
+            //todo requete
+        }
     }
 
     render() {

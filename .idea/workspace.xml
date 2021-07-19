@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6700a5a4-87f4-4fd0-beb2-5b3b424c8149" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Connexion/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Connexion/connexion.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Connexion/connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Connexion/connexion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
