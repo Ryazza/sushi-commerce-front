@@ -3,7 +3,6 @@ import Me from "./Me/me"
 import Adress from "./Adress/adress"
 import Ordered from "./Ordered/ordered"
 import Panier from "./Panier/panier"
-
 import './myAccount.css';
 
 class MyAccount extends Component {
@@ -63,28 +62,28 @@ class MyAccount extends Component {
 
         return (
             <Fragment>
-                <div className="container-fluid mt-3">
+                <div className="container-fluid font_cabin mt-3">
                     <div className="row justify-content-center">
-                        <div className="col-2 pt-2">
-                            <div className="row myAccount_leftMenu justify-content-center">
-                                <div className="myAccount_me text-center">Nom Prénom</div>
+                        <div className="col-2  pt-2">
+                            <div className="row myAccount_leftMenu global_bgColor--charcoal global_fontColor--whiteSmoke justify-content-center">
+                                <div className="myAccount_me global_fontColor--whiteSmoke text-center">Nom Prénom</div>
                                 <div className="row justify-content-center">
                                     <button className=" btn btn-default text-center text-danger mb-2" onClick={this.handleDisconnect}>
-                                        <img src={process.env.PUBLIC_URL + '/assets/icons8-fermer-96.png'} alt="Boutton de déconnection" className="myAccount_img--disconnect"/>
+                                        <img src={process.env.PUBLIC_URL + '/assets/icons8-fermer-96.png'} alt="Boutton de déconnection" className="myAccount_img--disconnect global_fontColor--whiteSmoke"/>
                                         Me déconnecter
                                     </button>
                                 </div>
                                 <div className="row myAccount_separatorMenu" id="myAccount_btnMe">
-                                    <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForMe}>Mes informations</button>
+                                    <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForMe}>Mes informations</button>
                                 </div>
                                 <div className="row myAccount_separatorMenu" id="myAccount_btnAdress">
-                                    <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForAdress}>Mes adresses</button>
+                                    <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForAdress}>Mes adresses</button>
                                 </div>
                                 <div className="row myAccount_separatorMenu" id="myAccount_btnOrdered">
-                                    <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForOrdered}>Mes commandes</button>
+                                    <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForOrdered}>Mes commandes</button>
                                 </div>
                                 <div className="row myAccount_separatorMenu" id="myAccount_btnPanier">
-                                    <button className="btn btn-default text-center pt-2 pb-2" onClick={this.handleChangeForPanier}>Mon panier</button>
+                                    <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForPanier}>Mon panier</button>
                                 </div>
                             </div>
                         </div>

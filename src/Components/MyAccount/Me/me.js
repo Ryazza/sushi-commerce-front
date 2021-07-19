@@ -110,8 +110,8 @@ class Me extends Component {
     render() {
         return (
             <Fragment>
-                <div className="row ms-5">
-                    <h1 className='fs-3 text-center font_lobster mb-3 pe-5 me_title'>Informations Personnelles</h1>
+                <div className="row ms-5 font_cabin">
+                    <h1 className='fs-3 text-center font_montserrat mb-3 pe-5 me_title'>Informations Personnelles</h1>
                     <div className="col-6">
                         <div className="row mb-4" id="Me_GenderInput--style">
                             <div className="row justify-content-center mb-3">
@@ -160,7 +160,7 @@ class Me extends Component {
                 </div>
                 <div className="row justify-content-center mt-4 mb-2">
                     <div className="col-2 text-center">
-                        <button className="btn btn-default me_btnSubmit font_lobster" onClick={this.handleSubmitMe}>Valider</button>
+                        <button className="btn btn-default me_btnSubmit global_fontColorCTA global_fontColor--whiteSmoke font_montserrat" onClick={this.handleSubmitMe}>Valider</button>
                     </div>
                 </div>
                 <div className="row justify-content-center mb-2">
@@ -169,7 +169,7 @@ class Me extends Component {
                     </div>
                 </div>
                 <div className="row justify-content-center ms-5">
-                    <h1 className='fs-3 text-center font_lobster mb-4 pe-5 me_title'>Changer de mot de passe</h1>
+                    <h1 className='fs-3 text-center font_montserrat mb-4 pe-5 me_title'>Changer de mot de passe</h1>
                     <div className="col-6">
                         <div className="row mb-3">
                             <div className="col-11">
@@ -187,7 +187,7 @@ class Me extends Component {
                 </div>
                 <div className="row justify-content-center mt-4 mb-5">
                     <div className="col-2 text-center">
-                        <button className="btn btn-default me_btnSubmit font_lobster" onClick={this.handleSubmitMeMDP}>Valider</button>
+                        <button className="btn btn-default me_btnSubmit global_fontColor--whiteSmoke global_fontColorCTA font_montserrat" onClick={this.handleSubmitMeMDP}>Valider</button>
                     </div>
                 </div>
                 <div className="row justify-content-center mb-2">

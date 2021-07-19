@@ -10,7 +10,7 @@
     font-family: 'Montserrat', serif;
 }
 
-.global_fontColorTest--charcoal {
+.global_bgColor--charcoal {
     background-color: #424C55;
 }
 
@@ -21,6 +21,9 @@
     background-color: #EFEFEF;
 }
 
+.global_fontColor--whiteSmoke {
+    color: #EFEFEF;
+}
 
 .form-control:focus {
     outline: none;
