@@ -1,0 +1,77 @@
+.Login_main {
+    background-color: #334547;
+    border-radius: 10px;
+}
+
+
+ a {
+     text-decoration: none;
+ }
+
+ a:hover {
+     color: whitesmoke;
+
+ }
+
+ #connexionForm {
+    background-color: #334547;
+    padding: 10%;
+    border-radius: 0 0px 10px 10px;
+}
+
+#connexion #formGroupEmailConnexion:focus,  #connexion #formGroupPwdConnexion:focus {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+
+}
+
+#connexion label{
+    font-size: 18px;
+
+}
+
+#connexion #formGroupEmailConnexion {
+    margin-bottom: 25px;
+}
+ #connexion #formGroupPwdConnexion {
+     margin-bottom: 40px;
+ }
+
+#formGroupEmailConnexion, #formGroupPwdConnexion{
+    color: #F3D8BF!important;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    background-color: #334547;
+}
+
+.Login_btn {
+    color: #334547;
+    background-color: #F3D8BF;
+    font-size: 20px;
+    width: auto;
+}
+
+
+.Login_registerBtn {
+    border: 1px solid grey;
+    border-radius: 0px 10px 0px 10px;
+    background-color: rgba(73, 89, 91, 0.99);
+    text-decoration: none;
+}
+
+.Login_registerBtn:hover {
+    transition-duration: 600ms;
+}
+
+.home__login .logo {
+    width: 80%;
+}
+
+#connexion .btn:focus{
+    outline: none;
+}

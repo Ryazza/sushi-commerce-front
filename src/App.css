@@ -1,18 +1,27 @@
 .font_lobster {
     font-family: 'Lobster', cursive;
 }
-.global_fontColor--cream {
-    color: #F3D8BF;
+
+.font_cabin {
+    font-family: 'Cabin', sans-serif;
 }
-.global_fontColor--cream:focus {
-    color: #F3D8BF;
+
+.font_montserrat {
+    font-family: 'Montserrat', serif;
 }
-.global_bgColor--blackCyan {
-    background-color: #334547;
+
+.global_fontColorTest--charcoal {
+    background-color: #424C55;
 }
-.global_bgColor--blackCyan:focus {
-    background-color: #334547;
+
+.global_fontColorCTA {
+    background-color: #a2c8da;
 }
+.global_bgColor--whiteSmoke {
+    background-color: #EFEFEF;
+}
+
+
 .form-control:focus {
     outline: none;
     box-shadow: none;
