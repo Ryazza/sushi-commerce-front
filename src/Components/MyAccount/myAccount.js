@@ -3,7 +3,7 @@ import Me from "./Me/me"
 import Adress from "./Adress/adress"
 import Ordered from "./Ordered/ordered"
 import Panier from "./Panier/panier"
-
+import logoBigWhite from "../../Assets/logo-big-white.png"
 import './myAccount.css';
 
 class MyAccount extends Component {
