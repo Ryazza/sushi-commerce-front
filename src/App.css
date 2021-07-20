@@ -1,7 +1,3 @@
-.font_lobster {
-    font-family: 'Lobster', cursive;
-}
-
 .font_cabin {
     font-family: 'Cabin', sans-serif;
 }
@@ -23,6 +19,9 @@
 
 .global_fontColor--whiteSmoke {
     color: #EFEFEF;
+}
+.global_bgColor--orange {
+    background-color: #F18701;
 }
 
 .form-control:focus {

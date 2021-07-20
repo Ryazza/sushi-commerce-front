@@ -1,0 +1,12 @@
+.AdminNavbar {
+    margin-top: 30px;
+}
+
+.NavBarAdmin_navLink {
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.AdminNavbar_link_img {
+    width: 50px;
+}

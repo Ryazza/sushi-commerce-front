@@ -8,7 +8,7 @@ import Navbar from './Components/Navbar/navbar'
 import UserAccount from './Views/UserAccount/myAccount'
 import Login from "./Views/Login/connexion";
 import Register from "./Views/Register/register";
-import Admin from "./Views/AdminAccount/Admin";
+import Admin from "./Views/AdminAccount/admin";
 
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
