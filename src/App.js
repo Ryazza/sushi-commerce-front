@@ -5,12 +5,12 @@ import './App.css';
 import Bus from "./Utils/Bus";
 
 import Navbar from './Components/Navbar/navbar'
-import MyAccount from './Components/MyAccount/myAccount'
-import Connexion from "./Components/Connexion/connexion";
-import Register from "./Components/Register/register";
+import UserAccount from './Views/UserAccount/myAccount'
+import Login from "./Views/Login/connexion";
+import Register from "./Views/Register/register";
+import Admin from "./Views/AdminAccount/Admin";
 
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
-
 
 function App() {
     return (
@@ -18,13 +18,17 @@ function App() {
             <Switch>
                 <Route path="/account">
                     <Navbar />
-                    <MyAccount />
+                    <UserAccount />
                 </Route>
                 <Route path="/register" >
                     <Register />
                 </Route>
+                <Route path="/admin">
+                    <Navbar/>
+                    <Admin />
+                </Route>
                 <Route path="/" >
-                    <Connexion />
+                    <Login />
                 </Route>
             </Switch>
         </Router>
