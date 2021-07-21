@@ -11,7 +11,7 @@ export default class NavbarProduct extends Component {
                     <p className="font_montserrat">Dashboard - Gestion des articles</p>
                     <nav className="Product_navBar align-self-center">
                         <Link className="Product_navBar_btn global_fontColor--whiteSmoke global_fontColorCTA" to="/newProduct">Créer</Link>
-                        <Link className="Product_navBar_btn global_fontColor--whiteSmoke global_fontColorCTA">Modifier</Link>
+                        <Link className="Product_navBar_btn global_fontColor--whiteSmoke global_fontColorCTA" to="/changeProduct">Modifier</Link>
                     </nav>
                 </div>
             </Fragment>
