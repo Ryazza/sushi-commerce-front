@@ -6,7 +6,6 @@ import articleIcone from "../../Assets/article.png"
 import labelIcone from "../../Assets/label.png"
 import orderIcone from "../../Assets/shopping-bag.png"
 import userIcone from "../../Assets/user.png";
-import logoBigWhite from "../../Assets/logo-big-white.png";
 
 export default class NavbarAdmin extends Component{
     render() {
@@ -15,7 +14,7 @@ export default class NavbarAdmin extends Component{
                 <div className="container col-5 AdminNavbar">
                     <nav id="nav nav-pills nav-justified">
                         <ul className="d-flex justify-content-between">
-                            <Link className="NavBarAdmin_navLink  global_fontColorCTA"><img src={process.env.PUBLIC_URL + labelIcone} className="AdminNavbar_link_img" alt=""/></Link>
+                            <Link className="NavBarAdmin_navLink global_fontColorCTA" to="/newProduct"><img src={process.env.PUBLIC_URL + labelIcone} className="AdminNavbar_link_img" alt=""/></Link>
                             <Link className="NavBarAdmin_navLink NavBarAdmin_navLink--orange global_bgColor--orange"><img src={process.env.PUBLIC_URL + articleIcone} className="AdminNavbar_link_img" alt=""/></Link>
                             <Link className="NavBarAdmin_navLink NavBarAdmin_navLink--charcoal global_bgColor--charcoal"><img src={process.env.PUBLIC_URL + userIcone} className="AdminNavbar_link_img" alt=""/></Link>
                             <Link className="NavBarAdmin_navLink NavBarAdmin_navLink--whitesmoke global_bgColor--whiteSmoke"><img src={process.env.PUBLIC_URL + orderIcone} className="AdminNavbar_link_img" alt=""/></Link>

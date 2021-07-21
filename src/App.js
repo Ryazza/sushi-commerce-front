@@ -9,7 +9,8 @@ import UserAccount from './Views/UserAccount/myAccount'
 import Login from "./Views/Login/connexion";
 import Register from "./Views/Register/register";
 import Admin from "./Views/AdminAccount/admin";
-
+import Products from "./Views/Products/products";
+import NavbarAdmin from "./Components/NavbarAdmin/navbarAdmin";
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
                 <Route path="/admin">
                     <Navbar/>
                     <Admin />
+                </Route>
+                <Route path="/newProduct">
+                    <Navbar/>
+                    <NavbarAdmin/>
+                    <Products/>
                 </Route>
                 <Route path="/" >
                     <Login />
