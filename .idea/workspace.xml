@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3912e19f-c7e9-47d4-9f40-65fb02953adb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Views/AdminAccount/Admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Connexion/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Login/connexion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Connexion/connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Login/connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Adress/adress.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Adress/adress.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Adress/adress.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Adress/adress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/DeleteAccount/deleteAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Me/DeleteAccount/deleteAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/DeleteAccount/deleteAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Me/DeleteAccount/deleteAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Me/me.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Me/me.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Ordered/ordered.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Ordered/ordered.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Ordered/ordered.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Ordered/ordered.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Panier/panier.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Panier/panier.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/Panier/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/Panier/panier.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/myAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MyAccount/myAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/myAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Register/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Register/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Register/register.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views/UserAccount" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Views/UserAccount" />
+      <recent name="$PROJECT_DIR$/src/Views/Login" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Views/UserAccount" />
+      <recent name="$PROJECT_DIR$/src/Views/Register" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
