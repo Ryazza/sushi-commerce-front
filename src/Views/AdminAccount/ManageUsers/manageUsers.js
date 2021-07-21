@@ -1,6 +1,8 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import './manageUsers.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 
 export default class ManageUsers extends Component {
     constructor(props) {
@@ -11,15 +13,12 @@ export default class ManageUsers extends Component {
         return(
             <Fragment>
                 <div className="container ManageUsers global_bgColor--charcoal col-6 font_cabin text-white">
-                    <div className="input-group">
-                        <div className="form-outline">
-                            <input type="search" id="form1" className="form-control"/>
-                            <label className="form-label" htmlFor="form1">Search</label>
-                        </div>
-                        <button type="button" className="btn btn-primary">
-                            <i className="fas fa-search"></i>
-                        </button>
-                    </div>
+                    <form className="input-group ManageUsers_search rounded">
+                        <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                        <span className="input-group-text border-0" id="search-addon">
+                                <button className="fas fa-search ManageUsers_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
+                            </span>
+                    </form>
                     <h2 className="text-center font_montserrat">Fiche utilisateur</h2>
                     <div className="ManageUsers_container_info container">
                         <div className="ManageUsers_info_profil">
