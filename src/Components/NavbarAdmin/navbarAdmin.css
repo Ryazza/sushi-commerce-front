@@ -10,3 +10,7 @@
 .AdminNavbar_link_img {
     width: 50px;
 }
+
+.NavBarAdmin_navLink:hover {
+    opacity: 0.4;
+}
