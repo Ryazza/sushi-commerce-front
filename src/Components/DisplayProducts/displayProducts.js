@@ -7,10 +7,25 @@ export default class DisplayProducts extends Component {
         super(props);
         this.state={name:'',category:'',description:'',pictures:'',events:'',stock:''}
     }
+
+    componentDidMount() {
+        //requete axios pour récupérer les données
+    }
+
     render() {
         return(
             <Fragment>
-                <div>cACA</div>
+                <form className="DisplayProducts_container d-flex flex-wrap">
+                    <div className="DisplayProducts_container_box">
+                        <div className="form-check form-switch">
+                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+                        </div>
+                        <p>Nom article</p>
+                        <p>Catégorie</p>
+                        <p>Description</p>
+                        <p>Stock</p>
+                    </div>
+                </form>
             </Fragment>
         )
     }
