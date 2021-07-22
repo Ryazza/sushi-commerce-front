@@ -14,6 +14,8 @@ import NavbarAdmin from "./Components/NavbarAdmin/navbarAdmin";
 import ManageUsers from "./Views/AdminAccount/ManageUsers/manageUsers";
 import ChangeProduct from "./Views/Products/ChangeProduct/changeProduct";
 import NavbarProduct from "./Components/NavbarProduct/navbarProduct";
+import ManageLabels from "./Views/ManageLabels/manageLabels";
+import OrdersView from "./Views/OrdersView/ordersView";
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
 function App() {
@@ -47,6 +49,16 @@ function App() {
                     <NavbarAdmin/>
                     <NavbarProduct/>
                     <ChangeProduct/>
+                </Route>
+                <Route path="/manageLabels">
+                    <Navbar/>
+                    <NavbarAdmin/>
+                    <ManageLabels/>
+                </Route>
+                <Route path="/ordersView">
+                    <Navbar/>
+                    <NavbarAdmin/>
+                    <OrdersView/>
                 </Route>
                 <Route path="/" >
                     <Login />
