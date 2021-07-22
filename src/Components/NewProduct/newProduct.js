@@ -71,6 +71,7 @@ export default class NewProduct extends Component{
                         </div>
                     </div>
                     <div className="col-6 d-flex justify-content-around">
+                        <label>Catégorie</label>
                         <Autocomplete suggestions={["Oranges", "Apples", "Banana", "Kiwi", "Mango"]}/>
                     </div>
                     <input className="global_bgColor--charcoal global_fontColor--whiteSmoke NewProduct_create_btn" type="button" onClick={this.handleSubmitRegister} value="Créer l'article"/>
