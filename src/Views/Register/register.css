@@ -27,7 +27,6 @@
     font-size: 1.3rem;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
-
 }
 
 
@@ -100,7 +99,7 @@
     background-image: url("../../Assets/tech.jpg") ;
     background-position: center;
     background-size: cover;
-    position: relative;
+    height: 100vh;
 }
 
 .Register_page::before{

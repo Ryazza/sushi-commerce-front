@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
-
+import {Link, Redirect} from "react-router-dom";
 import './register.css';
 import logoBigBlack from "../../Assets/logo-big-white.png";
 
@@ -8,7 +7,7 @@ class Register extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { email: "", password: "", gender: "man", firstName: "", lastName: "", birth: ""};
+        this.state = {email: "", password: "", gender: "man", firstName: "", lastName: "", birth: "", redirect: false};
 
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -26,23 +25,23 @@ class Register extends Component {
     }
 
     handleChangePassword(event) {
-        this.setState({password : event.target.value});
+        this.setState({password: event.target.value});
     }
 
     handleChangeGender(event) {
-        this.setState({gender : event.target.value});
+        this.setState({gender: event.target.value});
     }
 
     handleChangeFirstName(event) {
-        this.setState({firstName : event.target.value});
+        this.setState({firstName: event.target.value});
     }
 
     handleChangeLastName(event) {
-        this.setState({lastName : event.target.value});
+        this.setState({lastName: event.target.value});
     }
 
     handleChangeBirthday(event) {
-        this.setState({birth : event.target.value});
+        this.setState({birth: event.target.value});
     }
 
     validateEmail(email) {
@@ -50,7 +49,7 @@ class Register extends Component {
         return re.test(String(email).toLowerCase());
     }
 
-    validateForm(){
+    validateForm() {
         let validate = {email: false, password: false, firstName: false, lastName: false};
         let emailInput = document.getElementById('Register_email');
         let passwordInput = document.getElementById('Register_password');
@@ -106,23 +105,46 @@ class Register extends Component {
         return !(validate.email === false || validate.password === false || validate.firstName === false || validate.lastName === false || validate.birth === false)
     }
 
-    handleSubmitRegister(event) {
+    async handleSubmitRegister(event) {
         event.preventDefault();
         let valid = this.validateForm();
-        if(valid === true) {
-            let form = {
-                email: this.state.email,
-                password: this.state.password,
-                gender: this.state.gender,
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                birth: this.state.birth
+        if (valid === true) {
+            let url = "http://localhost:4244/user/";
+            let option = {
+                method: "POST",
+                headers: {"Content-Type": 'application/json'},
+                body: JSON.stringify({
+                    email: this.state.email,
+                    password: this.state.password,
+                    gender: this.state.gender,
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    birth: this.state.birth
+                })
             }
-            //todo requete
+            return await fetch(url, option)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        this.setState({redirect: true})
+                    } else {
+                        if(data.errors.email){
+                            let emailInput = document.getElementById('Register_email');
+                            emailInput.classList.add("is-invalid");
+                            emailInput.classList.remove("is-valid");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 
     render() {
+        if(this.state.redirect === true){
+            return <Redirect to="/login" />
+        }
         return (
             <Fragment>
                 <div className="Register_page d-flex flex-row font_cabin">
@@ -132,7 +154,7 @@ class Register extends Component {
                     </div>
                     <div className="container text-white">
                         <div className="row justify-content-center">
-                            <div className="col-8 global_bgColor--charcoal Register_main mt-5 mb-5 pb-5">
+                            <div className="col-8 global_bgColor--charcoal Register_main mt-5 pb-5">
                                 <div className="row font_montserrat text-center fs-2">
                                     <Link className="col-6 Register_connectBtn text-dark global_bgColor--whiteSmoke pt-2 pb-2" to="/login">Connexion</Link>
                                     <div className="col-6 Register_registerBtn  text-white pt-2 pb-2">Inscription</div>

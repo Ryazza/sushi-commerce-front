@@ -60,7 +60,7 @@ function App() {
                     <NavbarAdmin/>
                     <OrdersView/>
                 </Route>
-                <Route path="/" >
+                <Route path="/login" >
                     <Login />
                 </Route>
             </Switch>

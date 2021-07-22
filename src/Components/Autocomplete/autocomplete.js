@@ -105,6 +105,7 @@ class Autocomplete extends Component {
         return (
             <Fragment>
                 <input
+                    class="autocomplete_input"
                     type="text"
                     onChange={onChange}
                     onKeyDown={onKeyDown}
