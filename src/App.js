@@ -20,15 +20,15 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/account" component={UserAccount} />
-                <Route path="/register" component={Register} />
                 <Route path="/admin" component={Admin} />
                 <Route path="/newProduct" component={Products} />
                 <Route path="/manageUsers" component={ManageUsers} />
                 <Route path="/changeProduct" component={ChangeProduct} />
                 <Route path="/manageLabels" component={ManageLabels} />
                 <Route path="/ordersView" component={OrdersView} />
-                <Route path="/login" component={Login} />
+                <Route path="/account" component={UserAccount} />
+                <Route path="/register" component={Register} /> {/*  Relié  */}
+                <Route path="/login" component={Login} /> {/*  Relié  */}
             </Switch>
         </Router>
     );

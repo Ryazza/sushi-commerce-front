@@ -7,17 +7,8 @@ class Me extends Component {
     constructor(props) {
         super(props);
         //todo state a modifier quand les requete vers l'api seront possible
-        this.state = {
-            gender: "man",
-            firstName: "monPrénom",
-            lastName: "monNom",
-            email: "exemple@email.com",
-            birth: "1970-01-01",
-            newMail: "",
-            newBirth: "",
-            oldMdp: "",
-            newMdp: ""
-        }
+        console.log(this.props.data)
+        this.state = {user: this.props.data}
 
         this.handleMeChangeMail = this.handleMeChangeMail.bind(this);
         this.handleMeChangeBirth = this.handleMeChangeBirth.bind(this);
@@ -29,13 +20,11 @@ class Me extends Component {
     }
 
     componentDidMount() {
-        //todo ajout soit de la requete get soit de la récupération si Set dans les cookie ou le local storage puis VVV
-
-        document.getElementById(this.state.gender).setAttribute('checked', true)
-        document.getElementById("me_prenom").setAttribute('value', this.state.firstName)
-        document.getElementById("me_nom").setAttribute('value', this.state.lastName)
-        document.getElementById("me_mail").setAttribute('value', this.state.email)
-        document.getElementById("me_birth").setAttribute('value', this.state.birth)
+        document.getElementById(this.state.user.gender).setAttribute('checked', true)
+        document.getElementById("me_prenom").setAttribute('value', this.state.user.firstName)
+        document.getElementById("me_nom").setAttribute('value', this.state.user.lastName)
+        document.getElementById("me_mail").setAttribute('value', this.state.user.email)
+        document.getElementById("me_birth").setAttribute('value', this.state.user.birth)
     }
 
     validateEmail(email) {
@@ -160,7 +149,7 @@ class Me extends Component {
                 </div>
                 <div className="row justify-content-center mt-4 mb-2">
                     <div className="col-2 text-center">
-                        <button className="btn btn-default me_btnSubmit global_fontColorCTA global_fontColor--whiteSmoke font_montserrat" onClick={this.handleSubmitMe}>Valider</button>
+                        <button className="btn btn-default me_btnSubmit global_bgColor--blueSky global_fontColor--whiteSmoke font_montserrat" onClick={this.handleSubmitMe}>Valider</button>
                     </div>
                 </div>
                 <div className="row justify-content-center mb-2">

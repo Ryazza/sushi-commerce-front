@@ -69,3 +69,13 @@
     visibility: visible;
     border: 2px solid white;
 }
+
+/* Navigateur */
+
+.Register_input:-webkit-autofill,
+.Register_input:-webkit-autofill:hover,
+.Register_input:-webkit-autofill:focus,
+.Register_input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}
