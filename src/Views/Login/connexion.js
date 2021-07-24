@@ -5,6 +5,57 @@ import logoBigBlack from '../../Assets/logo-big-white.png';
 
 export default class Connexion extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {email: "", password: "", redirect: false}
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleSubmitLogin = this.handleSubmitLogin.bind(this);
+    }
+
+    handleChangeEmail(event){
+        this.setState({email: event.target.value});
+    }
+
+    handleChangePassword(event){
+        this.setState({password: event.target.value});
+    }
+
+    handleSubmitLogin(event){
+        event.preventDefault();
+        const url = "http://localhost:4244/user/login";
+        const requestOptions = {
+            method: 'POST',
+            headers: {"Content-Type": 'application/json'},
+            body: JSON.stringify({
+                login: this.state.email,
+                password: this.state.password,
+            })
+        };
+        
+        fetch(url, requestOptions)
+            .then(response => {
+                console.log(response)
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                let inputEmail = document.getElementById('Login_email');
+                let inputPassword = document.getElementById('Login_password');
+                if (!data.success) {
+                    inputEmail.classList.remove('is-valid');
+                    inputPassword.classList.remove('is-valid');
+                    inputEmail.classList.add('is-invalid');
+                    inputPassword.classList.add('is-invalid');
+                } else {
+                    inputEmail.classList.remove('is-invalid');
+                    inputPassword.classList.remove('is-invalid');
+                    inputEmail.classList.add('is-valid');
+                    inputPassword.classList.add('is-valid');
+                }
+            });
+    }
+
     render() {
         return (
             <Fragment>
