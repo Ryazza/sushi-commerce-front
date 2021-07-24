@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
-import logoBigWhite from "../../Assets/logo-big-white.png"
+import logoBigWhite from "../../../Assets/logo-big-white.png"
 import './navbar.css';
 
 class Navbar extends Component {

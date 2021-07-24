@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import Me from "./Me/me"
-import Adress from "./Adress/adress"
-import Ordered from "./Ordered/ordered"
-import Panier from "./Panier/panier"
+import Me from "../../Components/UserAccount/Me/me"
+import Adress from "../../Components/UserAccount/Adress/adress"
+import Ordered from "../../Components/UserAccount/Ordered/ordered"
+import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
+import Navbar from "../../Components/Navigation/Navbar/navbar";
 
 class MyAccount extends Component {
 
@@ -62,6 +63,7 @@ class MyAccount extends Component {
 
         return (
             <Fragment>
+                <Navbar />
                 <div className="container-fluid font_cabin mt-3">
                     <div className="row justify-content-center">
                         <div className="col-2  pt-2">
