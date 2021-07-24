@@ -16,6 +16,7 @@ import ChangeProduct from "./Views/Products/ChangeProduct/changeProduct";
 import NavbarProduct from "./Components/NavbarProduct/navbarProduct";
 import ManageLabels from "./Views/ManageLabels/manageLabels";
 import OrdersView from "./Views/OrdersView/ordersView";
+
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
 function App() {
