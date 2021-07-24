@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import './connexion.css';
 import {Link, Redirect} from "react-router-dom";
 import logoBigBlack from '../../Assets/logo-big-white.png';
+import Flash from "../../Components/Flash/flash";
 
 export default class Connexion extends Component {
 
@@ -44,6 +45,7 @@ export default class Connexion extends Component {
                     inputPassword.classList.remove('is-valid');
                     inputEmail.classList.add('is-invalid');
                     inputPassword.classList.add('is-invalid');
+                    window.flash("", "Vos identifiant sont incorect !", "danger")
                 } else {
                     inputEmail.classList.remove('is-invalid');
                     inputPassword.classList.remove('is-invalid');
@@ -79,6 +81,7 @@ export default class Connexion extends Component {
                                 </div>
                                 <div className="row justify-content-center mt-4">
                                     <div className="col-8 pt-3 pb-3">
+                                        <Flash />
                                         <div className="form-floating mb-4">
                                             <input type="email" className="form-control Login_input ps-0 pe-0" id="Login_email" placeholder="name@example.com" onChange={this.handleChangeEmail}/>
                                             <label htmlFor="Login_email" className="ps-0 pe-0 pt-0">Adresse e-mail</label>
