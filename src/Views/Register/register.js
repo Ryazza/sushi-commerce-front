@@ -147,33 +147,33 @@ class Register extends Component {
         }
         return (
             <Fragment>
-                <div className="Register_page d-flex flex-row font_cabin">
-                    <div className="Register_page_left col-6">
-                        <Link to="/loginTest" className="navbar-brand p-0"><img className="logo" src={process.env.PUBLIC_URL + logoBigBlack}/></Link>
-                        <p className="text-white sentence">Le matériel qui s'adapte à vous</p>
+                <div className="Register_page d-flex row font_cabin justify-content-center m-0">
+                    <div className="col-6 align-self-center text-center">
+                        <Link to="/" className="navbar-brand p-0"><img src={process.env.PUBLIC_URL + logoBigBlack}/></Link>
+                        <p className="text-white global_sentence">Le matériel qui s'adapte à vous</p>
                     </div>
-                    <div className="container text-white">
+                    <div className="col-6 text-white">
                         <div className="row justify-content-center">
                             <div className="col-8 global_bgColor--charcoal Register_main mt-5 pb-5">
-                                <div className="row font_montserrat text-center fs-2">
-                                    <Link className="col-6 Register_connectBtn text-dark global_bgColor--whiteSmoke pt-2 pb-2" to="/login">Connexion</Link>
-                                    <div className="col-6 Register_registerBtn  text-white pt-2 pb-2">Inscription</div>
+                                <div className="row font_montserrat text-center fs-4">
+                                    <Link className="col-6 Register_connectBtn pt-2 pb-2" to="/login">Connexion</Link>
+                                    <div className="col-6 text-white pt-2 pb-2">Inscription</div>
                                 </div>
                                 <div className="row justify-content-center  mt-4">
-                                    <h1 className="h2 Register_formTitle text-center font_montserrat">Identifiants</h1>
+                                    <h1 className="h4 text-center font_montserrat">Identifiants</h1>
                                     <div className="col-8 pt-3 pb-3">
                                         <div className="form-floating mb-4">
                                             <input type="email" className="form-control text-white Register_input ps-0 pe-0 global_fontColorTest--charcoal" id="Register_email" placeholder="name@example.com" onChange={this.handleChangeEmail}/>
-                                            <label htmlFor="Register_email" className="Register_label ps-0 pe-0 pt-0">Adresse e-mail</label>
+                                            <label htmlFor="Register_email" className="ps-0 pe-0 pt-0">Adresse e-mail</label>
                                         </div>
                                         <div className="form-floating mb-4">
                                             <input type="password" className="form-control text-white  Register_input ps-0 pe-0 " id="Register_password" placeholder="• • • • • • • • •" onChange={this.handleChangePassword}/>
-                                            <label htmlFor="Register_password" className="Register_label ps-0 pe-0 pt-0">Mot de passe</label>
+                                            <label htmlFor="Register_password" className="ps-0 pe-0 pt-0">Mot de passe</label>
                                         </div>
                                     </div>
-                                    <h1 className="h2 text-center Register_formTitle font_montserrat mt-5">Information personnelles</h1>
+                                    <h1 className="h4 text-center font_montserrat mt-5">Information personnelles</h1>
                                     <div className="col-8 pt-3 pb-3" id="Register_GenderInput--style">
-                                        <label className="Register_label font_montserrat mb-4">Civilité</label>
+                                        <label className="font_montserrat mb-4">Civilité</label>
                                         <div className="form-floating row mb-4">
                                             <div className="col-4">
                                                 <input type='radio' name="gender" id="man" defaultChecked value={"man"} onChange={this.handleChangeGender}/>
@@ -190,19 +190,19 @@ class Register extends Component {
                                         </div>
                                         <div className="form-floating mb-4">
                                             <input type="text" className="form-control  Register_input ps-0 pe-0 global_bgColor--charcoal text-white" id="Register_firstName" placeholder="Prénom" onChange={this.handleChangeFirstName}/>
-                                            <label htmlFor="Register_firstName" className="Register_label font_montserrat ps-0 pe-0 pt-0">Prénom</label>
+                                            <label htmlFor="Register_firstName" className="font_montserrat ps-0 pe-0 pt-0">Prénom</label>
                                         </div>
                                         <div className="form-floating mb-4">
                                             <input type="text" className="form-control  Register_input ps-0 pe-0 text-white global_bgColor--charcoal" id="Register_lastName" placeholder="Nom" onChange={this.handleChangeLastName}/>
-                                            <label htmlFor="Register_lastName" className="Register_label font_montserrat ps-0 pe-0 pt-0">Nom</label>
+                                            <label htmlFor="Register_lastName" className="font_montserrat ps-0 pe-0 pt-0">Nom</label>
                                         </div>
                                         <div className="form-floating mb-4">
                                             <input type="date" className="form-control  Register_input ps-0 pe-0 text-white global_bgColor--charcoal" id="Register_birth" placeholder="01/01/1970" onChange={this.handleChangeBirthday}/>
-                                            <label htmlFor="Register_birth" className="Register_label font_montserrat ps-0 pe-0 pt-0">Date de naissance</label>
+                                            <label htmlFor="Register_birth" className="font_montserrat ps-0 pe-0 pt-0">Date de naissance</label>
                                         </div>
                                     </div>
                                     <div className="row justify-content-center mt-3">
-                                        <button className="btn btn-default col-2 global_fontColorCTA Register_btn" onClick={this.handleSubmitRegister}>Valider</button>
+                                        <button className="btn btn-default col-3 fs-5 global_bgColor--blueSky" onClick={this.handleSubmitRegister}>Valider</button>
                                     </div>
                                 </div>
                             </div>
