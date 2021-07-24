@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './connexion.css';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import logoBigBlack from '../../Assets/logo-big-white.png';
 
 export default class Connexion extends Component {
@@ -28,16 +28,13 @@ export default class Connexion extends Component {
             method: 'POST',
             headers: {"Content-Type": 'application/json'},
             body: JSON.stringify({
-                login: this.state.email,
+                email: this.state.email,
                 password: this.state.password,
             })
         };
         
         fetch(url, requestOptions)
-            .then(response => {
-                console.log(response)
-                return response.json()
-            })
+            .then(response => response.json())
             .then(data => {
                 console.log(data);
                 let inputEmail = document.getElementById('Login_email');
@@ -52,14 +49,23 @@ export default class Connexion extends Component {
                     inputPassword.classList.remove('is-invalid');
                     inputEmail.classList.add('is-valid');
                     inputPassword.classList.add('is-valid');
+
+                    localStorage.setItem('letShopToken', data.token);
+                    localStorage.setItem('letShopEmail', this.state.email);
+                    localStorage.setItem('letShopAdmin', data.admin);
+
+                    this.setState({redirect: true})
                 }
             });
     }
 
     render() {
+        if(this.state.redirect === true || localStorage.getItem('letShopToken')) {
+            return <Redirect to="/"/>
+        }
         return (
             <Fragment>
-                <div class="Login_page d-flex row font_cabin justify-content-center m-0">
+                <div className="Login_page d-flex row font_cabin justify-content-center m-0">
                     <div className="col-6 align-self-center text-center">
                         <Link to="/" className="navbar-brand p-0"><img src={process.env.PUBLIC_URL + logoBigBlack}/></Link>
                         <p className="text-center global_sentence">Le matériel qui s'adapte à vous</p>

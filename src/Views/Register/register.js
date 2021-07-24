@@ -142,7 +142,7 @@ class Register extends Component {
     }
 
     render() {
-        if(this.state.redirect === true){
+        if(this.state.redirect === true || localStorage.getItem('letShopToken')){
             return <Redirect to="/login" />
         }
         return (
