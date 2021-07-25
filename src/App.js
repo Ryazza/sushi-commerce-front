@@ -14,6 +14,8 @@ import ChangeProduct from "./Views/Products/ChangeProduct/changeProduct";
 import ManageLabels from "./Views/ManageLabels/manageLabels";
 import OrdersView from "./Views/OrdersView/ordersView";
 
+import Navbar from "./Components/Navigation/Navbar/navbar";
+
 window.flash = (title, message, type = "success") => Bus.emit ('flash', ({title, message, type}));
 
 function App() {
@@ -26,9 +28,14 @@ function App() {
                 <Route path="/changeProduct" component={ChangeProduct} />
                 <Route path="/manageLabels" component={ManageLabels} />
                 <Route path="/ordersView" component={OrdersView} />
+
                 <Route path="/account" component={UserAccount} />
                 <Route path="/register" component={Register} /> {/*  Relié  */}
                 <Route path="/login" component={Login} /> {/*  Relié  */}
+
+                <Route path="/">
+                    <Navbar />
+                </Route>
             </Switch>
         </Router>
     );

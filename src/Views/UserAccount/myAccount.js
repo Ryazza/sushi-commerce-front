@@ -5,12 +5,13 @@ import Ordered from "../../Components/UserAccount/Ordered/ordered"
 import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
 import Navbar from "../../Components/Navigation/Navbar/navbar";
+import {Redirect} from "react-router-dom";
 
 class MyAccount extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {me: true, adress: false, ordered: false, panier: false, user: null};
+        this.state = {me: true, adress: false, ordered: false, panier: false, user: null, redirect: false};
 
         this.handleChangeForMe = this.handleChangeForMe.bind(this);
         this.handleChangeForAdress = this.handleChangeForAdress.bind(this);
@@ -37,15 +38,17 @@ class MyAccount extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
-        if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
-        else document.getElementById('myAccount_btnMe').classList.remove('myAccount_selectedBtn');
-        if (this.state.adress === true) document.getElementById('myAccount_btnAdress').classList.add('myAccount_selectedBtn');
-        else document.getElementById('myAccount_btnAdress').classList.remove('myAccount_selectedBtn');
-        if (this.state.ordered === true) document.getElementById('myAccount_btnOrdered').classList.add('myAccount_selectedBtn');
-        else document.getElementById('myAccount_btnOrdered').classList.remove('myAccount_selectedBtn');
-        if (this.state.panier === true) document.getElementById('myAccount_btnPanier').classList.add('myAccount_selectedBtn');
-        else document.getElementById('myAccount_btnPanier').classList.remove('myAccount_selectedBtn');
+        if (this.state.redirect === false) {
+            if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
+            if (this.state.me === true) document.getElementById('myAccount_btnMe').classList.add('myAccount_selectedBtn');
+            else document.getElementById('myAccount_btnMe').classList.remove('myAccount_selectedBtn');
+            if (this.state.adress === true) document.getElementById('myAccount_btnAdress').classList.add('myAccount_selectedBtn');
+            else document.getElementById('myAccount_btnAdress').classList.remove('myAccount_selectedBtn');
+            if (this.state.ordered === true) document.getElementById('myAccount_btnOrdered').classList.add('myAccount_selectedBtn');
+            else document.getElementById('myAccount_btnOrdered').classList.remove('myAccount_selectedBtn');
+            if (this.state.panier === true) document.getElementById('myAccount_btnPanier').classList.add('myAccount_selectedBtn');
+            else document.getElementById('myAccount_btnPanier').classList.remove('myAccount_selectedBtn');
+        }
     }
 
     handleChangeForMe() {
@@ -65,7 +68,10 @@ class MyAccount extends Component {
     }
 
     handleDisconnect() {
-        console.log("Non implémenté l.54 myAccount.js Déconection")
+        localStorage.removeItem('letShopToken');
+        localStorage.removeItem('letShopEmail');
+        localStorage.removeItem('letShopAdmin');
+        this.setState({redirect: true});
     }
 
     render() {
@@ -73,6 +79,9 @@ class MyAccount extends Component {
         let adress = this.state.adress;
         let ordered = this.state.ordered;
         let panier = this.state.panier;
+        if (this.state.redirect === true || !localStorage.getItem('letShopToken')) {
+            return (<Redirect to="/login"/>)
+        }
         if (this.state.user !== null) {
             return (
                 <Fragment>

@@ -2,13 +2,14 @@ import React, {Component, Fragment} from 'react';
 import DeleteAccount from "./DeleteAccount/deleteAccount";
 import './me.css';
 
+const Environement = require('../../../Environment/environment')
+const Env = Environement.environement
+
 class Me extends Component {
 
     constructor(props) {
         super(props);
-        //todo state a modifier quand les requete vers l'api seront possible
-        console.log(this.props.data)
-        this.state = {user: this.props.data}
+        this.state = {user: this.props.data, api: Env.backUser, newMail: "", newBirth: "", oldMdp: "", newMdp: ""}
 
         this.handleMeChangeMail = this.handleMeChangeMail.bind(this);
         this.handleMeChangeBirth = this.handleMeChangeBirth.bind(this);
@@ -24,7 +25,19 @@ class Me extends Component {
         document.getElementById("me_prenom").setAttribute('value', this.state.user.firstName)
         document.getElementById("me_nom").setAttribute('value', this.state.user.lastName)
         document.getElementById("me_mail").setAttribute('value', this.state.user.email)
-        document.getElementById("me_birth").setAttribute('value', this.state.user.birth)
+        let mydate = new Date(this.state.user.birth);
+        let year = mydate.getFullYear()
+        let day = mydate.getDate();
+        let month = (mydate.getMonth() + 1);
+        if (day < 10) {
+            day = '0' + day;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        let today = year + '-' + day + '-' + month
+        document.getElementById("me_birth").setAttribute('value', today)
+
     }
 
     validateEmail(email) {
@@ -63,10 +76,60 @@ class Me extends Component {
             bodyBirth.birth = this.state.newBirth;
         }
         if (bodyEmail.email.trim() !== "") {
-            console.log("requete de changement de mail");
+            let option = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                },
+                body: JSON.stringify({
+                    email: this.state.newMail
+                })
+            }
+            fetch(this.state.api + "email", option)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+
+                        this.setState(prevState => ({
+                            user: {
+                                ...prevState.user,
+                                email: this.state.newMail
+                            }
+                        }))
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
         if (bodyBirth.birth.trim() !== "") {
-            console.log("requete de changement de birth");
+            let option = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                },
+                body: JSON.stringify({
+                    birth: this.state.newBirth
+                })
+            }
+            fetch(this.state.api + "birth", option)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+
+                        this.setState(prevState => ({
+                            user: {
+                                ...prevState.user,
+                                birth: this.state.newBirth
+                            }
+                        }))
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 
@@ -80,20 +143,37 @@ class Me extends Component {
 
     handleSubmitMeMDP(event) {
         event.preventDefault();
-        if (this.state.oldMdp !== this.state.newMdp && this.state.newMdp !== "") {
-            console.log("En attente de la requete de changement de mot de passe")
+        if (this.state.oldMdp !== this.state.newMdp && this.state.newMdp.trim() !== "") {
+            let option = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                },
+                body: JSON.stringify({
+                    password: this.state.oldMdp,
+                    newPassword: this.state.newMdp
+                })
+            }
+            fetch(this.state.api + "password", option)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('me_oldMDP').classList.remove('is-invalid');
+                        document.getElementById('me_oldMDP').classList.add('is-valid');
+                        document.getElementById('me_newMDP').classList.remove('is-invalid');
+                        document.getElementById('me_newMDP').classList.add('is-valid');
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         } else {
-            console.log(this.state.oldMdp)
-            console.log(this.state.newMdp)
             document.getElementById('me_oldMDP').classList.add('is-invalid');
             document.getElementById('me_oldMDP').classList.remove('is-valid');
             document.getElementById('me_newMDP').classList.add('is-invalid');
             document.getElementById('me_newMDP').classList.remove('is-valid');
         }
-    }
-
-    DeleteAccount() {
-
     }
 
     render() {
@@ -163,7 +243,7 @@ class Me extends Component {
                         <div className="row mb-3">
                             <div className="col-11">
                                 <label htmlFor="me_nom" className="form-label">Mot de passe actuel</label>
-                                <input type="password" className="form-control" id="me_oldMDP" placeholder="• • • • • • • • •" onChange={this.handleChangeOldMDP}/>
+                                <input type="password" className="form-control" id="me_oldMDP" placeholder="• • • • • • • • •" onChange={this.handleChangeOldMDP} autocomplete="false"/>
                             </div>
                         </div>
                         <div className="row mb-3">
@@ -184,7 +264,7 @@ class Me extends Component {
                         <hr/>
                     </div>
                 </div>
-                <DeleteAccount />
+                <DeleteAccount/>
             </Fragment>
         )
     }
