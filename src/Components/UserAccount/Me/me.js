@@ -256,7 +256,7 @@ class Me extends Component {
                 </div>
                 <div className="row justify-content-center mt-4 mb-5">
                     <div className="col-2 text-center">
-                        <button className="btn btn-default me_btnSubmit global_fontColor--whiteSmoke global_fontColorCTA font_montserrat" onClick={this.handleSubmitMeMDP}>Valider</button>
+                        <button className="btn btn-default me_btnSubmit global_bgColor--blueSky global_fontColor--whiteSmoke font_montserrat" onClick={this.handleSubmitMeMDP}>Valider</button>
                     </div>
                 </div>
                 <div className="row justify-content-center mb-2">

@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3912e19f-c7e9-47d4-9f40-65fb02953adb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Environment/environment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navigation/Navbar/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navigation/Navbar/navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserAccount/Me/DeleteAccount/deleteAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserAccount/Me/DeleteAccount/deleteAccount.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserAccount/Me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserAccount/Me/me.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/user.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/UserAccount/myAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/UserAccount/myAccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +88,7 @@
       <updated>1627028982759</updated>
       <workItem from="1627028986724" duration="69000" />
       <workItem from="1627029440609" duration="1216000" />
-      <workItem from="1627034365145" duration="21937000" />
+      <workItem from="1627034365145" duration="22660000" />
     </task>
     <servers />
   </component>
