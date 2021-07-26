@@ -2,10 +2,10 @@ import React from "react";
 import {Component, Fragment} from "react";
 import {Link} from "react-router-dom";
 import './navbarAdmin.css';
-import articleIcone from "../../Assets/article.png"
-import labelIcone from "../../Assets/label.png"
-import orderIcone from "../../Assets/shopping-bag.png"
-import userIcone from "../../Assets/user.png";
+import articleIcone from "../../../Assets/article.png"
+import labelIcone from "../../../Assets/label.png"
+import orderIcone from "../../../Assets/shopping-bag.png"
+import userIcone from "../../../Assets/user.png";
 
 export default class NavbarAdmin extends Component{
     render() {

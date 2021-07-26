@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
-import logoBigWhite from "../../Assets/logo-big-white.png"
+import logoBigWhite from "../../../Assets/logo-big-white.png"
 import './navbar.css';
 
 class Navbar extends Component {
 
     render() {
+        let conected = localStorage.getItem('letShopToken');
         return (
             <Fragment>
                 <nav className="navbar navbar-expand-lg global_bgColor--charcoal global_fontColor--whiteSmoke navBar_mainContainer">
@@ -26,12 +27,14 @@ class Navbar extends Component {
                                 </form>
                             </div>
                             <div className="nav-item ">
-                                <Link className="btn btn-default global_fontColor--whiteSmoke navBar_link font_montserrat" to="/login">
-                                    Mon Compte
-                                </Link>
-                                <Link className="btn btn-default global_fontColor--whiteSmoke navBar_link font_montserrat" to="/panier">
-                                    Mon panier
-                                </Link>
+                                {(() => {
+                                    if(conected === undefined || conected === null) {
+                                        return(<Link className="btn btn-default global_fontColor--whiteSmoke navBar_link font_montserrat" to="/login">Mon Compte</Link>);
+                                    } else {
+                                        return(<Link className="btn btn-default global_fontColor--whiteSmoke navBar_link font_montserrat" to="/account">Mon Compte</Link>);
+                                    }
+                                })()}
+                                <Link className="btn btn-default global_fontColor--whiteSmoke navBar_link font_montserrat" to="/panier">Mon panier</Link>
                             </div>
                         </div>
                     </div>

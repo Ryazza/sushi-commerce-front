@@ -1,6 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import {Redirect} from "react-router-dom";
 
+const Environement = require('../../../../Environment/environment')
+const Env = Environement.environement
+
 class DeleteAccount extends Component {
 
     constructor(props) {
@@ -11,6 +14,7 @@ class DeleteAccount extends Component {
             registered: null,
             sure: null,
             delete: null,
+            api: Env.backUser
         };
         this.handleSubmit = this.handleSubmit.bind(this)
         this.areYouSure = this.areYouSure.bind(this)
@@ -24,18 +28,32 @@ class DeleteAccount extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.handleRedirect();
-        //todo requete
-
-    }
-
-    handleRedirect() {
-        this.setState({redirect: '/'})
+        if(this.state.sure === true) {
+            fetch(this.state.api, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success) {
+                        localStorage.removeItem('letShopToken');
+                        localStorage.removeItem('letShopEmail');
+                        localStorage.removeItem('letShopAdmin');
+                        this.setState({redirect: true})
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
     }
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={this.state.redirect}/>
+            return <Redirect to="/login"/>
         } else if (this.state.sure !== null) {
             return (
                 <Fragment>
