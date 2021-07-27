@@ -1,0 +1,49 @@
+/* Font */
+
+.font_cabin {
+    font-family: 'Cabin', sans-serif;
+}
+.font_montserrat {
+    font-family: 'Montserrat', serif;
+}
+
+/* Gloabal class */
+
+.global_sentence {
+    color: white;
+    font-family: 'Montserrat', serif;
+    font-style: italic;
+    text-shadow: 2px 2px 5px whitesmoke;
+    font-size: 1.5rem;
+}
+
+/* Global color */
+
+.global_bgColor--charcoal {
+    background-color: #424C55;
+}
+.global_bgColor--blueSky {
+    background-color: #a2c8da;
+}
+.global_bgColor--whiteSmoke {
+    background-color: #EFEFEF;
+}
+.global_bgColor--orange {
+    background-color: #F18701;
+}
+.global_fontColor--whiteSmoke {
+    color: #EFEFEF;
+}
+
+/* Bootstrap modification */
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.modal-footer {
+    border-top: none;
+}
+.modal-header {
+    border-bottom: none;
+}
