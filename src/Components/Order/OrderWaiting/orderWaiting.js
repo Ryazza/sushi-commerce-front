@@ -5,13 +5,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './orderWaiting.css'
 
 export default class OrderWaiting extends Component{
-    constructor(props) {
-        super(props);
-
-    }
-    //
-    // componentDidMount() {
-    // }
 
     render() {
         return(

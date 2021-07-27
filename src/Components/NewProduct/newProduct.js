@@ -37,13 +37,13 @@ export default class NewProduct extends Component{
 
     handleSubmitRegister(event) {
         event.preventDefault();
-            let form = {
-                title: this.state.title,
-                description: this.state.description,
-                price: this.state.price,
-                weight: this.state.weight,
-                label: this.state.label,
-            };
+            // let form = {
+            //     title: this.state.title,
+            //     description: this.state.description,
+            //     price: this.state.price,
+            //     weight: this.state.weight,
+            //     label: this.state.label,
+            // };
             //todo requete
         }
 

@@ -69,7 +69,7 @@ export default class Connexion extends Component {
             <Fragment>
                 <div className="Login_page d-flex row font_cabin justify-content-center m-0">
                     <div className="col-6 align-self-center text-center">
-                        <Link to="/" className="navbar-brand p-0"><img src={process.env.PUBLIC_URL + logoBigBlack}/></Link>
+                        <Link to="/" className="navbar-brand p-0"><img src={process.env.PUBLIC_URL + logoBigBlack} alt="Logo de let's shop"/></Link>
                         <p className="text-center global_sentence">Le matériel qui s'adapte à vous</p>
                     </div>
                     <div className="col-6">

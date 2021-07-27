@@ -5,9 +5,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './orderShipped.css'
 
 export default class OrderShipped extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
