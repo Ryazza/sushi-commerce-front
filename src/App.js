@@ -9,8 +9,8 @@ import Login from "./Views/Login/connexion";
 import Register from "./Views/Register/register";
 import Admin from "./Views/AdminAccount/admin";
 import Products from "./Views/Products/products";
-import ManageUsers from "./Views/AdminAccount/ManageUsers/manageUsers";
-import ChangeProduct from "./Views/Products/ChangeProduct/changeProduct";
+import ManageUsers from "./Views/ManageUsers/manageUsers";
+import ChangeProduct from "./Views/ChangeProduct/changeProduct";
 import ManageLabels from "./Views/ManageLabels/manageLabels";
 import OrdersView from "./Views/OrdersView/ordersView";
 
@@ -28,11 +28,9 @@ function App() {
                 <Route path="/changeProduct" component={ChangeProduct} />
                 <Route path="/manageLabels" component={ManageLabels} />
                 <Route path="/ordersView" component={OrdersView} />
-
                 <Route path="/account" component={UserAccount} />
                 <Route path="/register" component={Register} /> {/*  Relié  */}
                 <Route path="/login" component={Login} /> {/*  Relié  */}
-
                 <Route path="/">
                     <Navbar />
                 </Route>

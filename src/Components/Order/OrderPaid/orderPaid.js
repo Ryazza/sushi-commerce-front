@@ -5,13 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './orderPaid.css'
 
 export default class OrderPaid extends Component{
-    constructor(props) {
-        super(props);
 
-    }
-    //
-    // componentDidMount() {
-    // }
 
     render() {
         return(
