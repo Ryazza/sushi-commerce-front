@@ -4,9 +4,6 @@ import './ordered.css';
 
 class Ordered extends Component {
 
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <Fragment>

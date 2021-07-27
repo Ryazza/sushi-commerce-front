@@ -4,9 +4,6 @@ import './panier.css';
 
 class Panier extends Component {
 
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <Fragment>
