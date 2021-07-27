@@ -184,7 +184,7 @@ class Adress extends Component {
                                         </div>
                                         <div className="row justify-content-center mt-3">
                                             <div className="col-3">
-                                                <button type="button" className="btn btn-default adress_btnSubmit global_fontColorCTA global_fontColor--whiteSmoke font_montserrat text-center" onClick={this.handleSubmitAdress}>Ajouter</button>
+                                                <button type="button" className="btn btn-default adress_btnSubmit global_bgColor--blueSky global_fontColor--whiteSmoke font_montserrat text-center" onClick={this.handleSubmitAdress}>Ajouter</button>
                                             </div>
                                         </div>
                                     </form>
