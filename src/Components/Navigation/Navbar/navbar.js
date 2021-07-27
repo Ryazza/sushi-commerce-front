@@ -39,7 +39,7 @@ class Navbar extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="container-fluid global_fontColorCTA sousNavTemporaire">
+                <div className="container-fluid global_bgColor--blueSky sousNavTemporaire">
                 </div>
             </Fragment>
         )

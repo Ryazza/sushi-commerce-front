@@ -94,7 +94,7 @@ export default class ManageUsers extends Component {
                                        value="option2"/>
                                 <label className="form-check-label" htmlFor="inlineCheckbox2">Paiement 3x</label>
                             </div>
-                            <input type="button" className="ManageUsers_pay_btn global_fontColor--whiteSmoke global_fontColorCTA font_montserrat" value="Valider les choix"/>
+                            <input type="button" className="ManageUsers_pay_btn global_fontColor--whiteSmoke global_bgColor--blueSky font_montserrat" value="Valider les choix"/>
                         </form>
                     </div>
                 </div>
