@@ -145,7 +145,7 @@ class Register extends Component {
         if(this.state.redirect === true || localStorage.getItem('letShopToken')){
             return <Redirect to="/login" />
         }
-        return ( 
+        return (
             <Fragment>
                 <div className="Register_page d-flex row font_cabin justify-content-center m-0">
                     <div className="col-6 align-self-center text-center">
