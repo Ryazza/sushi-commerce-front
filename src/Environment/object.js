@@ -395,7 +395,8 @@ export var productByCategory = [
 
 export var oneProduct = {
     _id: "61016de38cef104ec8372c19",
-    name: "MSI GeForce RTX 3080 Ti GAMING X TRIO (LHR)",
+    name: "GeForce RTX 3080 Ti GAMING X TRIO",
+    marque: "MSI",
     category: "Composant",
     subCategory: "Carte Graphique",
     description: "Carte graphique PCI-Express overclockée - Refroidissement semi-passif (mode 0 dB) - Avec backplate - Compatible VR",
@@ -416,5 +417,20 @@ export var oneProduct = {
     price: 1959.99,
     view: 109746,
     sale: 137,
-    createdAt: "Thu Jul 29 2021 12:09:00 GMT+0200"
+    createdAt: "Thu Jul 29 2021 12:09:00 GMT+0200",
+    avis: [
+        {
+            titre: "Trop cher",
+            contenu: "Trop cher et en plus c'est pas beau"
+        },{
+            titre: "Bof",
+            contenu: "bla bla bla"
+        },{
+            titre: "Jamais recu",
+            contenu: "bla bla bla"
+        },{
+            titre: "Génial",
+            contenu: "bla bla bla"
+        }
+    ]
 }

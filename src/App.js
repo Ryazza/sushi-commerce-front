@@ -35,7 +35,7 @@ function App() {
             <Router>
                 <Navbar/>
                 <Switch>
-                    <Route path="/detail/idProduit" component={ProductDetail}/>
+                    <Route path="/category/souscategory/idProduit" component={ProductDetail}/>
                     <Route path="/account" component={UserAccount}/>
                     <Route path="/" component={HomePage}/>
                 </Switch>
