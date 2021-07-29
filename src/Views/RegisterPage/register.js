@@ -7,7 +7,7 @@ class Register extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {email: "", password: "", gender: "man", firstName: "", lastName: "", birth: "", redirect: false};
+        this.state = {email: "", password: "", gender: "male", firstName: "", lastName: "", birth: "", redirect: false};
 
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -176,12 +176,12 @@ class Register extends Component {
                                         <label className="font_montserrat mb-4">Civilité</label>
                                         <div className="form-floating row mb-4">
                                             <div className="col-4">
-                                                <input type='radio' name="gender" id="man" defaultChecked value={"man"} onChange={this.handleChangeGender}/>
-                                                <label htmlFor="man" className="ms-2 ">Homme</label>
+                                                <input type='radio' name="gender" id="male" defaultChecked value={"male"} onChange={this.handleChangeGender}/>
+                                                <label htmlFor="male" className="ms-2 ">Homme</label>
                                             </div>
                                             <div className="col-4">
-                                                <input type='radio' name="gender" id="women" value={"woman"} onChange={this.handleChangeGender}/>
-                                                <label htmlFor="women" className="ms-2">Femme</label>
+                                                <input type='radio' name="gender" id="female" value={"female"} onChange={this.handleChangeGender}/>
+                                                <label htmlFor="female" className="ms-2">Femme</label>
                                             </div>
                                             <div className="col-4">
                                                 <input type='radio' name="gender" id="other" value={"other"} onChange={this.handleChangeGender}/>

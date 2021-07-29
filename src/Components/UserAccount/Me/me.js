@@ -187,12 +187,12 @@ class Me extends Component {
                                 <div className="fs-6 pb-2 me_disabled">Civilité</div>
                             </div>
                             <div className="col-3">
-                                <input type='radio' name="gender" id="man" value={"man"} disabled/>
-                                <label htmlFor="man" className="ms-2 me_disabled">Homme</label>
+                                <input type='radio' name="gender" id="male" value={"male"} disabled/>
+                                <label htmlFor="male" className="ms-2 me_disabled">Homme</label>
                             </div>
                             <div className="col-3">
-                                <input type='radio' name="gender" id="women" value={"woman"} disabled/>
-                                <label htmlFor="women" className="ms-2 me_disabled">Femme</label>
+                                <input type='radio' name="gender" id="female" value={"female"} disabled/>
+                                <label htmlFor="female" className="ms-2 me_disabled">Femme</label>
                             </div>
                             <div className="col-3">
                                 <input type='radio' name="gender" id="other" value={"other"} disabled/>
