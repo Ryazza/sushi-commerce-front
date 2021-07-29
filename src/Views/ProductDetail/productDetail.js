@@ -3,6 +3,8 @@ import {Component, Fragment} from "react";
 import {Link} from "react-router-dom";
 import {oneProduct} from "../../Environment/object";
 import './productDetail.css'
+import {ImageGroup, Image} from 'react-fullscreen-image'
+
 
 export default class ChangeProduct extends Component {
 
@@ -21,9 +23,12 @@ export default class ChangeProduct extends Component {
         if (this.state.product.pictures) {
             imageList = this.state.product.pictures.map((item, index) => {
                 return (
-                    <div className="col-2">
-                        <img key={index} src={item.url} className="img-fluid"/>
-                    </div>
+                    <li key={index}>
+                        <Image src={item.url}/>
+                    </li>
+                    // <div className="col-2">
+                    //     <Image key={index} src={item.url} className="miniImage"/>
+                    // </div>
                 )
             })
         }
@@ -45,16 +50,22 @@ export default class ChangeProduct extends Component {
                             <div className="col-4">
                                 <img className="img-fluid p-5" src={this.state.product.bigPicture} alt=""/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 p-4">
                                 <h1 className="fs-4">{this.state.product.name}</h1>
                                 <h2 className="fs-5">Produit par {this.state.product.marque}</h2>
                                 <div className="fs-6 mt-5 mb-5">{this.state.product.description}</div>
                                 <div className="row">
-                                    {imageList}
+                                    <ImageGroup>
+                                        <ul className="images">
+                                            {imageList}
+                                        </ul>
+                                    </ImageGroup>
                                 </div>
                             </div>
                             <div className="col-2">
-                                Ajouter au panier LOL
+                                <div className="row bg-light p-3 productDetail_rightPart rounded-3">
+                                    <h1 className="text-center text-danger mt-3">{this.state.product.price} €</h1>
+                                </div>
                             </div>
                         </div>
                     </div>

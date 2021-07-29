@@ -405,7 +405,8 @@ export var oneProduct = {
         {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/01.jpg"},
         {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/02.jpg"},
         {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/03.jpg"},
-        {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/04.jpg"}
+        {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/05.jpg"},
+        {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/06.jpg"}
     ],
     events: {
         new : true,
