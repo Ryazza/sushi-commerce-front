@@ -7,9 +7,38 @@ import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
 
 class Navbar extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {searchName: "", searchCategory: "", searchDesc: ""}
+        this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
+        this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
+    }
+
+    handleChangeSearchBar(event) {
+        this.setState({searchName: event.target.value});
+    }
+    handleSubmitSearch(event){
+        if (event.charCode === 13) {
+            event.preventDefault();
+
+            const url = "http://localhost:4244/product/search/" + this.state.searchName;
+
+            const requestOptions = {
+                method: 'GET',
+                headers: {"Content-Type": 'application/json'},
+
+            };
+            console.log(url)
+            fetch(url, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
+        }
+    }
 
     render() {
-        let conected = localStorage.getItem('letShopToken');
+        let connected = localStorage.getItem('letShopToken');
         return (
             <Fragment>
                 <nav className="navbar navbar-expand-xl global_bgColor--charcoal global_fontColor--whiteSmoke navBar_mainContainer">
@@ -24,14 +53,14 @@ class Navbar extends Component {
                             <div className="nav-item">
                                 <form>
                                     <div className="form-floating ms-3 me-3">
-                                        <input type="text" className="form-control navBar_searchBar ps-0 pe-0" id="floatingSearch" placeholder="Password"/>
+                                        <input onChange={this.handleChangeSearchBar}  onKeyPress={this.handleSubmitSearch} type="text" className="form-control navBar_searchBar ps-0 pe-0" id="floatingSearch" placeholder="Search Bar"/>
                                         <label htmlFor="floatingSearch" className="font_montserrat navBar_searchBar--label ps-0 pe-0 pt-0 flex-nowrap">Rechercher un produit<span className="navBar_searchBar--labelSpan">, une marque, une référence</span>…</label>
                                     </div>
                                 </form>
                             </div>
                             <div className="nav-item pt-xl-0 pt-lg-2">
                                 {(() => {
-                                    if (conected === undefined || conected === null) {
+                                    if (connected === undefined || connected === null) {
                                         return (
                                             <Link className="btn btn-default global_fontColor--whiteSmoke font_montserrat" to="/login">
                                                 <div className="navBar_link--image">
