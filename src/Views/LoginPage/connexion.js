@@ -33,7 +33,7 @@ export default class Connexion extends Component {
                 password: this.state.password,
             })
         };
-        
+
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
@@ -57,6 +57,7 @@ export default class Connexion extends Component {
                     localStorage.setItem('letShopAdmin', data.admin);
 
                     this.setState({redirect: true})
+                    window.location.href = "/";
                 }
             });
     }
