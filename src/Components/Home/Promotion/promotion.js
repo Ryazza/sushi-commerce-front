@@ -5,7 +5,7 @@ export default class Promotion extends Component {
     render() {
         return(
             <Fragment>
-
+                <div>coucou</div>
             </Fragment>
         )
     }

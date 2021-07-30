@@ -243,7 +243,7 @@ class Me extends Component {
                         <div className="row mb-3">
                             <div className="col-11">
                                 <label htmlFor="me_nom" className="form-label">Mot de passe actuel</label>
-                                <input type="password" className="form-control" id="me_oldMDP" placeholder="• • • • • • • • •" onChange={this.handleChangeOldMDP} autocomplete="false"/>
+                                <input type="password" className="form-control" id="me_oldMDP" placeholder="• • • • • • • • •" onChange={this.handleChangeOldMDP} autoComplete="false"/>
                             </div>
                         </div>
                         <div className="row mb-3">
