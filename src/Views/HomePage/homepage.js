@@ -8,6 +8,7 @@ export default class ChangeProduct extends Component {
     render() {
         return(
             <Fragment>
+                <Navbar/>
                 <Promotion />
             </Fragment>
         )

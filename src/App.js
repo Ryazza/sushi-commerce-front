@@ -20,29 +20,18 @@ import Navbar from "./Components/Navigation/Navbar/navbar";
 window.flash = (title, message, type = "success") => Bus.emit('flash', ({title, message, type}));
 
 function App() {
-
-    if (window.location.pathname === "/login" || window.location.pathname === "/register") {
-        return (
-            <Router>
-                <Switch>
-                    <Route path="/register" component={Register}/>
-                    <Route path="/login" component={Login}/>
-                </Switch>
-            </Router>
-        );
-    } else {
-        return (
-            <Router>
-                <Navbar/>
-                <Switch>
-                    <Route path="/produit/idProduit" component={ProductDetail}/>
-                    <Route path="/account" component={UserAccount}/>
-                    <Route path="/" component={HomePage}/>
-                </Switch>
-            </Router>
-        );
-    }
-
+    return (
+        <Router>
+            <Switch>
+                <Route path="/produit/idProduit" component={ProductDetail}/>
+                <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/account" component={UserAccount}/>
+                <Route path="/" component={HomePage}/>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
