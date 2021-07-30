@@ -15,9 +15,26 @@
 .productDetail_rightPart {
     border: #d7d7d7 1px solid;
 }
-
-
-
+.productDetail_textLine {
+    text-decoration:line-through;
+}
+.productDetail_badgeReduction {
+    font-size: 12px;
+}
+.productDetail_Avis {
+    border: #d7d7d7 1px solid;
+    border-bottom: none;
+}
+.productDetail_Avis--bottomBorder {
+    border-bottom: #d7d7d7 1px solid;
+}
+.productDetail_Avis--container {
+    border: #d7d7d7 1px solid;
+    border-top: none;
+}
+.productDetail_comment {
+    border: #d7d7d7 1px solid;
+}
 /* mini image */
 ul.images {
     display: grid;

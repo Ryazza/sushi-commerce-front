@@ -10,15 +10,25 @@ export default class ChangeProduct extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {product: {}}
+        this.state = {product: {}, reductedPrice: null, checked: true}
     }
 
     componentDidMount() {
         this.setState({product: oneProduct})
     }
 
+    componentDidUpdate() {
+        if (this.state.product.events.solde && this.state.checked) {
+            this.setState({checked: false})
+            let reduction = (this.state.product.price * this.state.product.events.solde) / 100;
+            let realPrice = this.state.product.price - reduction;
+            this.setState({reductedPrice: realPrice.toFixed(2)})
+        }
+    }
+
     render() {
         let imageList = [];
+        let Avis = [];
         console.log(this.state.product.pictures)
         if (this.state.product.pictures) {
             imageList = this.state.product.pictures.map((item, index) => {
@@ -26,9 +36,16 @@ export default class ChangeProduct extends Component {
                     <li key={index}>
                         <Image src={item.url}/>
                     </li>
-                    // <div className="col-2">
-                    //     <Image key={index} src={item.url} className="miniImage"/>
-                    // </div>
+                )
+            })
+        }
+        if (this.state.product.comment) {
+            Avis = this.state.product.comment.map((item, index) => {
+                return (
+                    <div className="row bg-white m-2 mt-3 p-2 rounded-3 productDetail_comment" key={index}>
+                        <div className="h5 pb-2">{item.titre}</div>
+                        <div>{item.contenu}</div>
+                    </div>
                 )
             })
         }
@@ -48,13 +65,13 @@ export default class ChangeProduct extends Component {
                         </div>
                         <div className="row mt-4 mb-4">
                             <div className="col-4">
-                                <img className="img-fluid p-5" src={this.state.product.bigPicture} alt=""/>
+                                <img className="img-fluid p-1" src={this.state.product.bigPicture} alt=""/>
                             </div>
                             <div className="col-6 p-4">
-                                <h1 className="fs-4">{this.state.product.name}</h1>
-                                <h2 className="fs-5">Produit par {this.state.product.marque}</h2>
+                                <h1 className="fs-4 pb-2">{this.state.product.name}</h1>
+                                <h2 className="fs-5">Produit par {this.state.product.brand}</h2>
                                 <div className="fs-6 mt-5 mb-5">{this.state.product.description}</div>
-                                <div className="row">
+                                <div className="row pt-5">
                                     <ImageGroup>
                                         <ul className="images">
                                             {imageList}
@@ -63,12 +80,67 @@ export default class ChangeProduct extends Component {
                                 </div>
                             </div>
                             <div className="col-2">
-                                <div className="row bg-light p-3 productDetail_rightPart rounded-3">
-                                    <h1 className="text-center text-danger mt-3">{this.state.product.price} €</h1>
+                                <div className="row bg-light p-0 productDetail_rightPart rounded-3 justify-content-center">
+                                    {(() => {
+                                        if (this.state.product.available) {
+                                            return (
+                                                <div className="text-center bg-success text-white p-1">En Stock</div>
+                                            )
+                                        } else {
+                                            return (
+                                                <div className="text-center bg-danger text-white p-1">Epuisé</div>
+                                            )
+                                        }
+                                    })()}
+                                    {(() => {
+                                        if (this.state.reductedPrice) {
+                                            return (
+                                                <Fragment>
+                                                    <div className="row text-center text-danger  mt-5 mb-0 ">
+                                                        <span className="h1 productDetail_textLine">{this.state.product.price} € <span className="badge rounded-pill bg-danger align-top productDetail_badgeReduction">-{this.state.product.events.solde}%</span></span>
+                                                    </div>
+                                                    <h1 className="text-center text-danger mb-0">{this.state.reductedPrice} €</h1>
+                                                </Fragment>
+                                            )
+                                        } else {
+                                            return (
+                                                <Fragment>
+                                                    <h1 className="text-center text-danger mt-5 mb-0">{this.state.product.price} €</h1>
+                                                </Fragment>
+                                            )
+                                        }
+                                    })()}
+                                    <div className="text-center text-secondary mb-3">Encore {this.state.product.quantity} en stock</div>
+                                    {(() => {
+                                        if (this.state.product.available) {
+                                            return (
+                                                <button className="col-6 mt-3 mb-4 btn btn-success btn-lg">Commander</button>
+                                            )
+                                        } else {
+                                            return (
+                                                <button className="col-8 mt-3 mb-4 btn btn-warning btn-lg" disabled>Non disponible</button>
+                                            )
+                                        }
+                                    })()}
                                 </div>
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="col-2 pe-0 productDetail_Avis bg-light">
+                                <div className="fs-5 p-2">
+                                    Avis
+                                </div>
+                            </div>
+                            <div className="col-10 productDetail_Avis--bottomBorder ps-0 ms-0">
+                            </div>
+                        </div>
+                        <div className="row pb-3">
+                            <div className="col-12 p-3 productDetail_Avis--container bg-light">
+                                {Avis}
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </Fragment>
         )

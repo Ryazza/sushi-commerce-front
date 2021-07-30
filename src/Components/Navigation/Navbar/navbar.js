@@ -57,7 +57,7 @@ class Navbar extends Component {
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size" alt=""/>
                                         <span className="badge rounded-pill bg-danger align-top">99+</span> <br/>
-                                        <span className="align-bottom">Panier</span>
+                                        <span className="align-bottom">Caddie</span>
                                     </div>
                                     <span className="navBar_link--title">Mon panier <span className="badge rounded-pill bg-danger align-top">99+</span></span>
                                 </Link>
