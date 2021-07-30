@@ -45,7 +45,7 @@ class Navbar extends Component {
                                             <Link className="btn btn-default global_fontColor--whiteSmoke font_montserrat" to="/account">
                                                 <div className="navBar_link--image">
                                                     <img src={process.env.PUBLIC_URL + userImage} className="navBar_Image--size" alt=""/> <br/>
-                                                    <span className="align-bottom ps-2">Compte</span>
+                                                    <span className="align-bottom">Compte</span>
                                                 </div>
                                                 <span className="navBar_link--title">Mon Compte</span>
                                             </Link>);
@@ -57,7 +57,7 @@ class Navbar extends Component {
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size" alt=""/>
                                         <span className="badge rounded-pill bg-danger align-top">99+</span> <br/>
-                                        <span className="align-bottom ps-2">Panier</span>
+                                        <span className="align-bottom">Caddie</span>
                                     </div>
                                     <span className="navBar_link--title">Mon panier <span className="badge rounded-pill bg-danger align-top">99+</span></span>
                                 </Link>

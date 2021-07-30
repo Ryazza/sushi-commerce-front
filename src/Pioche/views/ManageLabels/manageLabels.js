@@ -1,7 +1,7 @@
 import React  from "react";
 import {Component,Fragment} from "react";
-import Navbar from "../../Components/Navigation/Navbar/navbar";
-import NavbarAdmin from "../../Components/Navigation/NavbarAdmin/navbarAdmin";
+import Navbar from "../../../Components/Navigation/Navbar/navbar";
+import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
 
 export default class ManageLabels extends Component {
     render() {

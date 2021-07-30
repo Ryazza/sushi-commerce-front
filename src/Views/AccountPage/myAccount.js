@@ -4,7 +4,6 @@ import Adress from "../../Components/UserAccount/Adress/adress"
 import Ordered from "../../Components/UserAccount/Ordered/ordered"
 import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
-import Navbar from "../../Components/Navigation/Navbar/navbar";
 import {Redirect} from "react-router-dom";
 
 class MyAccount extends Component {
@@ -85,7 +84,6 @@ class MyAccount extends Component {
         if (this.state.user !== null) {
             return (
                 <Fragment>
-                    <Navbar/>
                     <div className="container-fluid font_cabin mt-3">
                         <div className="row justify-content-center">
                             <div className="col-2  pt-2">
@@ -134,7 +132,6 @@ class MyAccount extends Component {
         } else {
             return (
                 <Fragment>
-                    <Navbar/>
                     <div className="container">
                         <div className="row justify-content-center text-center">
                             <div className="spinner-border" role="status">

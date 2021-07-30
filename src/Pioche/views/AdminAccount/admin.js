@@ -1,10 +1,10 @@
 import React, {Component,Fragment} from "react";
-import NavbarAdmin from "../../Components/Navigation/NavbarAdmin/navbarAdmin";
-import OrderPaid from "../../Components/Order/OrderPaid/orderPaid";
-import OrderShipped from "../../Components/Order/OrderShipped/orderShipped";
-import OrderWaiting from "../../Components/Order/OrderWaiting/orderWaiting";
+import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
+import OrderPaid from "../../component/Order/OrderPaid/orderPaid";
+import OrderShipped from "../../component/Order/OrderShipped/orderShipped";
+import OrderWaiting from "../../component/Order/OrderWaiting/orderWaiting";
 import './admin.css';
-import Navbar from "../../Components/Navigation/Navbar/navbar";
+import Navbar from "../../../Components/Navigation/Navbar/navbar";
 
 export default  class Admin extends Component {
   render()
