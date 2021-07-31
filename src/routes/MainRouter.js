@@ -11,6 +11,8 @@ import HomePage from "../Views/HomePage/homepage";
 import ProductDetail from "../Views/ProductDetail/productDetail"
 import Navbar from "../Components/Navigation/Navbar/navbar";
 import {createBrowserHistory} from "history";
+import PrivateRoute from "../Components/privateRoute/PrivateRoute";
+import AdminPage from "../Views/Admin/adminPage";
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
 // import ManageUsers from "./Pioche/views/ManageUsers/manageUsers";
@@ -41,6 +43,7 @@ export default class MainRouter extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/account" component={UserAccount}/>
+                    <PrivateRoute exact path={"/admin"} component={AdminPage}/>
                     <Route path="/" component={HomePage}/>
                 </Switch>
             </Fragment>
