@@ -50,10 +50,10 @@ export default class ViewAllCategory extends Component {
                                             <td>{category.name}</td>
                                             <td>{category.description}</td>
                                             <td>
-                                                <Link className={"link--view"} to={"/admin/category/:id"}><i className="far fa-eye icon--view"></i></Link>
-                                                <Link className={"link--modify"} to={"/admin/modifyCategory/:id"}><i className="fas fa-pencil-alt icon--modify"></i></Link>
-                                                <Link className={"link--delete"} to={"/admin/deleteCategory/:id"}><i className="fas fa-times icon--delete"></i></Link>
-                                                <Link className={"link--subCategory"} to={"/admin/addSubCategory:id"}><i className="fas fa-tags icon--subCategory"></i></Link>
+                                                <Link className={"link--view"} to={"/admin/category/"+category._id}><i className="far fa-eye icon--view"></i></Link>
+                                                <Link className={"link--modify"} to={"/admin/modifyCategory/"+category._id}><i className="fas fa-pencil-alt icon--modify"></i></Link>
+                                                <Link className={"link--delete"} to={"/admin/deleteCategory/"+category._id}><i className="fas fa-times icon--delete"></i></Link>
+                                                <Link className={"link--subCategory"} to={{pathname: "/admin/addSubCategory/"+category._id, state: {name: category.name}}}><i className="fas fa-tags icon--subCategory"></i></Link>
                                             </td>
                                         </tr>
                                         ]

@@ -15,6 +15,7 @@ import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
 import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
 import AddCategoryPage from "../Views/Admin/Category/addCategoryPage";
+import AddSubCategoryPage from "../Views/Admin/SubCategory/addSubCategoryPage";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -30,7 +31,7 @@ export default class MainRouter extends Component {
         super(props);
         const history = createBrowserHistory()
         this.state = {
-            route: history.location.pathname
+            route: history.location.pathname,
         }
         console.log(this.state.route)
     }
@@ -46,16 +47,20 @@ export default class MainRouter extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/account" component={UserAccount}/>
-                    <PrivateRoute exact path={"/admin"} component={AdminPage}/>
+
                     {/* admin category */}
 
-                    <PrivateRoute exact path={"/admin/manageLabels"} component={ViewCategoryPage}/>
-                    <PrivateRoute exact path={"/admin/addCategory"} component={AddCategoryPage}/>
-                    <PrivateRoute exact path={"/admin/category/:id"} component={AdminPage}/>
-                    <PrivateRoute exact path={"/admin/modifyCategory/:id"} component={AdminPage}/>
-                    <PrivateRoute exact path={"/admin/deleteCategory/:id"} component={AdminPage}/>
-                    <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AdminPage}/>
+                        <PrivateRoute exact path={"/admin/manageLabels"} component={ViewCategoryPage}/>
+                        <PrivateRoute exact path={"/admin/addCategory"} component={AddCategoryPage}/>
+                        {/*<PrivateRoute exact path={"/admin/category/:id"} component={AdminPage}/>*/}
+                        {/*<PrivateRoute exact path={"/admin/modifyCategory/:id"} component={AdminPage}/>*/}
+                        {/*<PrivateRoute exact path={"/admin/deleteCategory/:id"} component={AdminPage}/>*/}
+
                     {/* end admin category */}
+                    {/* admin SubCategory */}
+                        <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AddSubCategoryPage}/>
+                    {/* end admin SubCategory */}
+                    <PrivateRoute exact path={"/admin"} component={AdminPage}/>
                     <Route path="/" component={HomePage}/>
                 </Switch>
             </Fragment>

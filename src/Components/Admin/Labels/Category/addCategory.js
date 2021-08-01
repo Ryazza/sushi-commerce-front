@@ -3,7 +3,6 @@ import {Component, Fragment} from "react";
 import {Redirect} from "react-router-dom";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
-import './addCategory.css';
 import { Link } from "react-router-dom";
 import AuthService from "../../../../services/auth.service"
 import ErrorForm from "../../../error/ErrorForm";
@@ -70,11 +69,11 @@ export default class AddCategory extends Component {
             }, { headers: headers}).then( async res => {
                 this.setState({ success: res.data.message });
                 this.setState({ redirection: true });
-            }).catch( async error => {
-                this.response = await error.response;
-                console.log( this.response );
-                if( this.response.data.message ) {
-                    this.setState({ errorMsg: this.response.data.message });
+            }).catch( error => {
+
+                console.log( error.response );
+                if( error.response ) {
+                    this.setState({ errorMsg: error.response.data.message });
                 }
             })
         }

@@ -5,13 +5,6 @@ import AddCategory from "../../../Components/Admin/Labels/Category/addCategory";
 
 export default class AddCategoryPage extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: "admin"
-        }
-    }
-
     render() {
         return(
             <Fragment>
