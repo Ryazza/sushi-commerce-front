@@ -44,6 +44,13 @@ export default class MainRouter extends Component {
                     <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/account" component={UserAccount}/>
                     <PrivateRoute exact path={"/admin"} component={AdminPage}/>
+                    {/* admin category */}
+                    <PrivateRoute exact path={"/admin/category/:id"} component={AdminPage}/>
+                    <PrivateRoute exact path={"/admin/addCategory/:id"} component={AdminPage}/>
+                    <PrivateRoute exact path={"/admin/modifyCategory/:id"} component={AdminPage}/>
+                    <PrivateRoute exact path={"/admin/deleteCategory/:id"} component={AdminPage}/>
+                    <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AdminPage}/>
+                    {/* end admin category */}
                     <Route path="/" component={HomePage}/>
                 </Switch>
             </Fragment>

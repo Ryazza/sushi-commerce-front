@@ -6,6 +6,12 @@ import labelIcone from "../../../Assets/label.png"
 import orderIcone from "../../../Assets/shopping-bag.png"
 import userIcone from "../../../Assets/user.png";
 
+import ViewAllCategory from "../../../Components/Admin/Labels/Category/viewAllCategory";
+
+import DisplayProducts from "../DisplayProducts/displayProducts";
+import NavbarProduct from "../NavbarProduct/navbarProduct";
+import NewProduct from "../NewProduct/newProduct";
+
 export default class NavbarAdmin extends Component {
     constructor(props) {
         super(props);
@@ -49,12 +55,15 @@ export default class NavbarAdmin extends Component {
                 </div>
                 { this.state.page === "manageProducts" ?
                     <div>
+                        <NavbarProduct/>
+                        <DisplayProducts/>
+                        <NewProduct/>
                         <div className={"text-center font-weight-bold"}>page ajouter un produit (newProduct linker la view dans navbarAdmin a la place de cette ligne)</div>
                     </div>:null
                 }
                 { this.state.page === "manageLabels" ?
                     <div>
-                        <div className={"text-center font-weight-bold"}>page ajouter une categorie sous cat (manageLabels linker la view dans navbarAdmin a la place de cette ligne)</div>
+                        <ViewAllCategory/>
                     </div>:null
                 }
                 { this.state.page === "manageUsers" ?
