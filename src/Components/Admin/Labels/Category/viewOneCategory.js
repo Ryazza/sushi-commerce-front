@@ -37,7 +37,6 @@ export default class ViewOneCategory extends Component {
                             <div className={"col-12"}>
                                 <div>Image: {this.state.category.img}</div>
                                 <p>{this.state.category.description}</p>
-                                {console.log(this.state.category)}
 
                                 <table className={"table table-striped"}>
                                     <thead>
@@ -48,7 +47,7 @@ export default class ViewOneCategory extends Component {
                                         <th>actions</th>
                                     </tr>
                                     </thead>
-                                    
+
                                     <tbody>
                                     {this.state.category.subCategory ?
 
@@ -60,9 +59,9 @@ export default class ViewOneCategory extends Component {
                                                     <td>{subCategory.name}</td>
                                                     <td>{subCategory.description}</td>
                                                     <td>
-                                                        <Link className={"link--view"} to={"/admin/category/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
-                                                        <Link className={"link--modify"} to={"/admin/modifyCategory/"+subCategory._id}><i className="fas fa-pencil-alt icon--modify"></i></Link>
-                                                        <Link className={"link--delete"} to={"/admin/deleteCategory/"+subCategory._id}><i className="fas fa-times icon--delete"></i></Link>
+                                                        <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
+                                                        <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify"+subCategory._id, state: { subCategory: subCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
+                                                        <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
                                                         <Link className={"link--subCategory"} to={{pathname: "/admin/addSubCategory/"+subCategory._id, state: {name: subCategory.name}}}><i className="fas fa-tags icon--subCategory"></i></Link>
                                                     </td>
                                                 </tr>

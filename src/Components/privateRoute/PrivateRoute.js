@@ -6,7 +6,7 @@ function PrivateRoute({ component: Component, ...restOfProps }) {
         <Route
             {...restOfProps}
             render={(props) =>
-                AuthService.isAdmin() ? <Component {...props} name={restOfProps.name} /> : <Redirect to="/"/>
+                AuthService.isAdmin() ? <Component {...props} name={restOfProps.name} state={restOfProps} /> : <Redirect to="/"/>
             }
         />
     );

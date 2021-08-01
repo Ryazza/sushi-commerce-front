@@ -5,13 +5,6 @@ import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
 
 export default class ViewSubCategoryPage extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: "admin"
-        }
-    }
-
     render() {
         return(
             <Fragment>
