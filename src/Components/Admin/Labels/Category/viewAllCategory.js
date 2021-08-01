@@ -3,7 +3,7 @@ import {Component, Fragment} from "react";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
 import './viewAllCategory.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class ViewAllCategory extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export default class ViewAllCategory extends Component {
             <Fragment>
                 <div className={"container"}>
                     <h2 className={"text-center mt-5"}>Vos catégories
-                        <Link className={"link--addCategory"} to={environement.backBase+"/admin/addCategory/:id"}><i className="fas fa-plus-circle icon--addCategory"></i>
+                        <Link className={"link--addCategory"} to={"/admin/addCategory"}><i className="fas fa-plus-circle icon--addCategory"></i>
                         </Link>
                     </h2>
 
@@ -45,7 +45,7 @@ export default class ViewAllCategory extends Component {
                                 <tbody>
                                 {this.state.categories.map((category, index) => {
                                     return [
-                                        <tr>
+                                        <tr key={index}>
                                             <td>{index}</td>
                                             <td>{category.name}</td>
                                             <td>{category.description}</td>
@@ -66,7 +66,6 @@ export default class ViewAllCategory extends Component {
                     <div>
                         <p className={"text-center mt-5"}>Vous n'avez pas encore de catégories !</p>
                     </div>
-
                 }
                 </div>
             </Fragment>

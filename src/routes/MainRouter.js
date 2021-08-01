@@ -13,6 +13,9 @@ import Navbar from "../Components/Navigation/Navbar/navbar";
 import {createBrowserHistory} from "history";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
+import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
+import AddCategoryPage from "../Views/Admin/Category/addCategoryPage";
+
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
 // import ManageUsers from "./Pioche/views/ManageUsers/manageUsers";
@@ -45,8 +48,10 @@ export default class MainRouter extends Component {
                     <Route path="/account" component={UserAccount}/>
                     <PrivateRoute exact path={"/admin"} component={AdminPage}/>
                     {/* admin category */}
+
+                    <PrivateRoute exact path={"/admin/manageLabels"} component={ViewCategoryPage}/>
+                    <PrivateRoute exact path={"/admin/addCategory"} component={AddCategoryPage}/>
                     <PrivateRoute exact path={"/admin/category/:id"} component={AdminPage}/>
-                    <PrivateRoute exact path={"/admin/addCategory/:id"} component={AdminPage}/>
                     <PrivateRoute exact path={"/admin/modifyCategory/:id"} component={AdminPage}/>
                     <PrivateRoute exact path={"/admin/deleteCategory/:id"} component={AdminPage}/>
                     <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AdminPage}/>
