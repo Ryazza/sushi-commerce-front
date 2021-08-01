@@ -60,7 +60,7 @@ export default class ViewOneCategory extends Component {
                                                     <td>{subCategory.description}</td>
                                                     <td>
                                                         <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
-                                                        <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify"+subCategory._id, state: { subCategory: subCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
+                                                        <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
                                                         <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
                                                         <Link className={"link--subCategory"} to={{pathname: "/admin/addSubCategory/"+subCategory._id, state: {name: subCategory.name}}}><i className="fas fa-tags icon--subCategory"></i></Link>
                                                     </td>

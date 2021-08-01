@@ -1,19 +1,22 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
-import ModifyCategory from "../../../Components/Admin/Labels/Category/modifyCategory";
+import ModifySubCategory from "../../../Components/Admin/Labels/SubCategory/modifySubcategory";
 
-export default class ModifyCategoryPage extends Component {
+export default class ModifySubCategoryPage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            subCategory: this.props.location.state
+        }
     }
 
     render() {
         return(
             <Fragment>
                 <NavbarAdmin/>
-                <ModifyCategory category={this.props.location.state}/>
+                <ModifySubCategory subCategory={this.state.subCategory}/>
             </Fragment>
         )
     }
