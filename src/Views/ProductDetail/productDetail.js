@@ -98,7 +98,6 @@ export default class ChangeProduct extends Component {
         }
         return (
             <Fragment>
-                <Navbar/>
                 <div className="container-fluid mt-3">
                     <div className="row m-0">
                         <div className="col-10">
