@@ -46,10 +46,12 @@ export default class MainRouter extends Component {
                     <Navbar/>
                 }
                 <Switch>
+                    <Route path="/" component={HomePage}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" component={Login}/>
-                    <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/account" component={UserAccount}/>
+                    <Route path="/produit/idProduit" component={ProductDetail}/>
+                    <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
 
                     {/* admin category */}
 

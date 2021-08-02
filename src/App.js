@@ -12,16 +12,6 @@ function App({state}) {
             <MainRouter state={state}/>
         </Router>
     );
-        <Router>
-            <Switch>
-                <Route path="/produit/idProduit" component={ProductDetail}/>
-                <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
-                <Route path="/register" component={Register}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/account" component={UserAccount}/>
-                <Route path="/" component={HomePage}/>
-            </Switch>
-        </Router>
 }
 
 export default App;
