@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {oneProduct} from "../../Environment/object";
 import './productDetail.css'
 import {ImageGroup, Image} from 'react-fullscreen-image'
+import Navbar from "../../Components/Navigation/Navbar/navbar";
 
 
 export default class ChangeProduct extends Component {
@@ -97,6 +98,7 @@ export default class ChangeProduct extends Component {
         }
         return (
             <Fragment>
+                <Navbar/>
                 <div className="container-fluid mt-3">
                     <div className="row m-0">
                         <div className="col-10">
