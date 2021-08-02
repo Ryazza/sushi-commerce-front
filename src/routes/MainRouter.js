@@ -19,6 +19,7 @@ import AddSubCategoryPage from "../Views/Admin/SubCategory/addSubCategoryPage";
 import ViewOneCategoryPage from "../Views/Admin/Category/viewOneCategoryPage";
 import ModifyCategoryPage from "../Views/Admin/Category/modifyCategoryPage";
 import ModifySubCategoryPage from "../Views/Admin/SubCategory/modifySubCategoryPage";
+import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -51,7 +52,7 @@ export default class MainRouter extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/account" component={UserAccount}/>
                     <Route path="/produit/idProduit" component={ProductDetail}/>
-                    <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
+                    <Route path="/subCat/idsub" component={SubCatDetail}/>
 
                     {/* admin category */}
 
