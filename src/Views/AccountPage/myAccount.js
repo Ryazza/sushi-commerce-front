@@ -10,7 +10,14 @@ class MyAccount extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {me: true, adress: false, ordered: false, panier: false, user: null, redirect: false};
+        this.state = {
+            me: true,
+            adress: false,
+            ordered: false,
+            panier: false,
+            user: null,
+            redirect: false,
+        };
 
         this.handleChangeForMe = this.handleChangeForMe.bind(this);
         this.handleChangeForAdress = this.handleChangeForAdress.bind(this);
@@ -71,6 +78,7 @@ class MyAccount extends Component {
         localStorage.removeItem('letShopEmail');
         localStorage.removeItem('letShopAdmin');
         this.setState({redirect: true});
+        window.location.href = "/login";
     }
 
     render() {
@@ -79,7 +87,7 @@ class MyAccount extends Component {
         let ordered = this.state.ordered;
         let panier = this.state.panier;
         if (this.state.redirect === true || !localStorage.getItem('letShopToken')) {
-            return (<Redirect to="/login"/>)
+            // return (<Redirect to="/login"/>)
         }
         if (this.state.user !== null) {
             return (

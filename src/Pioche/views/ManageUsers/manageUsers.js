@@ -3,7 +3,6 @@ import {Component, Fragment} from "react";
 import './manageUsers.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import Navbar from "../../../Components/Navigation/Navbar/navbar";
 import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
 
 export default class ManageUsers extends Component {
@@ -11,7 +10,6 @@ export default class ManageUsers extends Component {
     render() {
         return(
             <Fragment>
-                <Navbar/>
                 <NavbarAdmin/>
                 <div className="container ManageUsers global_bgColor--charcoal col-6 font_cabin text-white">
                     <form className="input-group ManageUsers_search rounded">
