@@ -5,14 +5,13 @@ import {environement} from "../../../../Environment/environment";
 import AuthService from "../../../../services/auth.service"
 import {Redirect} from "react-router-dom";
 
-export default class DeleteSubCategory extends Component {
+export default class DeleteCategory extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.category)
         this.state = {
-            category: this.props.category,
             categoryId: this.props.category._id,
+            category: this.props.category,
             name: this.props.category.name,
             imgUrl: this.props.category.img,
             description: this.props.category.description,
@@ -34,7 +33,7 @@ export default class DeleteSubCategory extends Component {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
 
-        axios.delete(environement.backBase+"/underCategory/"+ this.state.subCategoryId, { headers: headers}).then( res => {
+        axios.delete(environement.backBase+"/category/"+ this.state.categoryId, { headers: headers}).then( res => {
             this.setState({ redirection: true });
         }).catch( error => {
             console.log(error.response)
@@ -48,25 +47,25 @@ export default class DeleteSubCategory extends Component {
         const {redirection} = this.state;
 
         if (redirection) {
-            return <Redirect to={{pathname: '/admin/category/'+ this.state.category.category._id, state:{ name: this.state.category.category.name }}}/>
+            return <Redirect to={{pathname: '/admin/manageLabels/'}}/>
         }
         return(
             <Fragment>
                 <div className={"container"}>
                     <div className="alert alert-warning" role="alert">
-                        <h2 className={"text-center mt-5"}>Supprimer la sous catégorie {this.state.name}</h2>
+                        <h2 className={"text-center mt-5"}>Supprimer la catégorie {this.state.name}</h2>
                         <div className={"row"}>
                             <div className={"col-10 offset-1"}>
                                 <div className={"ml-5"}>
                                     <div className={"d-flex justify-content-center mt-4"}>
-                                        <img src={this.state.img} alt={"Catégorie"}/>
+                                        <img src={this.state.category.img} alt={"Sous catégorie"}/>
                                     </div>
                                     <p>Description: {this.state.description}</p>
                                 </div>
                             </div>
                         </div>
                         <div className={"d-flex justify-content-center mt-2"}>
-                            <p className={"fw-bold text-danger"}>Êtes-vous sur de vouloir supprimer cette sous catégorie?</p>
+                            <p className={"fw-bold text-danger"}>Êtes-vous sur de vouloir supprimer cette catégorie?</p>
                         </div>
                         <div className={"row"}>
                             <div className={"col-12"}>

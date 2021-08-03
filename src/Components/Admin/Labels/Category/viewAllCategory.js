@@ -64,7 +64,7 @@ export default class ViewAllCategory extends Component {
                                                     </Link>
                                                 </Tooltip>
                                                 <Tooltip title="Supprimer">
-                                                    <Link className={"link--delete"} to={{ pathname:"/admin/deleteCategory/"+category._id, state: {state: category} }}>
+                                                    <Link className={"link--delete"} to={{ pathname:"/admin/category/delete/"+category._id, state: {category: category} }}>
                                                         <i className="fas fa-times icon--delete"></i>
                                                     </Link>
                                                 </Tooltip>
