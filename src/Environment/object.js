@@ -330,9 +330,9 @@ export var productByCategory =
                     {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/06.jpg"}
                 ],
                 events: {
-                    new: true,
+                    new: false,
                     solde: 10,
-                    serialEnding: false
+                    serialEnding: true
                 },
                 quantity: 10,
                 available: true,
@@ -372,8 +372,8 @@ export var productByCategory =
                     {url: "https://www.topachat.com/boutique/img/in/in2000/in20009184/06.jpg"}
                 ],
                 events: {
-                    new: true,
-                    solde: 10,
+                    new: false,
+                    solde: null,
                     serialEnding: false
                 },
                 quantity: 10,

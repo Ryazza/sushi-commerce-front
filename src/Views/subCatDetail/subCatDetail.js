@@ -38,6 +38,26 @@ export default class SubCatDetail extends Component {
         let newProduct = events.new;
         let soldePercent = events.solde;
         let serialEnding = events.serialEnding;
+        let badgeNew;
+        let badgeSolde;
+        let badgeEnd;
+
+        if(newProduct === true) badgeNew = <div className="col-1"><span className="badge rounded-pill bg-success align-top">New !</span></div>
+        if(soldePercent !== null) badgeSolde = <div className="col-1"><span className="badge rounded-pill bg-danger align-top">-{soldePercent}%</span></div>
+        if(serialEnding === true) badgeEnd = <div className="col-1"><span className="badge rounded-pill bg-warning align-top">Fin de série</span></div>
+
+        return (
+            <Fragment>
+                <div className="col-7">
+                    <div className="row">
+                        {badgeSolde}
+                        {badgeNew}
+                        {badgeEnd}
+                    </div>
+                </div>
+            </Fragment>
+        )
+
     }
 
     render() {
