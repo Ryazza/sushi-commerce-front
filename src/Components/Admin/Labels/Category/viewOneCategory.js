@@ -16,7 +16,6 @@ export default class ViewOneCategory extends Component {
     }
 
     componentDidMount() {
-
         axios.get(environement.backBase+"/category/"+this.state.categoryId).then(response => {
             this.setState({category: response.data.category})
         })
@@ -31,7 +30,7 @@ export default class ViewOneCategory extends Component {
                         </Link>
                     </h2>
 
-                    {this.state.category.length !== 0 ?
+                    {this.state.category && this.state.category.length !== 0 ?
 
                         <div className={"row"}>
                             <div className={"col-12"}>
@@ -62,7 +61,6 @@ export default class ViewOneCategory extends Component {
                                                         <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
                                                         <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
                                                         <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
-                                                        <Link className={"link--subCategory"} to={{pathname: "/admin/addSubCategory/"+subCategory._id, state: {name: subCategory.name}}}><i className="fas fa-tags icon--subCategory"></i></Link>
                                                     </td>
                                                 </tr>
                                             ]

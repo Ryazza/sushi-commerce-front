@@ -14,7 +14,6 @@ export default class ViewAllCategory extends Component {
     }
 
     componentDidMount() {
-
         axios.get(environement.backBase+"/category/all").then(response => {
             this.setState({categories: response.data.category})
         })
@@ -29,7 +28,7 @@ export default class ViewAllCategory extends Component {
                         </Link>
                     </h2>
 
-                {this.state.categories.length !== 0 ?
+                {this.state.categories && this.state.categories.length !== 0 ?
 
                     <div className={"row"}>
                         <div className={"col-12"}>
