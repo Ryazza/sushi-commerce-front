@@ -37,7 +37,6 @@ export default class MainRouter extends Component {
         this.state = {
             route: history.location.pathname,
         }
-        console.log(this.state.route)
     }
 
     render() {
@@ -47,11 +46,11 @@ export default class MainRouter extends Component {
                     <Navbar/>
                 }
                 <Switch>
-                    <Route path="/register" component={Register}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/account" component={UserAccount}/>
-                    <Route path="/produit/idProduit" component={ProductDetail}/>
-                    <Route path="/subCat/idsub" component={SubCatDetail}/>
+                    <Route exact path="/register" component={Register}/>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/account" component={UserAccount}/>
+                    <Route exact path="/produit/idProduit" component={ProductDetail}/>
+                    <Route exact path="/subCat/idsub" component={SubCatDetail}/>
 
                     {/* admin category */}
 

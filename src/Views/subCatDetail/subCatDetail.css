@@ -12,3 +12,11 @@
     transition: 200ms ease-in-out;
     color: skyblue;
 }
+.subCatDetail_Link {
+    text-decoration: none;
+    color: black;
+}
+.subCatDetail_Link:hover {
+    transition: 300ms ease-in-out;
+    color: #444343;
+}

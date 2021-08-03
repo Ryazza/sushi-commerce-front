@@ -331,7 +331,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: false,
-                    solde: 10,
+                    solde: 50,
                     serialEnding: true
                 },
                 quantity: 10,
