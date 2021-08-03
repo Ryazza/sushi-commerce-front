@@ -14,6 +14,32 @@ export default class SubCatDetail extends Component {
         this.setState({items: productByCategory})
     }
 
+    displayReductPrice(item) {
+        if (item.events.solde !== null) {
+            let reduction = (item.price * item.events.solde) / 100;
+            let realPrice = item.price - reduction;
+            return (
+                <Fragment>
+                    <div className="row text-center text-danger">
+                        <span className="h2">{realPrice} €</span>
+                    </div>
+                </Fragment>
+            )
+        } else {
+            return (
+                <Fragment>
+                    <h1 className="text-center text-danger mt-5 mb-0">{item.price} €</h1>
+                </Fragment>
+            )
+        }
+    }
+
+    displayBadgeProduct(events){
+        let newProduct = events.new;
+        let soldePercent = events.solde;
+        let serialEnding = events.serialEnding;
+    }
+
     render() {
         let itemsMap = []
         if(this.state.items) {
@@ -23,11 +49,12 @@ export default class SubCatDetail extends Component {
                         <div className="col-2">
                             <img src={item.bigPicture} className="img-fluid" style={{"width" : "70%"}} alt=""/>
                         </div>
-                        <div className="col-8 h5 pt-3">
-                            {item.name}
+                        <div className="col-8 pt-3">
+                            <div className="row">{this.displayBadgeProduct(item.events)}</div>
+                            <div className="row h5">{item.name}</div>
                         </div>
-                        <div className="col-2">
-                            <div className="align-middle">{item.price}</div>
+                        <div className="col-2 d-flex justify-content-center align-items-center">
+                            {this.displayReductPrice(item)}
                         </div>
                     </div>
                 )
@@ -36,7 +63,7 @@ export default class SubCatDetail extends Component {
         return (
             <Fragment>
                 <div className="container-fluid mt-3">
-                    <div className="row m-2 rounded-3 subCatDetail_item" >
+                    <div className="row rounded-3 subCatDetail_item" >
                         <div className="row m-0 p-2 subCatDetail_breadcrumb bg-light">
                             <div aria-label="breadcrumb">
                                 <ol className="breadcrumb m-0">
