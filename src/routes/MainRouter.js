@@ -20,6 +20,7 @@ import ViewOneCategoryPage from "../Views/Admin/Category/viewOneCategoryPage";
 import ModifyCategoryPage from "../Views/Admin/Category/modifyCategoryPage";
 import DeleteCategoryPage from "../Views/Admin/Category/deleteCategoryPage";
 
+import ViewOneSubCategoryPage from "../Views/Admin/SubCategory/viewOneSubCategoryPage";
 import AddSubCategoryPage from "../Views/Admin/SubCategory/addSubCategoryPage";
 import ModifySubCategoryPage from "../Views/Admin/SubCategory/modifySubCategoryPage";
 import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategoriePage";
@@ -65,8 +66,9 @@ export default class MainRouter extends Component {
                     {/* end admin category */}
 
                     {/* admin SubCategory */}
-                        <PrivateRoute exact path={"/admin/subCategory/modify/:id"} component={ModifySubCategoryPage}/>
+                        <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>
                         <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AddSubCategoryPage}/>
+                        <PrivateRoute exact path={"/admin/subCategory/modify/:id"} component={ModifySubCategoryPage}/>
                         <PrivateRoute exact path={"/admin/subCategory/delete/:id"} component={DeleteSubCategoriePage}/>
                     {/* end admin SubCategory */}
                     <PrivateRoute exact path={"/admin"} component={AdminPage}/>

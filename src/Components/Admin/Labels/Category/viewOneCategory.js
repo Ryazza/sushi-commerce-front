@@ -58,7 +58,7 @@ export default class ViewOneCategory extends Component {
                                                     <td>{subCategory.description}</td>
                                                     <td>
                                                         <Tooltip title="Voir">
-                                                            <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
+                                                            <Link className={"link--view"} to={"/admin/subCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
                                                         </Tooltip>
                                                         <Tooltip title="Modifier">
                                                             <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
