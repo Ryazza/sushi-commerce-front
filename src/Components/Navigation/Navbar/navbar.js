@@ -22,7 +22,7 @@ class Navbar extends Component {
     }
     sendData = () => {
 
-        this.props.parentCallback("Hey Popsie, How’s it going?");
+        this.props.parentCallback('/products/productsFromResearch/'+this.state.searchName);
 
     }
 
@@ -37,35 +37,15 @@ class Navbar extends Component {
         if (event.charCode === 13) {
             event.preventDefault();
 
-            const url = "http://localhost:4244/product/search/" + this.state.searchName;
-
-            const requestOptions = {
-                method: 'GET',
-                headers: {"Content-Type": 'application/json'},
-
-            };
-            fetch(url, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    // console.log(data);
-                });
             this.sendData();
 
         }
     }
 
     render() {
-        const {redirection} = this.state;
 
         let connected = localStorage.getItem('letShopToken');
-        if (redirection) {
-            return <Redirect to={{
-                pathname: '/' ,
-                state: {searchName: this.state.searchName}
-            }}>
 
-            </Redirect>
-        }
         return (
             <Fragment>
                 <nav

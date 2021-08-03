@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import '../App.css';
 
 import Bus from "../Utils/Bus";
@@ -36,6 +36,7 @@ export default class MainRouter extends Component {
         const history = createBrowserHistory()
         this.state = {
             route: history.location.pathname,
+            redirection: false,
             research: ""
         }
         console.log("main router", this.state.route)
@@ -43,9 +44,23 @@ export default class MainRouter extends Component {
 
     getDataFromSearchBar = (data) => {
         console.log(data)
+        this.setState({
+            research : data,
+            redirection: true
+        })
+        // window.location.reload()
     }
 
     render() {
+        const {redirection} = this.state;
+        if (redirection) {
+            this.setState({redirection: false})
+            return <Redirect to={{
+                pathname: this.state.research ,
+            }}>
+
+            </Redirect>
+        }
         return (
             <Fragment>
                 {this.state.route === "/login" ? null : this.state.route === "/register" ? null :
@@ -57,8 +72,7 @@ export default class MainRouter extends Component {
                     <Route path="/account" component={UserAccount}/>
                     <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
-                    <Route path="/products/productsFromResearch" component={ResearchProduct} />
-
+                    <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
 
                     {/* admin category */}
