@@ -64,7 +64,7 @@ export default class ViewOneCategory extends Component {
                                                             <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
                                                         </Tooltip>
                                                         <Tooltip title="Supprimer">
-                                                            <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
+                                                            <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory, category: this.state.category}}}><i className="fas fa-times icon--delete"></i></Link>
                                                         </Tooltip>
                                                     </td>
                                                 </tr>
