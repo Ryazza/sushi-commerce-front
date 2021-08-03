@@ -4,6 +4,7 @@ import axios from "axios";
 import { environement } from "../../../../Environment/environment";
 import './viewAllCategory.css';
 import { Link } from "react-router-dom";
+import Tooltip from '@material-ui/core/Tooltip';
 
 export default class ViewOneCategory extends Component {
     constructor(props) {
@@ -26,8 +27,6 @@ export default class ViewOneCategory extends Component {
             <Fragment>
                 <div className={"container"}>
                     <h2 className={"text-center mt-5"}>Voir les sous categories de {this.state.nameCategory}
-                        <Link className={"link--addCategory"} to={"/admin/addCategory"}><i className="fas fa-plus-circle icon--addCategory"></i>
-                        </Link>
                     </h2>
 
                     {this.state.category && this.state.category.length !== 0 ?
@@ -58,9 +57,15 @@ export default class ViewOneCategory extends Component {
                                                     <td>{subCategory.name}</td>
                                                     <td>{subCategory.description}</td>
                                                     <td>
-                                                        <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
-                                                        <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
-                                                        <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
+                                                        <Tooltip title="Voir">
+                                                            <Link className={"link--view"} to={"/admin/SubCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
+                                                        </Tooltip>
+                                                        <Tooltip title="Modifier">
+                                                            <Link className={"link--modify"} to={{pathname:"/admin/subCategory/modify/"+subCategory._id, state: { subCategory: subCategory, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
+                                                        </Tooltip>
+                                                        <Tooltip title="Supprimer">
+                                                            <Link className={"link--delete"} to={{pathname:"/admin/subCategory/delete/"+subCategory._id , state: { subCategory: subCategory}}}><i className="fas fa-times icon--delete"></i></Link>
+                                                        </Tooltip>
                                                     </td>
                                                 </tr>
                                             ]

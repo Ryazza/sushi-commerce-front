@@ -93,7 +93,6 @@ class MyAccount extends Component {
         if (this.state.user !== null) {
             return (
                 <Fragment>
-                    <Navbar/>
                     <div className="container-fluid font_cabin mt-3">
                         <div className="row justify-content-center">
                             <div className="col-2  pt-2">

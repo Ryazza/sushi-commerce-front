@@ -46,7 +46,6 @@ export default class MainRouter extends Component {
                     <Navbar/>
                 }
                 <Switch>
-                    <Route path="/" component={HomePage}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/account" component={UserAccount}/>
