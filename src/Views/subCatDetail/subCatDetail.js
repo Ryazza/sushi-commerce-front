@@ -20,7 +20,15 @@ export default class SubCatDetail extends Component {
             itemsMap = this.state.items.items.map((item, index) => {
                 return (
                     <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item" key={index}>
-                        <div className="h5 pb-2">{item.name}</div>
+                        <div className="col-2">
+                            <img src={item.bigPicture} className="img-fluid" style={{"width" : "70%"}} alt=""/>
+                        </div>
+                        <div className="col-8 h5 pt-3">
+                            {item.name}
+                        </div>
+                        <div className="col-2">
+                            <div className="align-middle">{item.price}</div>
+                        </div>
                     </div>
                 )
             })
@@ -39,12 +47,14 @@ export default class SubCatDetail extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            Meilleur vente
+                            <div className="col-12">
+                                Meilleur vente
+                            </div>
                         </div>
                         <div className="col-2">
                             Filtre coming soon
                         </div>
-                        <div className="col-8">
+                        <div className="col-10">
                             {itemsMap}
                         </div>
                     </div>
