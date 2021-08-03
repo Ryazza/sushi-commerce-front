@@ -1,6 +1,7 @@
 import React from "react";
+import Select from 'react-select'
 import {Component, Fragment} from "react";
-import {Redirect} from "react-router-dom";
+import {Redirect, Switch} from "react-router-dom";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
 import AuthService from "../../../../services/auth.service"
@@ -11,6 +12,9 @@ export default class ModifySubCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedCategory: {},
+            positionCategory: 0,
+            allCategory: [],
             categoryName: this.props.subCategory.name,
             categoryId: this.props.subCategory.idCategory,
             subCategoryId: this.props.subCategory.subCategory._id,
@@ -25,10 +29,27 @@ export default class ModifySubCategory extends Component {
             redirection: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.selectedChange = this.selectedChange.bind(this)
     }
 
     componentDidMount() {
+        let arrCategory = [];
+        axios.get(environement.backBase+"/category/all").then(response => {
+            this.setState({allCategory: response.data.category})
+            this.state.allCategory.map(category => {
+                arrCategory.push({label: category.name, value: category._id})
+            })
+            this.setState({allCategory: arrCategory})
+            let pos = this.state.allCategory.findIndex(obj => obj['value'] === this.state.categoryId);
+            this.setState({ positionCategory: pos })
+            this.setState({selectedCategory: this.state.allCategory[pos]})
+        });
+    }
 
+    selectedChange = (value, { action })  => {
+        if (action === 'select-option') {
+            this.setState({ selectedCategory: value })
+        }
     }
 
     nameChange = event => {
@@ -66,7 +87,7 @@ export default class ModifySubCategory extends Component {
 
         if (canSend) {
             axios.put(environement.backBase + "/underCategory/" + this.state.subCategoryId, {
-                category: this.state.categoryId,
+                category: this.state.selectedCategory.value,
                 name: this.state.name,
                 img: this.state.img,
                 description: this.state.description,
@@ -80,14 +101,13 @@ export default class ModifySubCategory extends Component {
                 }
             })
         }
-
     }
 
     render() {
         const {redirection} = this.state;
 
         if (redirection) {
-            return <Redirect to={{pathname:'/admin/category/'+ this.state.categoryId , state:{ name: this.state.nameCategory}}}/>
+            return <Redirect to={{pathname:'/admin/category/'+ this.state.selectedCategory.value , state:{ name: this.state.selectedCategory.label}}}/>
         }
         return (
             <Fragment>
@@ -99,6 +119,14 @@ export default class ModifySubCategory extends Component {
                                 <div className={"mt-2"}>
                                     {this.state.errorMsg.length > 0 ? <ErrorForm error={this.state.errorMsg}/> : null}
                                     <form onSubmit={this.handleSubmit}>
+                                        <div className="mt-3">
+                                            <label htmlFor="category" className="form-label">Catégorie:</label>
+                                            <Select
+                                                onChange={this.selectedChange}
+                                                options={this.state.allCategory}
+                                                defaultValue={this.state.allCategory[this.state.positionCategory]}
+                                            />
+                                        </div>
                                         <div className="mt-3">
                                             <label htmlFor="name" className="form-label">Nom:</label>
                                             <input type="text" id="name" name="name" value={this.state.name}
