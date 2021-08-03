@@ -3,7 +3,7 @@ import {Component, Fragment} from "react";
 import './displayProducts.css';
 import {Link} from "react-router-dom";
 
-export default class DisplayProducts extends Component {
+export default class DisplayResearchProducts extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,9 +43,7 @@ export default class DisplayProducts extends Component {
                         <p>nom : {product.name}</p>
                         <p>catégorie: {product.category}</p>
                         <p>prix : {product.price}</p>
-                        <p>toto{product.pictures.forEach(picture =>{
-                        return (<img src={picture} alt=""/>)
-                        })} </p>
+                        <p>stock : {product.stock}</p>
                         <hr/>
                     </div>
                 )

@@ -1,7 +1,7 @@
 import React from "react"
 import {Component, Fragment} from "react";
 import './products.css'
-import DisplayProducts from "../../Components/DisplayProducts/displayProducts";
+import DisplayResearchProducts from "../../Components/DisplayProducts/displayResearchProducts";
 export default class Products extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ export default class Products extends Component {
     render() {
         return(
             <Fragment>
-                <DisplayProducts research={this.state.research}/>
+                <DisplayResearchProducts research={this.state.research}/>
             </Fragment>
         )
     }
