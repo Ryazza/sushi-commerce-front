@@ -664,8 +664,8 @@ export var oneProduct = {
     ],
     events: {
         new : true,
-        solde : 10,
-        serialEnding : false
+        discount : 10,
+        endOfSerie : false
     },
     quantity: 10,
     available: true,
