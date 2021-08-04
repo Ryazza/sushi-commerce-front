@@ -64,7 +64,7 @@ export default class AddSubCategory extends Component {
         }
 
         if(canSend) {
-            axios.post(environement.backBase+"/underCategory/", {
+            axios.post(environement.backBase+"/subCategory/", {
                 category: this.state.categoryId,
                 name: this.state.name,
                 img: this.state.img,
