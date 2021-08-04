@@ -12,9 +12,10 @@ export default class DeleteSubCategory extends Component {
         this.state = {
             category: this.props.category,
             categoryId: this.props.category._id,
-            name: this.props.category.name,
-            imgUrl: this.props.category.img,
-            description: this.props.category.description,
+            subCategoryId: this.props.category.subCategory._id,
+            name: this.props.category.subCategory.name,
+            imgUrl: this.props.category.subCategory.img,
+            description: this.props.category.subCategory.description,
             redirection: false
         }
         this.handleBack = this.handleBack.bind(this);
@@ -33,7 +34,7 @@ export default class DeleteSubCategory extends Component {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
 
-        axios.delete(environement.backBase+"/underCategory/"+ this.state.subCategoryId, { headers: headers}).then( res => {
+        axios.delete(environement.backBase+"/subCategory/"+ this.state.subCategoryId, { headers: headers}).then( res => {
             this.setState({ redirection: true });
         }).catch( error => {
             console.log(error.response)

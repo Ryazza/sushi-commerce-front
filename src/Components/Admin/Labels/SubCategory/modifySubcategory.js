@@ -84,7 +84,7 @@ export default class ModifySubCategory extends Component {
         }
 
         if (canSend) {
-            axios.put(environement.backBase + "/underCategory/" + this.state.subCategoryId, {
+            axios.put(environement.backBase + "/subCategory/" + this.state.subCategoryId, {
                 category: this.state.selectedCategory.value,
                 name: this.state.name,
                 img: this.state.img,

@@ -2,6 +2,7 @@ import React from "react";
 import {Component, Fragment} from "react";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
+import AuthService from "../../../../services/auth.service"
 import "./productsInsub.css";
 
 export default class ProductsInSub extends Component {
@@ -15,8 +16,12 @@ export default class ProductsInSub extends Component {
     }
 
     componentDidMount() {
-        axios.get(environement.backBase+"/underCategory/"+this.state.subCategoryId+"/products").then(response => {
+        const headers = {
+            'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
+        }
+        axios.get(environement.backBase+"/subCategory/admin/"+this.state.subCategoryId+"/products", { headers: headers}).then(response => {
             this.setState({products: response.data.products})
+            console.log(response.data.products)
         })
     }
 
@@ -24,7 +29,7 @@ export default class ProductsInSub extends Component {
         return(
             <Fragment>
                 <div className={"container"}>
-                    <h2 className={"text-center mt-5"}>Voir les produits Associé à {this.state.subName}
+                    <h2 className={"text-center mt-5"}>Voir les produits Associés
                     </h2>
                     <div className={"row"}>
                         <div className={"col-12"}>
