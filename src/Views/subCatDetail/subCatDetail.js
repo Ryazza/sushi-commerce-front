@@ -2,12 +2,13 @@ import React, {Component, Fragment} from 'react';
 import {productByCategory} from '../../Environment/object'
 import {Link} from "react-router-dom";
 import './subCatDetail.css'
+import MostSold from "../../Components/Product/mostSold";
 
 export default class SubCatDetail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null, loading: false}
+        this.state = {items: null}
     }
 
     componentDidMount() {
@@ -60,7 +61,6 @@ export default class SubCatDetail extends Component {
                 </div>
             </Fragment>
         )
-
     }
 
     render() {
@@ -88,7 +88,7 @@ export default class SubCatDetail extends Component {
         }
         return (
             <Fragment>
-                <div className="container-fluid mt-3">
+                <div className="container-fluid p-4">
                     <div className="row rounded-3 subCatDetail_item">
                         <div className="row m-0 p-2 subCatDetail_breadcrumb bg-light">
                             <div aria-label="breadcrumb">
@@ -99,9 +99,9 @@ export default class SubCatDetail extends Component {
                                 </ol>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row justify-content-center m-0">
                             <div className="col-12">
-                                Meilleur vente coming soon
+                                <MostSold />
                             </div>
                         </div>
                         <div className="col-2">
