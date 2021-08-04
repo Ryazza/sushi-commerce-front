@@ -14,15 +14,18 @@ class Navbar extends Component {
             searchName: "",
             searchCategory: "",
             searchDesc: "",
-            redirection: false
+            redirection: false,
+            goTo: null
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.sendData = this.sendData.bind(this)
+        this.goToLogin = this.goToLogin.bind(this)
     }
+
     sendData = () => {
 
-        this.props.parentCallback('/products/productsFromResearch/'+this.state.searchName);
+        this.props.parentCallback('/products/productsFromResearch/' + this.state.searchName);
 
     }
 
@@ -42,10 +45,17 @@ class Navbar extends Component {
         }
     }
 
+    goToLogin(event){
+        event.preventDefault();
+         this.setState({goTo: "/login"})
+    }
+
     render() {
 
         let connected = localStorage.getItem('letShopToken');
-
+        if(this.state.goTo === "/login") {
+            window.location.href = "/login"
+        }
         return (
             <Fragment>
                 <nav
@@ -56,7 +66,7 @@ class Navbar extends Component {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false"
-                                aria-label="Toggle navigation">
+                                aria-label="Toggle navigation">a
                             <span><img src={process.env.PUBLIC_URL + menuImage} alt="Icone pour dérouler le menu"
                                        className="navBar_menuIcon"/></span>
                         </button>
@@ -79,16 +89,17 @@ class Navbar extends Component {
                                 {(() => {
                                     if (connected === undefined || connected === null) {
                                         return (
-                                            <Link
+                                            <button
                                                 className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
-                                                to="/login">
+                                                onClick={this.goToLogin}
+                                                >
                                                 <div className="navBar_link--image">
                                                     <img src={process.env.PUBLIC_URL + userImage}
                                                          className="navBar_Image--size" alt=""/> <br/>
                                                     <span className="align-bottom ps-2">M'identifier</span>
                                                 </div>
                                                 <span className="navBar_link--title">M'identifier</span>
-                                            </Link>);
+                                            </button>);
                                     } else {
                                         return (
                                             <Link

@@ -63,9 +63,6 @@ export default class Connexion extends Component {
     }
 
     render() {
-        if(this.state.redirect === true || localStorage.getItem('letShopToken')) {
-            return <Redirect to="/"/>
-        }
         return (
             <Fragment>
                 <div className="Login_page d-flex row font_cabin justify-content-center m-0">
