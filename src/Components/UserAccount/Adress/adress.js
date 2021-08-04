@@ -157,7 +157,7 @@ class Adress extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row justify-content-center">
-                                    <form class="col-10">
+                                    <form className="col-10">
                                         <div className="form-floating mb-4">
                                             <input type="text" className="form-control adress_input ps-0 pe-0 text-white" id="adress_adress" placeholder="10 place de l'église" onChange={this.handleChangeAdress}/>
                                             <label htmlFor="adress_adress" className="adress_label ps-0 pe-0 pt-0">Adresse</label>

@@ -1,19 +1,19 @@
 import React from "react"
 import {Component, Fragment} from "react";
 import './products.css'
-import NavbarProduct from "../../Components/Navigation/NavbarProduct/navbarProduct";
-import NewProduct from "../../Components/NewProduct/newProduct";
-import Navbar from "../../Components/Navigation/Navbar/navbar";
-import NavbarAdmin from "../../Components/Navigation/NavbarAdmin/navbarAdmin";
+import DisplayResearchProducts from "../../Components/DisplayProducts/displayResearchProducts";
 export default class Products extends Component {
+    constructor(props) {
+        super(props);
+        this.state= {
+                    research : this.props.match.params.research
+        }
+    }
 
     render() {
         return(
             <Fragment>
-                <Navbar/>
-                <NavbarAdmin/>
-                <NavbarProduct/>
-                <NewProduct/>
+                <DisplayResearchProducts research={this.state.research}/>
             </Fragment>
         )
     }
