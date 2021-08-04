@@ -66,7 +66,7 @@ class Navbar extends Component {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false"
-                                aria-label="Toggle navigation">a
+                                aria-label="Toggle navigation">
                             <span><img src={process.env.PUBLIC_URL + menuImage} alt="Icone pour dérouler le menu"
                                        className="navBar_menuIcon"/></span>
                         </button>
