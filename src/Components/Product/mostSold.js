@@ -16,7 +16,7 @@ export default class MostSold extends Component {
 
     displayBadgeProduct(events) {
         let newProduct = events.new;
-        let soldePercent = events.solde;
+        let soldePercent = events.discount;
         let serialEnding = events.serialEnding;
         let badgeNew;
         let badgeSolde;
@@ -38,7 +38,7 @@ export default class MostSold extends Component {
     }
 
     displayPrice(item) {
-        let reduction = (item.price * item.events.solde) / 100;
+        let reduction = (item.price * item.events.discount) / 100;
         return item.price - reduction
     }
 

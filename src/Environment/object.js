@@ -53,7 +53,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -88,7 +88,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: false,
-                    solde: 50,
+                    discount: 50,
                     serialEnding: true
                 },
                 quantity: 10,
@@ -123,7 +123,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: false,
-                    solde: null,
+                    discount: null,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -158,7 +158,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -193,7 +193,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -228,7 +228,7 @@ export var mostSold =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -350,7 +350,7 @@ export var productByCategory =
                 bigPicture: "https://www.topachat.com/boutique/img/in/in2000/in20009184/in2000918402@2x.jpg",
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -392,7 +392,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: false,
-                    solde: 50,
+                    discount: 50,
                     serialEnding: true
                 },
                 quantity: 10,
@@ -434,7 +434,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: false,
-                    solde: null,
+                    discount: null,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -476,7 +476,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -518,7 +518,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -560,7 +560,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -602,7 +602,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -644,7 +644,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
@@ -686,7 +686,7 @@ export var productByCategory =
                 ],
                 events: {
                     new: true,
-                    solde: 10,
+                    discount: 10,
                     serialEnding: false
                 },
                 quantity: 10,
