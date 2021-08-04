@@ -16,8 +16,8 @@ export default class SubCatDetail extends Component {
     }
 
     displayReductPrice(item) {
-        if (item.events.solde !== null) {
-            let reduction = (item.price * item.events.solde) / 100;
+        if (item.events.discount !== null) {
+            let reduction = (item.price * item.events.discount) / 100;
             let realPrice = item.price - reduction;
             return (
                 <Fragment>
@@ -40,7 +40,7 @@ export default class SubCatDetail extends Component {
 
     displayBadgeProduct(events) {
         let newProduct = events.new;
-        let soldePercent = events.solde;
+        let soldePercent = events.discount;
         let serialEnding = events.serialEnding;
         let badgeNew;
         let badgeSolde;
