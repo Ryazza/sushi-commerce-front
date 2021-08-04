@@ -25,6 +25,7 @@ import AddSubCategoryPage from "../Views/Admin/SubCategory/addSubCategoryPage";
 import ModifySubCategoryPage from "../Views/Admin/SubCategory/modifySubCategoryPage";
 import ResearchProduct from "../Views/Products/products";
 import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategoriePage";
+import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -44,7 +45,7 @@ export default class MainRouter extends Component {
             redirection: false,
             research: ""
         }
-        console.log("main router", this.state.route)
+        console.log(this.state.route)
     }
 
     getDataFromSearchBar = (data) => {
@@ -72,12 +73,12 @@ export default class MainRouter extends Component {
                     <Navbar parentCallback={this.getDataFromSearchBar}/>
                 }
                 <Switch>
+                    <Route path="/" component={HomePage}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/account" component={UserAccount}/>
                     <Route path="/produit/idProduit" component={ProductDetail}/>
                     <Route path="/subCategory/idsubCategory" component={ProductDetail}/>
-                    <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
 
                     {/* admin category */}

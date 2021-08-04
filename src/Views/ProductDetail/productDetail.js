@@ -4,8 +4,6 @@ import {Link} from "react-router-dom";
 import {oneProduct} from "../../Environment/object";
 import './productDetail.css'
 import {ImageGroup, Image} from 'react-fullscreen-image'
-import Navbar from "../../Components/Navigation/Navbar/navbar";
-
 
 export default class ChangeProduct extends Component {
 
