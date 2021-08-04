@@ -2,8 +2,6 @@ import React from "react";
 import {Component, Fragment} from "react";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
-import Tooltip from "@material-ui/core/Tooltip";
-import {Link} from "react-router-dom";
 import "./productsInsub.css";
 
 export default class ProductsInSub extends Component {

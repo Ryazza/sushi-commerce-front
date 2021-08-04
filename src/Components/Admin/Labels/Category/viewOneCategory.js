@@ -33,8 +33,10 @@ export default class ViewOneCategory extends Component {
 
                         <div className={"row"}>
                             <div className={"col-12"}>
-                                <div>Image: {this.state.category.img}</div>
-                                <p>{this.state.category.description}</p>
+                                <div className={"d-flex justify-content-center mt-3"}>
+                                    <img src={this.state.category.img} alt={this.state.nameCategory}></img>
+                                </div>
+                                <p>Description: {this.state.category.description}</p>
 
                                 <table className={"table table-striped"}>
                                     <thead>
