@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './connexion.css';
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import logoBigBlack from '../../Assets/logo-big-white.png';
 import Flash from "../../Components/Flash/flash";
 

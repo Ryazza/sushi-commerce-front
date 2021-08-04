@@ -1,7 +1,7 @@
 import React from "react";
 import Select from 'react-select'
 import {Component, Fragment} from "react";
-import {Redirect, Switch} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
 import AuthService from "../../../../services/auth.service"
@@ -36,9 +36,7 @@ export default class ModifySubCategory extends Component {
         let arrCategory = [];
         axios.get(environement.backBase+"/category/all").then(response => {
             this.setState({allCategory: response.data.category})
-            this.state.allCategory.map(category => {
-                arrCategory.push({label: category.name, value: category._id})
-            })
+            this.state.allCategory.map(category => arrCategory.push({label: category.name, value: category._id}));
             this.setState({allCategory: arrCategory})
             let pos = this.state.allCategory.findIndex(obj => obj['value'] === this.state.categoryId);
             this.setState({ positionCategory: pos })

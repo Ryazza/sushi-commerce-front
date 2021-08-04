@@ -5,10 +5,6 @@ import ModifyCategory from "../../../Components/Admin/Labels/Category/modifyCate
 
 export default class ModifyCategoryPage extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <Fragment>

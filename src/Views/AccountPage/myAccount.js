@@ -4,8 +4,6 @@ import Adress from "../../Components/UserAccount/Adress/adress"
 import Ordered from "../../Components/UserAccount/Ordered/ordered"
 import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
-import {Redirect} from "react-router-dom";
-import Navbar from "../../Components/Navigation/Navbar/navbar";
 
 class MyAccount extends Component {
 

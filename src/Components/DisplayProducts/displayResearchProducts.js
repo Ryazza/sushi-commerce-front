@@ -1,28 +1,21 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import './displayProducts.css';
-import {Link} from "react-router-dom";
 
 export default class DisplayResearchProducts extends Component {
     constructor(props) {
         super(props);
         this.state = {
             products: null,
-
             research: this.props.research
         }
-
-        console.log("from props: ", this.props.research)
     }
 
     componentDidMount() {
-        //requete axios pour récupérer les données
         const url = "http://localhost:4244/product/search/" + this.state.research;
-
         const requestOptions = {
             method: 'GET',
             headers: {"Content-Type": 'application/json'},
-
         };
         fetch(url, requestOptions)
             .then(response => response.json())
@@ -32,14 +25,11 @@ export default class DisplayResearchProducts extends Component {
     }
 
     render() {
-        console.log(this.state.products)
         let toto = [];
-
-
         if (this.state.products) {
-            console.log("dans le if", this.state.products);
                         toto = this.state.products.map((product, index) => {
-                return (<div>
+                return (
+                    <div>
                         <p>nom : {product.name}</p>
                         <p>catégorie: {product.category}</p>
                         <p>prix : {product.price}</p>
@@ -47,7 +37,6 @@ export default class DisplayResearchProducts extends Component {
                         <hr/>
                     </div>
                 )
-
             })
         }
         return (

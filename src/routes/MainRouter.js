@@ -2,8 +2,6 @@ import React, {Component, Fragment} from 'react';
 import {Switch, Route, Redirect, BrowserRouter as Router} from "react-router-dom";
 import '../App.css';
 
-import Bus from "../Utils/Bus";
-
 import UserAccount from '../Views/AccountPage/myAccount'
 import Login from "../Views/LoginPage/connexion";
 import Register from "../Views/RegisterPage/register";
@@ -44,7 +42,6 @@ export default class MainRouter extends Component {
             redirection: false,
             research: ""
         }
-        console.log(this.state.route)
     }
 
     getDataFromSearchBar = (data) => {
@@ -53,7 +50,6 @@ export default class MainRouter extends Component {
             research: data,
             redirection: true
         })
-        // window.location.reload()
     }
 
     render() {

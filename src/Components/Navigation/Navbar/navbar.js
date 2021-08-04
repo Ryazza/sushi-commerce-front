@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Link, Redirect, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import logoBigWhite from "../../../Assets/logo-big-white.png"
 import menuImage from "../../../Assets/menu.png"
 import userImage from "../../../Assets/utilisateur.png"

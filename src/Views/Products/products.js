@@ -5,7 +5,6 @@ import DisplayResearchProducts from "../../Components/DisplayProducts/displayRes
 export default class Products extends Component {
     constructor(props) {
         super(props);
-        console.log("parametre url =", this.props.match.params.research)
         this.state= {
                     research : this.props.match.params.research
         }
