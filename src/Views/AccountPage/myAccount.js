@@ -4,6 +4,8 @@ import Adress from "../../Components/UserAccount/Adress/adress"
 import Ordered from "../../Components/UserAccount/Ordered/ordered"
 import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
+import {Link} from "react-router-dom";
+import AuthService from "../../services/auth.service"
 
 class MyAccount extends Component {
 
@@ -102,6 +104,11 @@ class MyAccount extends Component {
                                             Me déconnecter
                                         </button>
                                     </div>
+                                    { AuthService.isAdmin() ?
+                                        <div className="row justify-content-center myAccount_separatorMenu text-center pt-2 pb-2">
+                                            <Link to={"/admin/manageLabels"}><i className="fas fa-user-cog text--admin text-info"> Gestion du site</i></Link>
+                                        </div> : null
+                                    }
                                     <div className="row myAccount_separatorMenu" id="myAccount_btnMe">
                                         <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForMe}>Mes informations</button>
                                     </div>
