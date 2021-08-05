@@ -34,12 +34,7 @@ import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 // import OrdersView from "./Pioche/views/OrdersView/ordersView";
 
 export default class MainRouter extends Component {
-    state = {
-        route: null,
-        redirection: null,
-        research: "",
-        displayCart: null
-    }
+
     constructor(props) {
         super(props);
         const history = createBrowserHistory()
@@ -47,7 +42,6 @@ export default class MainRouter extends Component {
             route: history.location.pathname,
             redirection: false,
             research: "",
-            displayCart: false
         }
         this.getDataFromSearchBar=this.getDataFromSearchBar.bind(this)
     }
@@ -57,9 +51,7 @@ export default class MainRouter extends Component {
         this.setState({
             research: data.research,
             redirection: true,
-            displayCart: data.displayCart
         })
-        console.log("display cart =",this.state.displayCart)
     }
 
     render() {
@@ -75,9 +67,6 @@ export default class MainRouter extends Component {
                 <Router>
                     {this.state.route === "/login" ? null : this.state.route === "/register" ? null :
                         <Navbar parentCallback={this.getDataFromSearchBar}/>
-                    }
-                    {this.state.displayCart === false ? null :
-                        <Cart/>
                     }
 
                     <Switch>

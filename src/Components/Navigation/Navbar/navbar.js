@@ -10,6 +10,7 @@ import Me from "../../UserAccount/Me/me";
 import Adress from "../../UserAccount/Adress/adress";
 import Ordered from "../../UserAccount/Ordered/ordered";
 import Panier from "../../UserAccount/Panier/panier";
+import Cart from "../Cart/cart";
 
 const Environement = require('../../../Environment/environment')
 const Env = Environement.environement
@@ -25,7 +26,7 @@ class Navbar extends Component {
             redirection: false,
             goTo: null,
             category: null,
-            displayCart : null
+            displayCart : false
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
@@ -51,13 +52,7 @@ class Navbar extends Component {
                 displayCart : this.state.displayCart
             });
     }
-    sendCart = ()=>{
-        console.log("navbar", this.state.displayCart)
-        this.props.parentCallback(
-            {
-                displayCart : this.state.displayCart
-            });
-    }
+
 
     handleChangeSearchBar(event) {
         this.setState({
@@ -78,11 +73,14 @@ class Navbar extends Component {
         this.setState({goTo: "/login"})
     }
     displayCart() {
-        this.setState({displayCart: true})
+        if(this.state.displayCart !== true) {
+            this.setState({displayCart: true})
+        }else {
+            this.setState({displayCart: false})
+        }
 
         console.log("navbar onclick", this.state.displayCart)
 
-        this.sendCart();
     }
 
     render() {
@@ -187,6 +185,10 @@ class Navbar extends Component {
                 <div className="container-fluid global_bgColor--blueSky btn-group">
                     {itemMap}
                 </div>
+                {this.state.displayCart === false ? null :
+                    <Cart/>
+                }
+
             </Fragment>
         )
     }
