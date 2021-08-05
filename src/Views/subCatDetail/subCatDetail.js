@@ -3,17 +3,46 @@ import {productByCategory} from '../../Environment/object'
 import {Link} from "react-router-dom";
 import './subCatDetail.css'
 import MostSold from "../../Components/Product/mostSold";
+import axios from "axios";
+
+const Environement = require('../../Environment/environment')
+const Env = Environement.environement
 
 export default class SubCatDetail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null, id: this.props.match.params.id}
+        this.state = {items: null}
+        this.id = this.props.match.params.id
+        this.newId = null;
     }
 
     componentDidMount() {
-        this.setState({items: productByCategory})
+
+        this.id = this.props.match.params.id
+        axios.get(Env.backBase + '/subCategory/' + this.id + '/products')
+            .then(res => {
+                this.setState({items: res.data.products})
+            })
+            .catch(error =>
+                console.log(error)
+            );
     }
+
+    componentDidUpdate() {
+        this.newId = this.props.match.params.id
+        if (this.id !== this.newId) {
+            this.id = this.props.match.params.id
+            axios.get(Env.backBase + '/subCategory/' + this.id + '/products')
+                .then(res => {
+                    this.setState({items: res.data.products})
+                })
+                .catch(error =>
+                    console.log(error)
+                );
+        }
+    }
+
 
     displayReductPrice(item) {
         if (item.events.discount !== null) {
@@ -65,8 +94,9 @@ export default class SubCatDetail extends Component {
 
     render() {
         let itemsMap = []
+        console.log(this.state.items)
         if (this.state.items) {
-            itemsMap = this.state.items.items.map((item) => {
+            itemsMap = this.state.items.map((item) => {
                 return (
                     <Link className="subCatDetail_Link" to={"/produit/" + item._id} key={item._id}>
                         <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item">
@@ -101,7 +131,8 @@ export default class SubCatDetail extends Component {
                         </div>
                         <div className="row justify-content-center m-0">
                             <div className="col-12">
-                                <MostSold />
+
+                                <MostSold/>
                             </div>
                         </div>
                         <div className="col-2">
