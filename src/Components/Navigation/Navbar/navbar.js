@@ -12,8 +12,8 @@ import Ordered from "../../UserAccount/Ordered/ordered";
 import Panier from "../../UserAccount/Panier/panier";
 import Cart from "../Cart/cart";
 
-const Environement = require('../../../Environment/environment')
-const Env = Environement.environement
+const Environnement = require('../../../Environment/environment')
+const Env = Environnement.environement
 
 class Navbar extends Component {
 
@@ -26,13 +26,13 @@ class Navbar extends Component {
             redirection: false,
             goTo: null,
             category: null,
-            displayCart : false
+            displayCart : false,
+            showPopup: false
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.sendData = this.sendData.bind(this)
         this.goToLogin = this.goToLogin.bind(this)
-        this.displayCart = this.displayCart.bind(this)
     }
 
     componentDidMount() {
@@ -73,14 +73,14 @@ class Navbar extends Component {
         this.setState({goTo: "/login"})
     }
     displayCart() {
-        if(this.state.displayCart !== true) {
-            this.setState({displayCart: true})
-        }else {
-            this.setState({displayCart: false})
-        }
-
-        console.log("navbar onclick", this.state.displayCart)
-
+        this.setState({
+            displayCart: !this.state.displayCart
+        });
+    }
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
     }
 
     render() {
@@ -171,11 +171,11 @@ class Navbar extends Component {
                                       to="/panier">
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
-                                             alt=""  onClick={()=>this.displayCart()} />
+                                             alt=""  onClick={this.displayCart.bind(this)} />
                                         <span className="badge rounded-pill bg-danger align-top" >99+</span> <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
-                                    <span className="navBar_link--title"  onClick={this.displayCart}>Mon panier <span
+                                    <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
                                         className="badge rounded-pill bg-danger align-top">99+</span></span>
                                 </Link>
                             </div>
@@ -185,10 +185,21 @@ class Navbar extends Component {
                 <div className="container-fluid global_bgColor--blueSky btn-group">
                     {itemMap}
                 </div>
-                {this.state.displayCart === false ? null :
-                    <Cart/>
-                }
+                <button onClick={this.togglePopup.bind(this)}>show popup</button>
+                {this.state.showPopup ?
+                    <Cart
 
+                        closePopup={this.togglePopup.bind(this)}
+                    />
+                    : null
+                }
+                {this.state.displayCart ?
+                    <Cart
+
+                        closePopup={this.displayCart.bind(this)}
+                    />
+                    : null
+                }
             </Fragment>
         )
     }
