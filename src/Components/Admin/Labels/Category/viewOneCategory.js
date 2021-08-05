@@ -2,7 +2,7 @@ import React from "react";
 import {Component, Fragment} from "react";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
-import './viewAllCategory.css';
+import './viewOneCategory.css';
 import { Link } from "react-router-dom";
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -44,7 +44,7 @@ export default class ViewOneCategory extends Component {
                                         <th>#</th>
                                         <th>nom</th>
                                         <th>description</th>
-                                        <th>actions</th>
+                                        <th className={"actions--content"}>actions</th>
                                     </tr>
                                     </thead>
 
@@ -55,10 +55,10 @@ export default class ViewOneCategory extends Component {
 
                                             return [
                                                 <tr key={index}>
-                                                    <td>{index}</td>
-                                                    <td>{subCategory.name}</td>
+                                                    <td className={"align-middle"}>{index}</td>
+                                                    <td className={"align-middle text--name"}>{subCategory.name}</td>
                                                     <td>{subCategory.description}</td>
-                                                    <td>
+                                                    <td className={"align-middle"}>
                                                         <Tooltip title="Voir">
                                                             <Link className={"link--view"} to={"/admin/subCategory/"+subCategory._id}><i className="far fa-eye icon--view"></i></Link>
                                                         </Tooltip>
