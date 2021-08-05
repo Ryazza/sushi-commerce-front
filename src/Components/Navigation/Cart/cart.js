@@ -1,15 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
-import logoBigWhite from "../../../Assets/logo-big-white.png"
-import menuImage from "../../../Assets/menu.png"
-import userImage from "../../../Assets/utilisateur.png"
-import cartImage from "../../../Assets/panier.png"
 import './cart.css';
 import axios from "axios";
-import Me from "../../UserAccount/Me/me";
-import Adress from "../../UserAccount/Adress/adress";
-import Ordered from "../../UserAccount/Ordered/ordered";
-import Panier from "../../UserAccount/Panier/panier";
 
 const environnement = require('../../../Environment/environment')
 const Env = environnement.environement
@@ -19,7 +10,7 @@ class Cart extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            
         }
 
     }
@@ -35,13 +26,10 @@ class Cart extends Component {
     }
 
 
-
-
-
     render() {
         return (
             <Fragment>
-    <div id={"cart"}>hello Cart World !</div>
+                <div className="Popup">hello Cart World !</div>
 
             </Fragment>
         )

@@ -26,8 +26,7 @@ class Navbar extends Component {
             redirection: false,
             goTo: null,
             category: null,
-            displayCart : false,
-            showPopup: false
+            showCart: false
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
@@ -72,14 +71,10 @@ class Navbar extends Component {
         event.preventDefault();
         this.setState({goTo: "/login"})
     }
+
     displayCart() {
         this.setState({
-            displayCart: !this.state.displayCart
-        });
-    }
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
+            showCart: !this.state.showCart
         });
     }
 
@@ -167,8 +162,8 @@ class Navbar extends Component {
                                 })()}
                             </div>
                             <div className="nav-item pt-xl-0 pt-lg-2">
-                                <Link className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
-                                      to="/panier">
+                                <div className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
+                                    >
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
                                              alt=""  onClick={this.displayCart.bind(this)} />
@@ -177,7 +172,7 @@ class Navbar extends Component {
                                     </div>
                                     <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
                                         className="badge rounded-pill bg-danger align-top">99+</span></span>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -185,21 +180,13 @@ class Navbar extends Component {
                 <div className="container-fluid global_bgColor--blueSky btn-group">
                     {itemMap}
                 </div>
-                <button onClick={this.togglePopup.bind(this)}>show popup</button>
-                {this.state.showPopup ?
+                {this.state.showCart ?
                     <Cart
-
-                        closePopup={this.togglePopup.bind(this)}
-                    />
-                    : null
-                }
-                {this.state.displayCart ?
-                    <Cart
-
                         closePopup={this.displayCart.bind(this)}
                     />
                     : null
                 }
+
             </Fragment>
         )
     }
