@@ -79,7 +79,7 @@ class Navbar extends Component {
                         <ul className="dropdown-menu" aria-labelledby={item._id}>
                             {(() => item.subCategory.map((subItem, subIndex) => {
                                 return(
-                                    <li key={subIndex}><Link className="dropdown-item" to={"subCat/" + subItem._id}>{subItem.name}</Link></li>
+                                    <li key={subIndex}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
                                 )
                             })
                             )()}

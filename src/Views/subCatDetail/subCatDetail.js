@@ -8,7 +8,7 @@ export default class SubCatDetail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null}
+        this.state = {items: null, id: this.props.match.params.id}
     }
 
     componentDidMount() {
@@ -66,10 +66,10 @@ export default class SubCatDetail extends Component {
     render() {
         let itemsMap = []
         if (this.state.items) {
-            itemsMap = this.state.items.items.map((item, index) => {
+            itemsMap = this.state.items.items.map((item) => {
                 return (
-                    <Link className="subCatDetail_Link" to={"/produit/" + item._id}>
-                        <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item" key={index}>
+                    <Link className="subCatDetail_Link" to={"/produit/" + item._id} key={item._id}>
+                        <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item">
                             <div className="col-2">
                                 <img src={item.bigPicture} className="img-fluid" style={{"width": "70%"}} alt=""/>
                             </div>
