@@ -8,6 +8,7 @@ import Register from "../Views/RegisterPage/register";
 import HomePage from "../Views/HomePage/homepage";
 import ProductDetail from "../Views/ProductDetail/productDetail"
 import Navbar from "../Components/Navigation/Navbar/navbar";
+import Cart from "../Components/Navigation/Cart/cart";
 import {createBrowserHistory} from "history";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
@@ -33,23 +34,32 @@ import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 // import OrdersView from "./Pioche/views/OrdersView/ordersView";
 
 export default class MainRouter extends Component {
-
+    state = {
+        route: null,
+        redirection: null,
+        research: "",
+        displayCart: null
+    }
     constructor(props) {
         super(props);
         const history = createBrowserHistory()
         this.state = {
             route: history.location.pathname,
             redirection: false,
-            research: ""
+            research: "",
+            displayCart: false
         }
+        this.getDataFromSearchBar=this.getDataFromSearchBar.bind(this)
     }
 
     getDataFromSearchBar = (data) => {
-        console.log(data)
+        console.log("data from nav bar = ",data)
         this.setState({
-            research: data,
-            redirection: true
+            research: data.research,
+            redirection: true,
+            displayCart: data.displayCart
         })
+        console.log("display cart =",this.state.displayCart)
     }
 
     render() {
@@ -66,6 +76,10 @@ export default class MainRouter extends Component {
                     {this.state.route === "/login" ? null : this.state.route === "/register" ? null :
                         <Navbar parentCallback={this.getDataFromSearchBar}/>
                     }
+                    {this.state.displayCart === false ? null :
+                        <Cart/>
+                    }
+
                     <Switch>
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>

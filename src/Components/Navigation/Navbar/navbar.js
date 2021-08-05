@@ -24,12 +24,14 @@ class Navbar extends Component {
             searchDesc: "",
             redirection: false,
             goTo: null,
-            category: null
+            category: null,
+            displayCart : null
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.sendData = this.sendData.bind(this)
         this.goToLogin = this.goToLogin.bind(this)
+        this.displayCart = this.displayCart.bind(this)
     }
 
     componentDidMount() {
@@ -43,7 +45,18 @@ class Navbar extends Component {
     }
 
     sendData = () => {
-        this.props.parentCallback('/products/productsFromResearch/' + this.state.searchName);
+        this.props.parentCallback(
+            {
+            research : '/products/productsFromResearch/' +this.state.searchName,
+                displayCart : this.state.displayCart
+            });
+    }
+    sendCart = ()=>{
+        console.log("navbar", this.state.displayCart)
+        this.props.parentCallback(
+            {
+                displayCart : this.state.displayCart
+            });
     }
 
     handleChangeSearchBar(event) {
@@ -64,8 +77,16 @@ class Navbar extends Component {
         event.preventDefault();
         this.setState({goTo: "/login"})
     }
+    displayCart() {
+        this.setState({displayCart: true})
+
+        console.log("navbar onclick", this.state.displayCart)
+
+        this.sendCart();
+    }
 
     render() {
+        console.log("dans le render",this.state.displayCart)
         let connected = localStorage.getItem('letShopToken');
         let itemMap = []
         if (this.state.goTo === "/login") {
@@ -152,11 +173,11 @@ class Navbar extends Component {
                                       to="/panier">
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
-                                             alt=""/>
-                                        <span className="badge rounded-pill bg-danger align-top">99+</span> <br/>
+                                             alt=""  onClick={()=>this.displayCart()} />
+                                        <span className="badge rounded-pill bg-danger align-top" >99+</span> <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
-                                    <span className="navBar_link--title">Mon panier <span
+                                    <span className="navBar_link--title"  onClick={this.displayCart}>Mon panier <span
                                         className="badge rounded-pill bg-danger align-top">99+</span></span>
                                 </Link>
                             </div>
