@@ -6,10 +6,6 @@ import userImage from "../../../Assets/utilisateur.png"
 import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
 import axios from "axios";
-import Me from "../../UserAccount/Me/me";
-import Adress from "../../UserAccount/Adress/adress";
-import Ordered from "../../UserAccount/Ordered/ordered";
-import Panier from "../../UserAccount/Panier/panier";
 
 const Environement = require('../../../Environment/environment')
 const Env = Environement.environement
@@ -72,14 +68,14 @@ class Navbar extends Component {
             window.location.href = "/login"
         }
         if (this.state.category) {
-            itemMap = this.state.category.map((item, index) => {
+            itemMap = this.state.category.map((item) => {
                 return (
-                    <div className="dropdown">
-                        <button key={index} className="btn btn-default" id={item._id} data-bs-toggle="dropdown" aria-expanded="false">{item.name}</button>
+                    <div className="dropdown" key={item._id} >
+                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown" aria-expanded="false">{item.name}</button>
                         <ul className="dropdown-menu" aria-labelledby={item._id}>
-                            {(() => item.subCategory.map((subItem, subIndex) => {
+                            {(() => item.subCategory.map((subItem) => {
                                 return(
-                                    <li key={subIndex}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
+                                    <li key={subItem._id}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
                                 )
                             })
                             )()}
