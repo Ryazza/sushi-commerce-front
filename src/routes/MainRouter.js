@@ -70,7 +70,7 @@ export default class MainRouter extends Component {
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/account" component={UserAccount}/>
-                        <Route path="/produit/idProduit" component={ProductDetail}/>
+                        <Route path="/produit/:id" component={ProductDetail}/>
                         <Route path="/subCat/:id" component={SubCatDetail}/>
                         <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
