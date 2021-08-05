@@ -1,6 +1,11 @@
 .myAccount_leftMenu {
     border-radius: 10px;
 }
+
+.text--admin {
+    font-size: 17px;
+}
+
 .myAccount_me {
     font-size: 22px;
 }

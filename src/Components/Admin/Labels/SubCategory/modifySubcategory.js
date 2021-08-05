@@ -141,7 +141,7 @@ export default class ModifySubCategory extends Component {
                                             <label htmlFor="description" className="form-label">description:</label>
                                             <textarea id="description" name="description" value={this.state.description}
                                                       onChange={this.descriptionChange} className={'form-control'}
-                                                      rows={2}
+                                                      rows={4}
                                                       cols={3}
                                             />
                                             {this.state.descriptionError.length > 0 ?
