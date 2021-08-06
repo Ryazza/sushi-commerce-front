@@ -12,6 +12,8 @@ import {createBrowserHistory} from "history";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
 
+import AddProductPage from "../Views/Admin/products/addProductPage";
+
 import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
 import AddCategoryPage from "../Views/Admin/Category/addCategoryPage";
 import ViewOneCategoryPage from "../Views/Admin/Category/viewOneCategoryPage";
@@ -74,6 +76,10 @@ export default class MainRouter extends Component {
                         <Route path="/subCat/:id" component={SubCatDetail}/>
                         <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
+                        {/* admin Products */}
+                        <PrivateRoute exact path={"/admin/newProduct"} component={AddProductPage}/>
+                        {/* end admin Products */}
+
                         {/* admin category */}
                         <PrivateRoute exact path={"/admin/manageLabels"} component={ViewCategoryPage}/>
                         <PrivateRoute exact path={"/admin/addCategory"} component={AddCategoryPage}/>
@@ -81,6 +87,7 @@ export default class MainRouter extends Component {
                         <PrivateRoute exact path={"/admin/modifyCategory/:id"} component={ModifyCategoryPage}/>
                         <PrivateRoute exact path={"/admin/category/delete/:id"} component={DeleteCategoryPage}/>
                         {/* end admin category */}
+
                         {/* admin SubCategory */}
                         <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>
                         <PrivateRoute exact path={"/admin/addSubCategory/:id"} component={AddSubCategoryPage}/>
