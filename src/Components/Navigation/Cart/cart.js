@@ -12,6 +12,7 @@ class Cart extends Component {
         this.state = {
             myCart: []
         }
+        this.changeQuantity=this.changeQuantity.bind(this)
 
     }
 
@@ -37,6 +38,37 @@ class Cart extends Component {
             );
     }
 
+    saveCart() {
+        let forSave = JSON.stringify(this.state.myCart);
+        localStorage.setItem("cart", forSave)
+    }
+
+    changeQuantity(e,id) {
+        let product = this.state.myCart.find(el => el.id === id)
+        let cart = this.state.myCart;
+        cart.forEach((element) => {
+            if (element === product) {
+                element.qty = e.target.value
+            }
+        })
+        console.log("value = ", this.state.value)
+        console.log("cart = ", this.state.myCart)
+        this.setState({myCart: cart})
+        this.saveCart();
+    }
+
+    deleteProduct(e, id) {
+        e.preventDefault();
+        let cart = this.state.myCart;
+        const ids = cart.map(el => el.id);
+        let index = ids.indexOf(id)
+        // let product = cart.find(el => el.id === id)
+        cart.splice(index, 1)
+        this.setState({myCart: cart})
+        this.saveCart();
+
+    }
+
     render() {
         let cart = [];
 
@@ -47,9 +79,13 @@ class Cart extends Component {
                         {JSON.stringify(product)}
                         <tr>nom : {product.name}</tr>
                         <tr>prix : {product.price}</tr>
-                        <tr>stock :
-                            <input className="saison-score pastille" type="number" min="0"
+                        <tr>quantité :
+                            <input onChange={(e) => this.changeQuantity(e,product.id)}
+                                   className="saison-score pastille" type="number" min="1"
                                    max="100" placeholder={product.qty} size="2"/>
+                        </tr>
+                        <tr>
+                            <button onClick={(e) => this.deleteProduct(e, product.id)}>suppr</button>
                         </tr>
 
 
