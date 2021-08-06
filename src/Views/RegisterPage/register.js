@@ -3,6 +3,9 @@ import {Link, Redirect} from "react-router-dom";
 import './register.css';
 import logoBigBlack from "../../Assets/logo-big-white.png";
 
+const Environement = require('../../Environment/environment')
+const Env = Environement.environement
+
 class Register extends Component {
 
     constructor(props) {
@@ -109,7 +112,7 @@ class Register extends Component {
         event.preventDefault();
         let valid = this.validateForm();
         if (valid === true) {
-            let url = "http://localhost:4244/user/";
+            let url = Env.backBase + "/user";
             let option = {
                 method: "POST",
                 headers: {"Content-Type": 'application/json'},
