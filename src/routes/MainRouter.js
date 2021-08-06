@@ -12,6 +12,7 @@ import {createBrowserHistory} from "history";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
 
+import ViewProductsPage from "../Views/Admin/products/viewProductsPage";
 import AddProductPage from "../Views/Admin/products/addProductPage";
 
 import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
@@ -77,6 +78,7 @@ export default class MainRouter extends Component {
                         <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
                         {/* admin Products */}
+                        <PrivateRoute exact path={"/admin/viewProducts"} component={ViewProductsPage}/>
                         <PrivateRoute exact path={"/admin/newProduct"} component={AddProductPage}/>
                         {/* end admin Products */}
 
