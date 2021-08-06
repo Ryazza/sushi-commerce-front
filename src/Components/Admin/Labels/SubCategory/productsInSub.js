@@ -21,8 +21,34 @@ export default class ProductsInSub extends Component {
         }
         axios.get(environement.backBase+"/subCategory/admin/"+this.state.subCategoryId+"/products", { headers: headers}).then(response => {
             this.setState({products: response.data.products})
-            console.log(response.data.products)
         })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if(prevState.subCategoryId !== this.props.subCategoryId) {
+            this.setState({subCategoryId: this.props.subCategoryId});
+        }
+
+        if(prevState.subName !== this.props.subName) {
+            this.setState({subName: this.props.subName});
+        }
+
+        if(prevState.subCategoryId !== this.state.subCategoryId) {
+            this.setState({subCategoryId: this.props.subCategoryId});
+            const headers = {
+                'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
+            }
+            axios.get(environement.backBase+"/subCategory/admin/"+this.state.subCategoryId+"/products", { headers: headers}).then(response => {
+                if(response.data.success === false) {
+                    this.setState({products: []})
+                } else {
+                    this.setState({products: response.data.products})
+                }
+            }).catch(error => {
+                console.log(error.response)
+            })
+        }
     }
 
     render() {
@@ -89,7 +115,7 @@ export default class ProductsInSub extends Component {
                                 </div>
                                 :
                                 <div>
-                                    <p className={"text-center mt-5"}>Vous n'avez pas encore de produits dans cette catégorie !</p>
+                                    <p className={"text-center mt-5"}>Vous n'avez pas encore de produits la catégorie {this.state.subName} !</p>
                                 </div>
                             }
                         </div>
