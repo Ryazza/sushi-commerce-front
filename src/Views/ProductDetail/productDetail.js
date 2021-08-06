@@ -47,14 +47,15 @@ export default class ChangeProduct extends Component {
         let productToCart = {
             name: this.state.product.name,
             id : this.state.product._id,
-            price: this.state.product.price
+            price: this.state.product.price,
+            qty : 1
         }
-        myCart.push(productToCart)
-        console.log("mon cart", myCart)
+        const ids = myCart.map(el => el.id);
+        if(!ids.includes(productToCart.id)){
+            myCart.push(productToCart)
+        }
+        // console.log("mon cart", myCart)
         localStorage.setItem('cart', JSON.stringify(myCart));
-        // console.log('yolo', this.state.product)
-        // let object =localStorage.getItem('cart')
-        // console.log("localstorage",object)
 
     }
 
