@@ -18,7 +18,7 @@ export default class OrderPaid extends Component{
                         <form className="input-group orderPaid_search rounded">
                             <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <span className="input-group-text border-0" id="search-addon">
-                                <button className="fas fa-search orderPaid_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
+                                <button className="fas fa-search orderPaid_search_btn"><FontAwesomeIcon icon={faSearch}/></button>
                             </span>
                         </form>
                         <div className="Admin_orderPaid_container">
