@@ -6,6 +6,7 @@ import userImage from "../../../Assets/utilisateur.png"
 import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
 import axios from "axios";
+import Cart from "../Cart/cart"
 
 const Environnement = require('../../../Environment/environment')
 const Env = Environnement.environement

@@ -10,12 +10,14 @@ const Env = Environement.environement
 
 export default class ChangeProduct extends Component {
 
+
     constructor(props) {
         super(props);
         this.state = {product: null, reductedPrice: null, checked: true, descCat: null}
         this.displayInStock = this.displayInStock.bind(this)
         this.displayReductPrice = this.displayReductPrice.bind(this)
         this.displayCommandButton = this.displayCommandButton.bind(this)
+        this.sendToCart = this.sendToCart.bind(this)
         this.id = this.props.match.params.id
     }
 
@@ -30,6 +32,30 @@ export default class ChangeProduct extends Component {
             let realPrice = this.state.product.price - reduction;
             this.setState({reductedPrice: realPrice.toFixed(2)})
         }
+    }
+    sendToCart(e){
+        e.preventDefault();
+        // localStorage.removeItem('cart');
+        const cart = localStorage.getItem("cart");
+        let myCart;
+        if (!cart) {
+            myCart = [];
+        } else {
+            myCart = JSON.parse(cart);
+        }
+
+        let productToCart = {
+            name: this.state.product.name,
+            id : this.state.product._id,
+            price: this.state.product.price
+        }
+        myCart.push(productToCart)
+        console.log("mon cart", myCart)
+        localStorage.setItem('cart', JSON.stringify(myCart));
+        // console.log('yolo', this.state.product)
+        // let object =localStorage.getItem('cart')
+        // console.log("localstorage",object)
+
     }
 
     getThisProduct() {
@@ -91,7 +117,9 @@ export default class ChangeProduct extends Component {
         if (this.state.product) {
             if (this.state.product.available) {
                 return (
-                    <button className="col-6 mt-3 mb-4 btn btn-success btn-lg">Commander</button>
+                    <button
+                        onClick={this.sendToCart}
+                        className="col-6 mt-3 mb-4 btn btn-success btn-lg">Ajouter au Chariot</button>
                 )
             } else {
                 return (
