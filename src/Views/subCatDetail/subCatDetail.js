@@ -1,18 +1,54 @@
 import React, {Component, Fragment} from 'react';
-import {productByCategory} from '../../Environment/object'
 import {Link} from "react-router-dom";
 import './subCatDetail.css'
 import MostSold from "../../Components/Product/mostSold";
+import axios from "axios";
+
+const Environement = require('../../Environment/environment')
+const Env = Environement.environement
 
 export default class SubCatDetail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null}
+        this.state = {items: null, descCat: null}
+        this.id = this.props.match.params.id
+        this.newId = null;
     }
 
     componentDidMount() {
-        this.setState({items: productByCategory})
+        this.getAllProduct()
+        this.getThisCat()
+    }
+
+    componentDidUpdate() {
+        this.newId = this.props.match.params.id
+        if (this.id !== this.newId) {
+            this.getAllProduct()
+            this.getThisCat()
+        }
+    }
+
+    getAllProduct() {
+        this.id = this.props.match.params.id
+
+        axios.get(Env.backBase + '/subCategory/' + this.id + '/products')
+            .then(res => {
+                this.setState({items: res.data.products})
+            })
+            .catch(error =>
+                console.log(error)
+            );
+    }
+
+    getThisCat() {
+        axios.get(Env.backBase + '/subCategory/' + this.id)
+            .then(res => {
+                this.setState({descCat: res.data.subCategory})
+            })
+            .catch(error =>
+                console.log(error)
+            );
     }
 
     displayReductPrice(item) {
@@ -22,8 +58,8 @@ export default class SubCatDetail extends Component {
             return (
                 <Fragment>
                     <div className="row text-center text-danger">
-                        <div><strike>{item.price} €</strike></div>
-                        <span className="h2">{realPrice} €</span>
+                        <div><strike>{item.price.toFixed(2)} €</strike></div>
+                        <span className="h2">{realPrice.toFixed(2)} €</span>
                     </div>
                 </Fragment>
             )
@@ -31,7 +67,7 @@ export default class SubCatDetail extends Component {
             return (
                 <Fragment>
                     <div className="row text-center text-danger">
-                        <span className="h2">{item.price} €</span>
+                        <span className="h2">{item.price.toFixed(2)} €</span>
                     </div>
                 </Fragment>
             )
@@ -64,12 +100,14 @@ export default class SubCatDetail extends Component {
     }
 
     render() {
-        let itemsMap = []
+        let itemsMap = [];
+        let subCat = "";
+        let Cat = "";
         if (this.state.items) {
-            itemsMap = this.state.items.items.map((item, index) => {
+            itemsMap = this.state.items.map((item) => {
                 return (
-                    <Link className="subCatDetail_Link" to={"/produit/" + item._id}>
-                        <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item" key={index}>
+                    <Link className="subCatDetail_Link" to={"/produit/" + item._id} key={item._id}>
+                        <div className="row bg-white m-2 mt-3 p-2 rounded-3 subCatDetail_item">
                             <div className="col-2">
                                 <img src={item.bigPicture} className="img-fluid" style={{"width": "70%"}} alt=""/>
                             </div>
@@ -86,6 +124,12 @@ export default class SubCatDetail extends Component {
                 )
             })
         }
+        if(this.state.descCat) {
+            subCat = this.state.descCat
+            if(this.state.descCat.category) {
+                Cat = this.state.descCat.category
+            }
+        }
         return (
             <Fragment>
                 <div className="container-fluid p-4">
@@ -94,14 +138,19 @@ export default class SubCatDetail extends Component {
                             <div aria-label="breadcrumb">
                                 <ol className="breadcrumb m-0">
                                     <li className="breadcrumb-item"><Link className="subCatDetail_LinkBreadcrumb" to="/">Let's shop</Link></li>
-                                    <li className="breadcrumb-item"><Link className="subCatDetail_LinkBreadcrumb" to="/">test</Link></li>
-                                    <li className="breadcrumb-item active" aria-current="page">test</li>
+                                    <li className="breadcrumb-item">{Cat.name}</li>
+                                    <li className="breadcrumb-item active" aria-current="page">{subCat.name}</li>
                                 </ol>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center pt-2 pb-2">
+                            <div className="col-12">
+                                {subCat.description}
                             </div>
                         </div>
                         <div className="row justify-content-center m-0">
                             <div className="col-12">
-                                <MostSold />
+                                <MostSold data={{name: subCat.name}}/>
                             </div>
                         </div>
                         <div className="col-2">

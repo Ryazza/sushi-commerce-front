@@ -7,11 +7,22 @@ export default class MostSold extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null}
+        this.state = {items: null, name: ""}
+        this.name = this.props.data.name
     }
 
     componentDidMount() {
+        this.name = this.props.data.name
+        this.setState({name: this.name})
         this.setState({items: mostSold})
+    }
+
+    componentDidUpdate() {
+        this.newName = this.props.data.name
+        if (this.name !== this.newName) {
+            this.name = this.props.data.name
+            this.setState({name: this.name})
+        }
     }
 
     displayBadgeProduct(events) {
@@ -52,7 +63,7 @@ export default class MostSold extends Component {
                             {this.displayBadgeProduct(item.events)}
                             <img src={item.bigPicture} className="img-fluid" style={{"width": "80%"}} alt={item.name}/>
                             <div>{item.name}</div>
-                            <div className="text-center text-danger h5">{this.displayPrice(item)} €</div>
+                            <div className="text-center text-danger h5">{this.displayPrice(item).toFixed(2)} €</div>
                         </div>
                     </Link>
                 )
@@ -61,6 +72,7 @@ export default class MostSold extends Component {
         return (
             <Fragment>
                 <div className="row rounded-3 mt-1 mostSold_container">
+                    <div className="global_bgColor--orange rounded-1 text-light">Meilleur vente de {this.state.name}</div>
                     {itemsMap}
                 </div>
             </Fragment>
