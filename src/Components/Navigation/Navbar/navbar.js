@@ -6,9 +6,10 @@ import userImage from "../../../Assets/utilisateur.png"
 import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
 import axios from "axios";
+import Cart from "../Cart/cart"
 
-const Environement = require('../../../Environment/environment')
-const Env = Environement.environement
+const Environnement = require('../../../Environment/environment')
+const Env = Environnement.environement
 
 class Navbar extends Component {
 
@@ -20,7 +21,8 @@ class Navbar extends Component {
             searchDesc: "",
             redirection: false,
             goTo: null,
-            category: null
+            category: null,
+            showCart: false
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
@@ -39,8 +41,13 @@ class Navbar extends Component {
     }
 
     sendData = () => {
-        this.props.parentCallback('/products/productsFromResearch/' + this.state.searchName);
+        this.props.parentCallback(
+            {
+            research : '/products/productsFromResearch/' +this.state.searchName,
+                displayCart : this.state.displayCart
+            });
     }
+
 
     handleChangeSearchBar(event) {
         this.setState({
@@ -61,7 +68,14 @@ class Navbar extends Component {
         this.setState({goTo: "/login"})
     }
 
+    displayCart() {
+        this.setState({
+            showCart: !this.state.showCart
+        });
+    }
+
     render() {
+        console.log("dans le render",this.state.displayCart)
         let connected = localStorage.getItem('letShopToken');
         let itemMap = []
         if (this.state.goTo === "/login") {
@@ -144,17 +158,17 @@ class Navbar extends Component {
                                 })()}
                             </div>
                             <div className="nav-item pt-xl-0 pt-lg-2">
-                                <Link className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
-                                      to="/panier">
+                                <div className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
+                                    >
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
-                                             alt=""/>
-                                        <span className="badge rounded-pill bg-danger align-top">99+</span> <br/>
+                                             alt=""  onClick={this.displayCart.bind(this)} />
+                                        <span className="badge rounded-pill bg-danger align-top" >99+</span> <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
-                                    <span className="navBar_link--title">Mon panier <span
+                                    <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
                                         className="badge rounded-pill bg-danger align-top">99+</span></span>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +176,13 @@ class Navbar extends Component {
                 <div className="container-fluid global_bgColor--blueSky btn-group">
                     {itemMap}
                 </div>
+                {this.state.showCart ?
+                    <Cart
+                        closePopup={this.displayCart.bind(this)}
+                    />
+                    : null
+                }
+
             </Fragment>
         )
     }
