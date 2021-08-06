@@ -110,7 +110,7 @@ export default class AddCategory extends Component {
                                         <div className="mt-3">
                                             <label htmlFor="description" className="form-label">description:</label>
                                             <textarea id="description" name="description" value={this.state.description} onChange={this.descriptionChange} className={'form-control'}
-                                                      rows={2}
+                                                      rows={4}
                                                       cols={3}
                                             />
                                             {this.state.descriptionError.length > 0 ? <ErrorFormLittle error={this.state.descriptionError}/> : null}

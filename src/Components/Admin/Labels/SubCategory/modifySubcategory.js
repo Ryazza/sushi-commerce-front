@@ -84,7 +84,7 @@ export default class ModifySubCategory extends Component {
         }
 
         if (canSend) {
-            axios.put(environement.backBase + "/underCategory/" + this.state.subCategoryId, {
+            axios.put(environement.backBase + "/subCategory/" + this.state.subCategoryId, {
                 category: this.state.selectedCategory.value,
                 name: this.state.name,
                 img: this.state.img,
@@ -141,7 +141,7 @@ export default class ModifySubCategory extends Component {
                                             <label htmlFor="description" className="form-label">description:</label>
                                             <textarea id="description" name="description" value={this.state.description}
                                                       onChange={this.descriptionChange} className={'form-control'}
-                                                      rows={2}
+                                                      rows={4}
                                                       cols={3}
                                             />
                                             {this.state.descriptionError.length > 0 ?

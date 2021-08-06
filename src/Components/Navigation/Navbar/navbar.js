@@ -5,6 +5,10 @@ import menuImage from "../../../Assets/menu.png"
 import userImage from "../../../Assets/utilisateur.png"
 import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
+import axios from "axios";
+
+const Environement = require('../../../Environment/environment')
+const Env = Environement.environement
 
 class Navbar extends Component {
 
@@ -15,7 +19,8 @@ class Navbar extends Component {
             searchCategory: "",
             searchDesc: "",
             redirection: false,
-            goTo: null
+            goTo: null,
+            category: null
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
@@ -23,10 +28,18 @@ class Navbar extends Component {
         this.goToLogin = this.goToLogin.bind(this)
     }
 
+    componentDidMount() {
+        axios.get(Env.backBase + '/category/all')
+            .then(res => {
+                this.setState({category: res.data.category})
+            })
+            .catch(error =>
+                console.log(error)
+            );
+    }
+
     sendData = () => {
-
         this.props.parentCallback('/products/productsFromResearch/' + this.state.searchName);
-
     }
 
     handleChangeSearchBar(event) {
@@ -39,22 +52,37 @@ class Navbar extends Component {
     handleSubmitSearch(event) {
         if (event.charCode === 13) {
             event.preventDefault();
-
             this.sendData();
-
         }
     }
 
-    goToLogin(event){
+    goToLogin(event) {
         event.preventDefault();
-         this.setState({goTo: "/login"})
+        this.setState({goTo: "/login"})
     }
 
     render() {
-
         let connected = localStorage.getItem('letShopToken');
-        if(this.state.goTo === "/login") {
+        let itemMap = []
+        if (this.state.goTo === "/login") {
             window.location.href = "/login"
+        }
+        if (this.state.category) {
+            itemMap = this.state.category.map((item) => {
+                return (
+                    <div className="dropdown" key={item._id} >
+                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown" aria-expanded="false">{item.name}</button>
+                        <ul className="dropdown-menu" aria-labelledby={item._id}>
+                            {(() => item.subCategory.map((subItem) => {
+                                return(
+                                    <li key={subItem._id}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
+                                )
+                            })
+                            )()}
+                        </ul>
+                    </div>
+                )
+            })
         }
         return (
             <Fragment>
@@ -92,7 +120,7 @@ class Navbar extends Component {
                                             <button
                                                 className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
                                                 onClick={this.goToLogin}
-                                                >
+                                            >
                                                 <div className="navBar_link--image">
                                                     <img src={process.env.PUBLIC_URL + userImage}
                                                          className="navBar_Image--size" alt=""/> <br/>
@@ -131,7 +159,8 @@ class Navbar extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="container-fluid global_bgColor--blueSky sousNavTemporaire">
+                <div className="container-fluid global_bgColor--blueSky btn-group">
+                    {itemMap}
                 </div>
             </Fragment>
         )

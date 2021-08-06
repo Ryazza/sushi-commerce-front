@@ -7,6 +7,7 @@ import ProductsInSub from "./productsInSub";
 export default class ViewOneSubCategory extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.subCategoryId)
         this.state={
             subCategoryId: this.props.subCategoryId,
             subCategory: {},
@@ -15,7 +16,7 @@ export default class ViewOneSubCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get(environement.backBase+"/underCategory/"+this.state.subCategoryId).then(response => {
+        axios.get(environement.backBase+"/subCategory/"+this.state.subCategoryId).then(response => {
             this.setState({subCategory: response.data.subCategory})
         })
     }
