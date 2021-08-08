@@ -24,7 +24,6 @@ export default class GetStockOut extends Component {
         })
 
     }
-<<<<<<< HEAD
     //
     // handleSubmit = (event) => {
     //     event.preventDefault();
@@ -57,8 +56,6 @@ export default class GetStockOut extends Component {
     //     }
     //
     // }
-=======
->>>>>>> 41-ajouter-une-alertepopup-en-cas-de-rup
 
     render() {
         return (
@@ -71,19 +68,16 @@ export default class GetStockOut extends Component {
                                     <thead>
                                     <tr>
                                         <th>#</th>
-<<<<<<< HEAD
                                         {/*<td className={"hidden"}>id</td>*/}
                                         <th>nom</th>
                                         <th>statut</th>
                                         {/*<th>quantité</th>*/}
                                         {/*<th>actions</th>*/}
-=======
                                         <td className={"hidden"}>id</td>
                                         <th>nom</th>
                                         <th>statut</th>
                                         <th>quantité</th>
                                         <th>actions</th>
->>>>>>> 41-ajouter-une-alertepopup-en-cas-de-rup
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -92,19 +86,17 @@ export default class GetStockOut extends Component {
                                             return [
                                                 <tr key={index}>
                                                     <td>{index}</td>
-<<<<<<< HEAD
                                                     {/*<td className={"hidden"} id={'productsOut__productId'}> {products._id}</td>*/}
                                                     <td>{products.name}</td>
                                                     <td><i className={"productsOut__rupture"}>Rupture Stock</i></td>
                                                     {/*<td><input type={'number'} placeholder={'indiquer une quantité'} id={"productsOut__quantity"} min={1}/></td>*/}
                                                    {/*<td><input type={"button"} value={'commander'} className={"productsOut__order"+products._id} onClick={this.handleSubmit}/></td>*/}
-=======
+
                                                     <td className={"hidden"}> {products._id}</td>
                                                     <td>{products.name}</td>
                                                     <td><i className={"productsOut__rupture"}>Rupture Stock</i></td>
                                                     <td><input type={'text'} placeholder={'indiquer une quantité'}/></td>
                                                     <td><input type={"button"} value={'commander'}/></td>
->>>>>>> 41-ajouter-une-alertepopup-en-cas-de-rup
                                                 </tr>
                                             ]
                                         }
