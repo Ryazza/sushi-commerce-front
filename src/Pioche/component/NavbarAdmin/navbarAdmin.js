@@ -6,6 +6,7 @@ import articleIcone from "../../../Assets/article.png"
 import labelIcone from "../../../Assets/label.png"
 import orderIcone from "../../../Assets/shopping-bag.png"
 import userIcone from "../../../Assets/user.png";
+import GetStockOut from "../../../Components/Admin/GetStockOut/getStockOut";
 
 export default class NavbarAdmin extends Component{
     render() {
@@ -20,6 +21,7 @@ export default class NavbarAdmin extends Component{
                             <Link className="NavBarAdmin_navLink NavBarAdmin_navLink--whitesmoke global_bgColor--whiteSmoke" to="/admin/ordersView"><img src={process.env.PUBLIC_URL + orderIcone} className="AdminNavbar_link_img" alt=""/></Link>
                         </ul>
                     </nav>
+                    <GetStockOut/>
                 </div>
             </Fragment>
         )
