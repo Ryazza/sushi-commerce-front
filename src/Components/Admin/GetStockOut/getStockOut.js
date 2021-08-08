@@ -73,11 +73,6 @@ export default class GetStockOut extends Component {
                                         <th>statut</th>
                                         {/*<th>quantité</th>*/}
                                         {/*<th>actions</th>*/}
-                                        <td className={"hidden"}>id</td>
-                                        <th>nom</th>
-                                        <th>statut</th>
-                                        <th>quantité</th>
-                                        <th>actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -91,12 +86,6 @@ export default class GetStockOut extends Component {
                                                     <td><i className={"productsOut__rupture"}>Rupture Stock</i></td>
                                                     {/*<td><input type={'number'} placeholder={'indiquer une quantité'} id={"productsOut__quantity"} min={1}/></td>*/}
                                                    {/*<td><input type={"button"} value={'commander'} className={"productsOut__order"+products._id} onClick={this.handleSubmit}/></td>*/}
-
-                                                    <td className={"hidden"}> {products._id}</td>
-                                                    <td>{products.name}</td>
-                                                    <td><i className={"productsOut__rupture"}>Rupture Stock</i></td>
-                                                    <td><input type={'text'} placeholder={'indiquer une quantité'}/></td>
-                                                    <td><input type={"button"} value={'commander'}/></td>
                                                 </tr>
                                             ]
                                         }
