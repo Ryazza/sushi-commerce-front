@@ -1,9 +1,9 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
 import NavbarProduct from "../../../Components/Admin/products/NavbarProduct/navbarProduct";
 import SeekbarCategories from "../../../Components/Admin/Utils/seekBarCategories/seekbarCategories";
 import ProductsInSub from "../../../Components/Admin/Labels/SubCategory/productsInSub";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 
 export default class ViewProductsPage extends Component {
 

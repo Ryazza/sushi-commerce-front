@@ -3,7 +3,7 @@ import {Component, Fragment} from "react";
 import './manageUsers.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 
 export default class ManageUsers extends Component {
 

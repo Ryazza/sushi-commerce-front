@@ -1,6 +1,6 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 import DeleteSubCategory from "../../../Components/Admin/Labels/SubCategory/deleteSubCategory";
 
 export default class DeleteSubCategoriePage extends Component {
