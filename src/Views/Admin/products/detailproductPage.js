@@ -1,8 +1,8 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
 import NavbarProduct from "../../../Components/Admin/products/NavbarProduct/navbarProduct";
 import DetailProduct from "../../../Components/Admin/products/detailProduct";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 
 export default class DetailProductPage extends Component {
 
