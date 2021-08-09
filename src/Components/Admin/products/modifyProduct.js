@@ -10,7 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ErrorForm from "../../error/ErrorForm";
 import {Redirect} from "react-router-dom";
 
-export default class NewProduct extends Component{
+export default class ModifyProduct extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -18,37 +18,38 @@ export default class NewProduct extends Component{
             redirection: false,
             iconNew: 'far fa-check-circle text-success icon--availableP',
             iconEndOfSeries: 'fas fa-times-circle text-danger icon--availableP',
-            iconAvailable: 'fas fa-times-circle text-danger icon--availableP',
+            iconAvailable: this.props.product.available? "far fa-check-circle text-success icon--availableP" :'fas fa-times-circle text-danger icon--availableP',
             saveCategory: [],
             allCategory: [],
             allSubCategory: [],
             currentSubCategory: [],
             subCategoryId: "",
-            name: "",
-            brand: "",
-            description: "",
-            bigPictures: "",
+            name: this.props.product.name,
+            brand: this.props.product.brand,
+            description: this.props.product.description,
+            bigPictures: this.props.product.bigPicture,
             pictureUrl: "",
-            pictures: [],
+            picturesChecked: [],
+            pictures: this.props.product.pictures,
             //events:
-            new: true,
-            discount: 0,
-            endOfSerie: false,
+            new: this.props.product.events.new,
+            discount: this.props.product.events.discount || 0,
+            endOfSerie: this.props.product.events.endOfSerie,
             //endEvents
-            quantity: 0,
-            available: false,
-            price: 0,
-            weight: 0,
-            colors: "",
+            quantity: this.props.product.quantity,
+            available: this.props.product.available,
+            price: this.props.product.price,
+            weight: this.props.product.weight || 0,
+            colors: this.props.product.color,
             positionCategory: 0,
             selectedCategory: {
-                value: "",
-                label: "",
+                value: this.props.product.subCategoryId.category._id,
+                label: this.props.product.subCategoryId.category.name,
             },
             positionSubCategory: 0,
             selectedSubCategory: {
-                value: "",
-                label: "",
+                value: this.props.product.subCategoryId._id,
+                label: this.props.product.subCategoryId.name,
             },
             categoryError: "",
             subCategoryError: "",
@@ -73,6 +74,13 @@ export default class NewProduct extends Component{
     componentDidMount() {
         let arrCategory = [];
         let arrSubCategory = [];
+
+        let arrCheckedPicture = [];
+        for (let i=0; i < this.state.pictures.length; i++) {
+            arrCheckedPicture.push({id: i, checked: true, url:this.state.pictures[i].url})
+        }
+        this.setState({picturesChecked: arrCheckedPicture});
+
         axios.get(environement.backBase+"/category/all").then(response => {
             this.setState({allCategory: response.data.category})
             this.setState({saveCategory: response.data.category})
@@ -81,15 +89,28 @@ export default class NewProduct extends Component{
 
             this.state.saveCategory.map(category => arrSubCategory.push({category: category.name, subCategory: category.subCategory}));
             this.setState({allSubCategory: arrSubCategory})
+            let posCategory = 0;
+            for(let i = 0; i <arrSubCategory.length; i++) {
+
+                if(arrSubCategory[i].category === this.props.product.subCategoryId.category.name) {
+                    posCategory = i;
+                    this.setState({positionCategory: i})
+                }
+            }
 
             arrCategory = [];
             let arrFirstSubCategory = [];
             if(this.state.allSubCategory.length > 0) {
-                arrCategory.push(this.state.allSubCategory[0].subCategory)
+                arrCategory.push(this.state.allSubCategory[posCategory].subCategory)
                 arrCategory.map(subCategory =>
-                subCategory.map(sub => arrFirstSubCategory.push({label: sub.name , value: sub._id})));
+                    subCategory.map(sub => arrFirstSubCategory.push({label: sub.name , value: sub._id})));
             }
             this.setState({ currentSubCategory: arrFirstSubCategory })
+            for(let i=0 ; i < arrFirstSubCategory.length; i++) {
+                if(arrFirstSubCategory[i].label === this.props.product.subCategoryId.name) {
+                    this.setState({ positionSubCategory: i });
+                }
+            }
 
         }).catch( error => {
             console.log(error)
@@ -116,7 +137,7 @@ export default class NewProduct extends Component{
             this.setState({ selectedCategory: value })
             this.setState({ selectedSubCategory: {}} )
             // setTimeout(() => {
-                this.setState({ currentSubCategory: arrSubCategory });
+            this.setState({ currentSubCategory: arrSubCategory });
             // }, 500);
         }
     }
@@ -136,11 +157,20 @@ export default class NewProduct extends Component{
     }
 
     handleAddPictures = () => {
-        if(this.state.pictureUrl.length > 0) {
-            let images = this.state.pictures;
-            images.push({url: this.state.pictureUrl})
+        if(this.state.pictureUrl.length > 1) {
+            let images = this.state.picturesChecked;
+            images.push({id: this.state.picturesChecked.length, checked: true, url: this.state.pictureUrl})
             this.setState({pictureUrl: ""});
-            this.setState({ picture: images });
+            this.setState({ picturesChecked: images });
+        }
+    }
+
+    handleChangePictures = (event) => {
+
+        if(this.state.picturesChecked.length > 0) {
+            let images = this.state.picturesChecked;
+            images[event.target.id].checked = event.target.checked;
+            this.setState({ picturesChecked: images });
         }
     }
 
@@ -176,7 +206,7 @@ export default class NewProduct extends Component{
         this.setState({ bigPictures: event.target.value })
     }
 
-    handleChangePictures = (event) => {
+    handleChangeUrlPictures = (event) => {
         this.setState({ pictureUrl: event.target.value })
     }
 
@@ -265,9 +295,22 @@ export default class NewProduct extends Component{
                 canSend = false;
             }
         }
+        let arrChecked = [];
+        if(this.state.picturesChecked.length > 0) {
+            for (let i =0; i < this.state.picturesChecked.length; i++) {
+
+                if(this.state.picturesChecked[i].checked === true) {
+                    arrChecked.push({url: this.state.picturesChecked[i].url});
+                }
+            }
+            this.setState({pictures: arrChecked})
+        } else {
+            this.setState({picturesError: "Vous devez avoir au moin une image"})
+            canSend = false;
+        }
 
         if(this.state.pictures.length < 1) {
-            this.setState({picturesError: "Vous devez rentrer au moin une image"})
+            this.setState({picturesError: "Vous devez avoir au moin une image"})
             canSend = false;
         }
 
@@ -280,7 +323,7 @@ export default class NewProduct extends Component{
             }
         }
         if(!urlOk) {
-            this.setState({ picturesError: "Votre image n°" + urlNbr + " n'est pas correcte" })
+            this.setState({ picturesError: "Votre image choisit n°" + urlNbr + " n'est pas correcte" })
             canSend = false;
         }
 
@@ -329,13 +372,14 @@ export default class NewProduct extends Component{
         }
 
         if(canSend) {
-            axios.post(environement.backBase+"/product/create", {
+
+            axios.put(environement.backBase+"/product/update/" + this.props.product._id, {
                 subCategoryId: this.state.selectedSubCategory.value,
                 name: this.state.name,
                 brand: this.state.brand,
                 color: this.state.colors,
                 bigPicture: this.state.bigPictures,
-                pictures: this.state.pictures,
+                pictures: arrChecked,
                 available: this.state.available,
                 events: {
                     new: this.state.new,
@@ -351,7 +395,10 @@ export default class NewProduct extends Component{
                 this.setState({ redirection: true });
             }).catch( error => {
                 console.log(error.response)
-                if( error.response ) {
+                if(!error.response.errors) {
+                    this.setState({ errorMsg: error.response.statusText });
+
+                } else {
                     this.setState({ errorMsg: error.response.data.errors.message });
                 }
             })
@@ -369,27 +416,35 @@ export default class NewProduct extends Component{
                 <div className={"container"}>
                     <div className={"row justify-content-center mt-5"}>
                         <div className={"col-6"}>
-                            <h2 className={"text-center mb-5"}>Ajouter un produit</h2>
+                            <h2 className={"text-center mb-5"}>Modifier un produit</h2>
                             <form className="box__product--color NewProduct_container global_bgColor--whiteSmoke container font_montserrat d-flex flex-column align-items-center pb-5 mb-5" onSubmit={this.handleSubmit}>
                                 <div className={"col-10"}>
                                     <div className="mt-5">
                                         <label htmlFor="category" className="form-label"><span className={"text-danger required"}>*</span> Catégorie:</label>
-                                        <Select
-                                            onChange={this.selectedChangeCat}
-                                            options={this.state.allCategory}
-                                            //defaultValue={this.state.allCategory[this.state.positionCategory]}
-                                        />
+                                        {this.state.allCategory && this.state.allCategory.length > 0?
+                                                <Select
+                                                    onChange={this.selectedChangeCat}
+                                                    options={this.state.allCategory}
+                                                    defaultValue={this.state.allCategory[this.state.positionCategory]}
+                                                />
+                                            : null
+                                        }
+
                                         { this.state.categoryError.length > 0 ?
                                             <ErrorFormLittle error={this.state.categoryError}/> : null
                                         }
                                     </div>
                                     <div className="mt-3">
                                         <label htmlFor="category" className="form-label"><span className={"text-danger required"}>*</span> Sous catégorie:</label>
-                                        <Select
-                                            onChange={this.selectedChangeSubCat}
-                                            options={this.state.currentSubCategory}
-                                            //defaultValue={this.state.currentSubCategory[this.state.positionSubCategory]}
-                                        />
+                                        { this.state.currentSubCategory && this.state.currentSubCategory.length > 0 ?
+                                            this.state.positionSubCategory ?
+                                                <Select
+                                                    onChange={this.selectedChangeSubCat}
+                                                    options={this.state.currentSubCategory}
+                                                    defaultValue={this.state.currentSubCategory[this.state.positionSubCategory]}
+                                                /> :null : null
+                                        }
+
                                         { this.state.subCategoryError.length > 0 ?
                                             <ErrorFormLittle error={this.state.subCategoryError}/> : null
                                         }
@@ -400,18 +455,18 @@ export default class NewProduct extends Component{
                                         {this.state.nameError.length > 0 ? <ErrorFormLittle error={this.state.nameError}/> : null}
                                     </div>
 
-                                        <div className={"d-lg-flex justify-content-between"}>
-                                            <div className="mt-3">
-                                                <label htmlFor="brand" className="form-label">Marque:</label>
-                                                <input type="text" id="brand" name="brand" value={this.state.brand} onChange={this.handleChangeBrand} className={'form-control'}/>
-                                                {this.state.brandError.length > 0 ? <ErrorFormLittle error={this.state.brandError}/> : null}
-                                            </div>
-                                            <div className="mt-3">
-                                                <label htmlFor="colors" className="form-label">Couleur:</label>
-                                                <input type="text" id="colors" name="colors" value={this.state.colors} onChange={this.handleChangeColors} className={'form-control'}/>
-                                                {this.state.colorsError.length > 0 ? <ErrorFormLittle error={this.state.colorsError}/> : null}
-                                            </div>
+                                    <div className={"d-lg-flex justify-content-between"}>
+                                        <div className="mt-3">
+                                            <label htmlFor="brand" className="form-label">Marque:</label>
+                                            <input type="text" id="brand" name="brand" value={this.state.brand} onChange={this.handleChangeBrand} className={'form-control'}/>
+                                            {this.state.brandError.length > 0 ? <ErrorFormLittle error={this.state.brandError}/> : null}
                                         </div>
+                                        <div className="mt-3">
+                                            <label htmlFor="colors" className="form-label">Couleur:</label>
+                                            <input type="text" id="colors" name="colors" value={this.state.colors} onChange={this.handleChangeColors} className={'form-control'}/>
+                                            {this.state.colorsError.length > 0 ? <ErrorFormLittle error={this.state.colorsError}/> : null}
+                                        </div>
+                                    </div>
 
                                     <div className="mt-3">
                                         <label htmlFor="bigPictures" className="form-label">Url de l'image principale:</label>
@@ -426,7 +481,7 @@ export default class NewProduct extends Component{
                                     <div className="mt-3">
                                         <label htmlFor="pictures" className="form-label"><span className={"text-danger required"}>*</span> Url des petites images:</label>
                                         <div className={"d-flex"}>
-                                            <input type="text" id="pictures" name="pictures" value={this.state.pictureUrl} onChange={this.handleChangePictures} className={'form-control'}/>
+                                            <input type="text" id="pictures" name="pictures" value={this.state.pictureUrl} onChange={this.handleChangeUrlPictures} className={'form-control'}/>
                                             <Tooltip title="Ajouter une image">
                                                 <i className="fas fa-plus-square text-success mt-2 add--pictures" onClick={this.handleAddPictures}/>
                                             </Tooltip>
@@ -434,10 +489,15 @@ export default class NewProduct extends Component{
 
                                         {this.state.picturesError.length > 0 ? <ErrorFormLittle error={this.state.picturesError}/> : null}
                                     </div>
-                                    { this.state.pictures && this.state.pictures.length > 0?
-                                        <div className={"d-flex justify-content-around"}>
-                                            { this.state.pictures.map((picture, index) => {
-                                                return <img className={"little--picture"} src={picture.url} key={index} alt={index}/>
+                                    { this.state.picturesChecked && this.state.picturesChecked.length > 0?
+                                        <div className={"row form-check d-flex"}>
+                                            { this.state.picturesChecked.map((picture, index) => {
+
+                                                return <div className={"col-4"} key={picture.id}>
+                                                            <input className={"form-check-input mt-5"} type={"checkbox"} value={picture.url} id={picture.id} defaultChecked={picture.checked} onChange={this.handleChangePictures}/>
+                                                            <img className={"little--picture"} src={picture.url} alt={picture.id}/>
+                                                        </div>
+
                                             }) }
                                         </div>:null
                                     }
@@ -455,9 +515,9 @@ export default class NewProduct extends Component{
                                             <div className="mt-3">
                                                 <label htmlFor="new" className="form-label d-flex justify-content-between">Nouveauté</label>
                                                 <div className={"text-center"}>
-                                                <Tooltip title="Modifier la Nouveauté">
-                                                    <i className={this.state.iconNew} onClick={this.handleChangeNew}/>
-                                                </Tooltip>
+                                                    <Tooltip title="Modifier la Nouveauté">
+                                                        <i className={this.state.iconNew} onClick={this.handleChangeNew}/>
+                                                    </Tooltip>
                                                 </div>
                                             </div>
                                             {/*<div className="mt-3">*/}
