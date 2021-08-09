@@ -16,6 +16,7 @@ import AdminPage from "../Views/Admin/adminPage";
 import ViewProductsPage from "../Views/Admin/products/viewProductsPage";
 import AddProductPage from "../Views/Admin/products/addProductPage";
 import DeleteProductPage from "../Views/Admin/products/deleteProductPage";
+import DetailProductPage from "../Views/Admin/products/detailproductPage";
 
 import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
 import AddCategoryPage from "../Views/Admin/Category/addCategoryPage";
@@ -85,6 +86,7 @@ export default class MainRouter extends Component {
                         <PrivateRoute exact path={"/admin/viewProducts"} component={ViewProductsPage}/>
                         <PrivateRoute exact path={"/admin/newProduct"} component={AddProductPage}/>
                         <PrivateRoute exact path={"/admin/product/delete/:id"} component={DeleteProductPage}/>
+                        <PrivateRoute exact path={"/admin/product/detail/:id"} component={DetailProductPage}/>
                         {/* end admin Products */}
 
                         {/* admin category */}

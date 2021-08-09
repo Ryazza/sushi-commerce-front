@@ -33,6 +33,7 @@ export default class DeleteProduct extends Component {
             this.setState({ redirection: true });
         }).catch( error => {
             if( error.response ) {
+                console.log(error.response.data)
                 this.setState({ errorMsg: error.response.data.message });
             }
         })

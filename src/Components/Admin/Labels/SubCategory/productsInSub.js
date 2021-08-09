@@ -98,10 +98,10 @@ export default class ProductsInSub extends Component {
                                                             }
                                                             <td>
                                                                 <Tooltip title="Voir">
-                                                                    <Link className={"link--view"} to={"/admin/product/"+product._id}><i className="far fa-eye icon--view"/></Link>
+                                                                    <Link className={"link--view"} to={{ pathname: "/admin/product/detail/"+product._id, state: { product: product, idCategory: this.state.categoryId}}}><i className="far fa-eye icon--view"/></Link>
                                                                 </Tooltip>
                                                                 <Tooltip title="Modifier">
-                                                                    <Link className={"link--modify"} to={{pathname:"/admin/product/modify/"+product._id, state: { product: product, idCategory: this.state.categoryId, name:this.state.nameCategory}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
+                                                                    <Link className={"link--modify"} to={{pathname:"/admin/product/modify/"+product._id, state: { product: product, idCategory: this.state.categoryId}}}><i className="fas fa-pencil-alt icon--modify"></i></Link>
                                                                 </Tooltip>
                                                                 <Tooltip title="Supprimer">
                                                                     <Link className={"link--delete"} to={{pathname:"/admin/product/delete/"+product._id , state: { product: product, category: this.state.category}}}><i className="fas fa-times icon--delete"></i></Link>
