@@ -7,7 +7,7 @@ import ProductsInSub from "./productsInSub";
 export default class ViewOneSubCategory extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.subCategoryId)
+        console.log(this.props)
         this.state={
             subCategoryId: this.props.subCategoryId,
             subCategory: {},
