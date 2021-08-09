@@ -6,7 +6,7 @@ import articleIcone from "../../../Assets/article.png"
 import labelIcone from "../../../Assets/label.png"
 import orderIcone from "../../../Assets/shopping-bag.png"
 import userIcone from "../../../Assets/user.png";
-import GetStockOut from "../../../Components/Admin/GetStockOut/getStockOut";
+import GetStockOut from "../GetStockOut/getStockOut";
 
 export default class NavbarAdmin extends Component{
     render() {

@@ -1,5 +1,5 @@
 import React, {Component,Fragment} from "react";
-import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 import OrderPaid from "../../component/Order/OrderPaid/orderPaid";
 import OrderShipped from "../../component/Order/OrderShipped/orderShipped";
 import OrderWaiting from "../../component/Order/OrderWaiting/orderWaiting";

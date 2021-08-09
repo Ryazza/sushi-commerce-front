@@ -27,6 +27,7 @@ import ModifySubCategoryPage from "../Views/Admin/SubCategory/modifySubCategoryP
 import ResearchProduct from "../Views/Products/products";
 import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategoriePage";
 import SubCatDetail from "../Views/subCatDetail/subCatDetail";
+import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -90,6 +91,12 @@ export default class MainRouter extends Component {
                         <PrivateRoute exact path={"/admin/modifyCategory/:id"} component={ModifyCategoryPage}/>
                         <PrivateRoute exact path={"/admin/category/delete/:id"} component={DeleteCategoryPage}/>
                         {/* end admin category */}
+
+                        {/*admin manage user*/}
+                        <PrivateRoute exact path={"/admin/manageUsers"} component={ManageUsers}/>
+                        {/*end admin manage user*/}
+
+
 
                         {/* admin SubCategory */}
                         <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>

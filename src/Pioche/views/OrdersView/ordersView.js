@@ -1,6 +1,6 @@
 import React from "react";
 import {Component,Fragment} from "react";
-import NavbarAdmin from "../../component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 
 export default class OrdersView extends Component {
     render() {
