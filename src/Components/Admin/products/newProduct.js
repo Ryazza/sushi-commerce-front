@@ -420,7 +420,7 @@ export default class NewProduct extends Component{
                                     </div>
                                     {this.state.bigPictures && this.state.bigPictures.length > 0?
                                         <div className={"d-flex justify-content-center"}>
-                                            <img className={"little--picture"} src={this.state.bigPictures} alt={"grande image"}/>
+                                            <img className={"little--picture"} src={this.state.bigPictures} alt={"grande taille"}/>
                                         </div> : null
                                     }
                                     <div className="mt-3">
