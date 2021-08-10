@@ -52,7 +52,7 @@ export default class DeleteCategory extends Component {
         return(
             <Fragment>
                 <div className={"container"}>
-                    <div className="alert alert-warning" role="alert">
+                    <div className="alert alert-warning box__category--color mb-5" role="alert">
                         <h2 className={"text-center mt-5"}>Supprimer la catégorie {this.state.name}</h2>
                         <div className={"row"}>
                             <div className={"col-10 offset-1"}>

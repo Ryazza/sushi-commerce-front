@@ -11,10 +11,10 @@ export default class DetailProduct extends Component {
             product: this.props.product,
             redirection: false
         }
-        this.handleBack = this.handleBack.bind(this);
+        this.comeBack = this.comeBack.bind(this);
     }
 
-    handleBack(e) {
+    comeBack(e) {
         e.preventDefault();
         this.setState({redirection: true});
     }
@@ -23,13 +23,16 @@ export default class DetailProduct extends Component {
         const {redirection} = this.state;
 
         if (redirection) {
-            return <Redirect to={{pathname: "/admin/viewProducts"}}/>
+            return <Redirect to={{pathname: "/admin/subCategory/" + this.state.product.subCategoryId._id, state: {name: this.state.product.subCategoryId.name}}}/>
         }
         return(
             <Fragment>
                 <div className={"container"}>
-                    <div className="box__detail mt-5" role="alert">
-                        <h2 className={"text-center"}>Voir le produit {this.state.product.name}</h2>
+                    <div className="box__detail mt-5 mb-5" role="alert">
+                        <div className={"d-flex justify-content-center"}>
+                            <h2 className={"text-center mt-2"}>Voir le produit {this.state.product.name}</h2>
+                            <i className="fas fa-arrow-left btn btn-info text-center mt-3" style={{margin: "0 0.7em", height: "2em"}} onClick={this.comeBack}> Revenir </i>
+                        </div>
                         <div className={"row"}>
                             <div className={"col-10 offset-1 mt-4"}>
                                 <div className={"row"}>
@@ -71,7 +74,7 @@ export default class DetailProduct extends Component {
                                     <p>Couleur: {this.state.product.color}</p>
                                 </div>
                                 <h5 className={"text-center"}>Images</h5>
-                                <div className={"d-md-flex justify-content-center"}>
+                                <div className={"d-md-flex justify-content-center mb-1"}>
                                     {this.state.product.pictures && this.state.product.pictures.length > 1?
 
 

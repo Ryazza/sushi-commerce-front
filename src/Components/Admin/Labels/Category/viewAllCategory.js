@@ -36,7 +36,7 @@ export default class ViewAllCategory extends Component {
 
                     <div className={"row"}>
                         <div className={"col-12"}>
-                            <table className={"table table-striped"}>
+                            <table className={"table table-striped box__category--color mt-3 mb-5"}>
                                 <thead>
                                     <tr>
                                         <th>#</th>

@@ -113,7 +113,7 @@ export default class ModifySubCategory extends Component {
                     <h2 className={"text-center mt-5"}>Modifier la sous catégorie {this.state.nameSubCategory}</h2>
                     <div className={"row"}>
                         <div className={"d-flex justify-content-center mb-5"}>
-                            <div className={"col-4"}>
+                            <div className={"col-4 box__category--color mt-3"}>
                                 <div className={"mt-2"}>
                                     {this.state.errorMsg.length > 0 ? <ErrorForm error={this.state.errorMsg}/> : null}
                                     <form onSubmit={this.handleSubmit}>
@@ -147,8 +147,8 @@ export default class ModifySubCategory extends Component {
                                             {this.state.descriptionError.length > 0 ?
                                                 <ErrorFormLittle error={this.state.descriptionError}/> : null}
                                         </div>
-                                        <div className="row justify-content-center mt-3">
-                                            <input type="submit" className={"btn btn-success mt-4 col-10"}
+                                        <div className="row justify-content-center mt-3 mb-4">
+                                            <input type="submit" className={"btn global_bgColor--orange global_fontColor--whiteSmoke mt-4 col-lg-5 col-md-7"}
                                                    value="Modifier"/>
                                         </div>
                                     </form>

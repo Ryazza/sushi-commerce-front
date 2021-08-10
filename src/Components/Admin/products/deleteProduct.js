@@ -43,7 +43,7 @@ export default class DeleteProduct extends Component {
         const {redirection} = this.state;
 
         if (redirection) {
-            return <Redirect to={{pathname: "/admin/viewProducts"}}/>
+            return <Redirect to={{pathname: "/admin/subCategory/" + this.state.product.subCategoryId._id, state: {name: this.state.product.subCategoryId.name}}}/>
         }
         return(
             <Fragment>

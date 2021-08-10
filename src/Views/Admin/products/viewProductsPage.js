@@ -26,15 +26,18 @@ export default class ViewProductsPage extends Component {
                 <NavbarAdmin/>
                 <NavbarProduct/>
                 <SeekbarCategories onSelectSubCategory={this.handleSearchChange}/>
-                { this.state.subCategoryId.length < 10 ?
-                    <div>
-                        <h5 className={"text-center text-danger mt-4"}>Veuillez sélectionner une catégorie et une sous catégorie</h5>
-                    </div>:
-                    // <ViewOneSubCategory subCategoryId={this.state.subCategoryId}/>
-                    <div className={"mb-5"}>
-                        <ProductsInSub subCategoryId={this.state.subCategoryId} subName={this.state.subCategoryName}/>
-                    </div>
-                }
+                <div className={"container"}>
+                    { this.state.subCategoryId.length < 10 ?
+                        <div className={"mb-5"}>
+                            <h5 className={"text-center text-danger mt-4"}>Veuillez sélectionner une catégorie et une sous catégorie</h5>
+                        </div>:
+                        // <ViewOneSubCategory subCategoryId={this.state.subCategoryId}/>
+                        <div className={"mb-5"}>
+                            <ProductsInSub subCategoryId={this.state.subCategoryId} subName={this.state.subCategoryName}/>
+                        </div>
+                    }
+                </div>
+
             </Fragment>
         )
     }
