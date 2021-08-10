@@ -58,6 +58,9 @@ export default class ProductsInSub extends Component {
 
     handleViewSelect = (event) => {
         if(this.state.showSelectors === true) {
+            if(this.state.selectAll === false) {
+                this.setState({arrChecked: []})
+            }
             this.setState({showSelectors: false})
         } else {
             this.setState({showSelectors: true})
@@ -71,7 +74,7 @@ export default class ProductsInSub extends Component {
             this.setState({selectAll: false})
         } else {
             for(let i=0; i < this.state.products.length; i++) {
-                arrChecked.push({ref: i, id: this.state.products[i]._id, select: true})
+                arrChecked.push({ref: i, id: this.state.products[i]._id, product: this.state.products[i]})
             }
             this.setState({arrChecked: arrChecked})
             this.setState({selectAll: true})
@@ -81,20 +84,23 @@ export default class ProductsInSub extends Component {
     handleCheckbox = (event) => {
         let arrChecked = this.state.arrChecked;
         if(event.target.checked === true) {
-            arrChecked.push({ref: event.target.id, id: event.target.value, select: true})
+            for(let i=0; i < this.state.products.length; i++) {
+                if(event.target.value === this.state.products[i]._id) {
+                    arrChecked.push({ref: i, id: this.state.products[i]._id, product: this.state.products[i]})
+                }
+            }
             this.setState({arrChecked: arrChecked});
 
         } else {
             if(arrChecked.length > 0) {
                 for(let i=0; i < arrChecked.length; i++) {
-                    if(arrChecked[i].ref === event.target.id) {
+                    if(arrChecked[i].id === event.target.value) {
                         arrChecked.splice(i,1);
                     }
                 }
                 this.setState({arrChecked: arrChecked});
             }
         }
-
     }
 
     render() {
@@ -122,13 +128,8 @@ export default class ProductsInSub extends Component {
                                 </Tooltip>
                             </div>: null
                         }
-
-
                     </div>
-
-
                 </div>
-
 
                 {this.state.products && this.state.products.length !== 0 ?
 
@@ -220,6 +221,25 @@ export default class ProductsInSub extends Component {
                                 }
                                 </tbody>
                             </table>
+                            {this.state.arrChecked && this.state.arrChecked.length > 0 ?
+                                <div className={"d-flex justify-content-end"}>
+                                    <div className={"box__multiple"}>
+                                        <div><p className={"text-bold"}>Gestion multiple</p></div>
+                                        <div className={"d-flex justify-content-center"}>
+                                            <Tooltip title="Voir plusieurs">
+                                                <Link to={{pathname: "/admin/product/multiple/detail", state: {arrProducts: this.state.arrChecked}}}><i className="fas fa-eye icon__view--multiple"></i></Link>
+                                            </Tooltip>
+                                            <Tooltip title="Modifier plusieurs">
+                                                <Link to={{pathname: "/admin/product/multiple/modify", state: {arrProducts: this.state.arrChecked}}}><i className="fas fa-edit icon__modify--multiple"/></Link>
+                                            </Tooltip>
+                                            <Tooltip title="Supprimer plusieurs">
+                                                <Link to={{pathname: "/admin/product/multiple/delete", state: {arrProducts: this.state.arrChecked}}}><i className="fas fa-trash-alt icon__delete--multiple"/></Link>
+                                            </Tooltip>
+                                        </div>
+                                    </div>
+
+                                </div>: null
+                            }
                         </div>
                     </div>
                     :
