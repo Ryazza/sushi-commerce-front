@@ -397,9 +397,14 @@ export default class ModifyProduct extends Component{
                 console.log(error.response)
                 if(!error.response.errors) {
                     this.setState({ errorMsg: error.response.statusText });
-
+                    if(error.response.data.errors.code === 11000) {
+                        this.setState({ errorMsg: "Ce nom existe déjà" });
+                        this.setState({nameError: "Ce nom existe déjà"})
+                    }
                 } else {
                     this.setState({ errorMsg: error.response.data.errors.message });
+                    console.log(error.response.data.errors)
+
                 }
             })
         }

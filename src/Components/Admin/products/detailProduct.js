@@ -57,7 +57,7 @@ export default class DetailProduct extends Component {
                                 <div className={"row mt-2"}>
 
                                     <div className={"d-flex justify-content-center"}>
-                                        <p className={"badge bg-danger"} style={{width: "min-content" ,fontSize: "1.1em"}}> {this.state.product.events.discount}%</p>
+                                        <p className={"badge bg-danger"} style={{width: "min-content" ,fontSize: "1.1em"}}> -{this.state.product.events.discount}%</p>
                                     </div>
                                     <p className={"text-center"}>Prix actuel: <span className={"text-danger"} style={{fontWeight: "Bold"}}>{this.state.realPrice} €</span></p>
 
@@ -74,7 +74,11 @@ export default class DetailProduct extends Component {
                                         </div>
                                         <div className={"col-5 offset-2"}>
                                             <div className={"d-flex justify-content-between"}>
-                                                <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
+                                                {this.state.product.sale?
+                                                    <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
+                                                    : <p>Nombre de vente: <span className={"text-bold"}>0</span></p>
+                                                }
+
                                                 <p>Nombre de vue: <span className={"text-bold"}>{this.state.product.views}</span></p>
                                             </div>
                                         </div>
