@@ -309,7 +309,7 @@ export default class ModifyProduct extends Component{
             canSend = false;
         }
 
-        if(this.state.pictures.length < 1) {
+        if(arrChecked.length < 1) {
             this.setState({picturesError: "Vous devez avoir au moin une image"})
             canSend = false;
         }
