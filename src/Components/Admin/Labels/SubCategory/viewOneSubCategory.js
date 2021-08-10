@@ -7,7 +7,6 @@ import ProductsInSub from "./productsInSub";
 export default class ViewOneSubCategory extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
         this.state={
             subCategoryId: this.props.subCategoryId,
             subCategory: {},
@@ -32,7 +31,7 @@ export default class ViewOneSubCategory extends Component {
                             <div className={"d-flex justify-content-center mt-3"}>
                                 <img src={this.state.subCategory.img} alt={this.state.subCategory.name}></img>
                             </div>
-                            <div>
+                            <div className={"col-12"}>
                                 <p>Description: {this.state.subCategory.description}</p>
                             </div>
                             <ProductsInSub subCategoryId={this.state.subCategoryId} subName={this.state.subCategory.name}/>

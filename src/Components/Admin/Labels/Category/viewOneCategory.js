@@ -38,7 +38,7 @@ export default class ViewOneCategory extends Component {
                                 </div>
                                 <p>Description: {this.state.category.description}</p>
 
-                                <table className={"table table-striped"}>
+                                <table className={"table table-striped box__category--color mt-4 mb-5"}>
                                     <thead>
                                     <tr>
                                         <th>#</th>
