@@ -9,9 +9,19 @@ export default class DetailProduct extends Component {
         super(props);
         this.state = {
             product: this.props.product,
+            realPrice: null,
             redirection: false
         }
         this.comeBack = this.comeBack.bind(this);
+    }
+
+    componentDidMount() {
+        if(this.state.product.events.discount !== 0) {
+            let item = this.state.product;
+            let reduction = (item.price * item.events.discount) / 100;
+            let realPrice = item.price - reduction;
+            this.setState({realPrice: realPrice})
+        }
     }
 
     comeBack(e) {
@@ -43,12 +53,32 @@ export default class DetailProduct extends Component {
                                         <p className={"detail__category text-center"}>Sous catégorie: <span className={"category--bold"}>{this.state.product.subCategoryId.name}</span></p>
                                     </div>
                                 </div>
+                                {this.state.product.events.discount?
+                                <div className={"row mt-2"}>
+
+                                    <div className={"d-flex justify-content-center"}>
+                                        <p className={"badge bg-danger"} style={{width: "min-content" ,fontSize: "1.1em"}}> {this.state.product.events.discount}%</p>
+                                    </div>
+                                    <p className={"text-center"}>Prix actuel: <span className={"text-danger"} style={{fontWeight: "Bold"}}>{this.state.realPrice} €</span></p>
+
+                                </div>: null
+                                }
+
                                 <div className={"row mt-4"}>
-                                    <div className={"d-flex justify-content-around"}>
-                                        <p>Quantité: <span className={"text-bold"}>{this.state.product.quantity}</span></p>
-                                        <p>Prix: <span className={"text-bold"}>{this.state.product.price} €</span></p>
-                                        <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
-                                        <p>Nombre de vue: <span className={"text-bold"}>{this.state.product.views}</span></p>
+                                    <div className={"d-flex justify-content-between"}>
+                                        <div className={"col-5"}>
+                                            <div className={"d-flex justify-content-between"}>
+                                                <p>Quantité: <span className={"text-bold"}>{this.state.product.quantity}</span></p>
+                                                <p>Prix: <span className={"text-bold"}>{this.state.product.price} €</span></p>
+                                            </div>
+                                        </div>
+                                        <div className={"col-5 offset-2"}>
+                                            <div className={"d-flex justify-content-between"}>
+                                                <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
+                                                <p>Nombre de vue: <span className={"text-bold"}>{this.state.product.views}</span></p>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div className={"text-center"}>
                                         <p>Disponible{this.state.product.available}</p>
