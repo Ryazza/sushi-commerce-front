@@ -148,7 +148,7 @@ export default class ModifySubCategory extends Component {
                                                 <ErrorFormLittle error={this.state.descriptionError}/> : null}
                                         </div>
                                         <div className="row justify-content-center mt-3 mb-4">
-                                            <input type="submit" className={"btn global_bgColor--orange mt-4 col-lg-5 col-md-7"}
+                                            <input type="submit" className={"btn global_bgColor--orange global_fontColor--whiteSmoke mt-4 col-lg-5 col-md-7"}
                                                    value="Modifier"/>
                                         </div>
                                     </form>
