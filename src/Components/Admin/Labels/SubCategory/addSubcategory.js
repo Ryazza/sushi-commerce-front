@@ -86,7 +86,7 @@ export default class AddSubCategory extends Component {
         const { redirection } = this.state;
 
         if(redirection) {
-            return <Redirect to='/admin/manageLabels'/>
+            return <Redirect to={{pathname:'/admin/category/' + this.state.categoryId, state: {name: this.props.name}}}/>
         }
         return(
             <Fragment>

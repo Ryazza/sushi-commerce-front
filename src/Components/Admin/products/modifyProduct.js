@@ -409,7 +409,7 @@ export default class ModifyProduct extends Component{
         const {redirection} = this.state;
 
         if (redirection) {
-            return <Redirect to={{pathname:'/admin/manageLabels/'}}/>
+            return <Redirect to={{pathname:'/admin/subCategory/' + this.state.selectedSubCategory.value}}/>
         }
         return(
             <Fragment>

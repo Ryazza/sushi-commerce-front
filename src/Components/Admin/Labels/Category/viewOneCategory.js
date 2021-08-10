@@ -3,7 +3,7 @@ import {Component, Fragment} from "react";
 import axios from "axios";
 import { environement } from "../../../../Environment/environment";
 import './viewOneCategory.css';
-import { Link } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import Tooltip from '@material-ui/core/Tooltip';
 
 export default class ViewOneCategory extends Component {
@@ -13,7 +13,9 @@ export default class ViewOneCategory extends Component {
             categoryId: this.props.categoryId,
             nameCategory: this.props.name,
             category: {},
+            comeBack: false,
         }
+        this.comeBack = this.comeBack.bind(this)
     }
 
     componentDidMount() {
@@ -22,13 +24,22 @@ export default class ViewOneCategory extends Component {
         })
     }
 
+    comeBack() {
+        this.setState({comeBack: true});
+    }
+
     render() {
+        const comeBack = this.state.comeBack;
+        if(comeBack) {
+            return <Redirect to={"/admin/manageLabels"}/>
+        }
         return(
             <Fragment>
                 <div className={"container"}>
-                    <h2 className={"text-center mt-5"}>Voir les sous categories de {this.state.nameCategory}
-                    </h2>
-
+                    <div className={"d-flex justify-content-center mt-5"}>
+                        <h2 className={"text-center"}>Voir les sous categories de {this.state.nameCategory}</h2>
+                        <i className="fas fa-arrow-left btn btn-info text-center mt-2" style={{margin: "0 0.7em", height: "2em"}} onClick={this.comeBack}> Revenir </i>
+                    </div>
                     {this.state.category && this.state.category.length !== 0 ?
 
                         <div className={"row"}>
