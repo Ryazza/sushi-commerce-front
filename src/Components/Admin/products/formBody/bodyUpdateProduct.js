@@ -13,7 +13,6 @@ import {Redirect} from "react-router-dom";
 export default class BodyUpdateProduct extends Component{
     constructor(props) {
         super(props);
-        console.log(this.props.product)
         this.state = {
             errorMsg: "",
             redirection: false,
@@ -282,8 +281,8 @@ export default class BodyUpdateProduct extends Component{
                 canSend = false;
             }
 
-            if(this.state.name.length > 25 || this.state.name.length < 3) {
-                this.setState({nameError: "Le nom du produit doit contenir entre 3 et 25 caractères"})
+            if(this.state.name.length > 40 || this.state.name.length < 3) {
+                this.setState({nameError: "Le nom du produit doit contenir entre 3 et 40 caractères"})
                 canSend = false;
             }
 
@@ -377,6 +376,7 @@ export default class BodyUpdateProduct extends Component{
 
             if(canSend) {
                 let form = {
+                    _id: this.props.product._id,
                     subCategoryId: this.state.selectedSubCategory.value,
                     name: this.state.name,
                     brand: this.state.brand,
@@ -543,6 +543,7 @@ export default class BodyUpdateProduct extends Component{
                 this.setState({change: change})
                 this.setState({minimize: true});
                 this.setState({submit: "Changer"});
+                this.props.onUpdateProduct(form);
             }
         }
 
