@@ -161,7 +161,7 @@ export default class ProductsInSub extends Component {
                                             <tr key={index}>
                                                 <td>{index}</td>
                                                 <td>{product.name}</td>
-                                                <td style={{padding: "0.5em 0 0 2.4em"}}>{product.quantity}</td>
+                                                <td className={""} style={{padding: "0.5em 0 0 2.4em"}}>{product.quantity}</td>
                                                 <td>{product.price} €</td>
                                                 { product.available ?
                                                     <td className={"text-center"}>

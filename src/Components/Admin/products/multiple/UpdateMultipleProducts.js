@@ -98,8 +98,8 @@ export default class UpdateMultipleProducts extends Component{
         return(
             <Fragment>
                 <div className={"container"}>
+                    <h2 className={"text-center mb-5 mt-5"}>Modifier des produits</h2>
                     {this.state.products && this.state.products.length > 0 ?
-
                         this.state.products.map((mainProduct, index) => {
 
                             return mainProduct.product ?

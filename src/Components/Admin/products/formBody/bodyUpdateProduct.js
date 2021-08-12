@@ -16,7 +16,7 @@ export default class BodyUpdateProduct extends Component{
         this.state = {
             errorMsg: "",
             redirection: false,
-            iconNew: 'far fa-check-circle text-success icon--availableP',
+            iconNew: this.props.product.events.new?'far fa-check-circle text-success icon--availableP': 'fas fa-times-circle text-danger icon--availableP',
             iconEndOfSeries: 'fas fa-times-circle text-danger icon--availableP',
             iconAvailable: this.props.product.available? "far fa-check-circle text-success icon--availableP" :'fas fa-times-circle text-danger icon--availableP',
             saveCategory: [],
@@ -471,7 +471,7 @@ export default class BodyUpdateProduct extends Component{
                     }
                 }
 
-                if(String(form.subCategoryId) !== String(this.props.product.subCategoryId)) {
+                if(this.state.selectedSubCategory.label !== this.props.product.subCategoryId.name) {
                     change.subCategoryId.new = this.state.selectedSubCategory.label;
                     change.subCategoryId.change = true;
                 }
@@ -558,9 +558,8 @@ export default class BodyUpdateProduct extends Component{
         return(
             <Fragment>
                 <div className={"container"}>
-                    <div className={"row justify-content-center mt-5"}>
+                    <div className={"row justify-content-center mt-2"}>
                         <div className={"col-6"}>
-                            <h2 className={"text-center mb-5"}>Modifier un produit</h2>
                             <form className="box__product--color NewProduct_container global_bgColor--whiteSmoke container font_montserrat d-flex flex-column align-items-center pb-5 mb-5" onSubmit={this.handleSubmit}>
                                 <div className={"col-10"}>
                                     {this.state.minimize === false ?
@@ -782,64 +781,69 @@ export default class BodyUpdateProduct extends Component{
                                                 <h5 className={"text-center"}>Changement à {this.props.product.name}</h5>
                                                 {this.state.change.subCategoryId.change && this.state.change.subCategoryId.old !== this.state.change.subCategoryId.new ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 title--compare"}>Sous Catégorie: <span className={"old--value"}> {this.state.change.subCategoryId.oldName}</span></p>
+                                                        <p className={"col-3 title--compare"}>Sous Catégorie:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.subCategoryId.oldName}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.subCategoryId.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.subCategoryId.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.name.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Nom: <span className={"old--value"}> {this.state.change.name.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Nom:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.name.old}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.name.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.name.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.brand.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Marque: <span className={"old--value"}> {this.state.change.brand.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Marque:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.brand.old}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.brand.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.brand.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.color.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Couleur: <span className={"old--value"}> {this.state.change.color.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Couleur:</p>
+                                                        <p className={"col-4 old--value"}> {this.state.change.color.old}</p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.color.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.color.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.bigPicture.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Url de l'image principale: <span className={"old--value text-truncate"}> {this.state.change.bigPicture.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Url de l'image principale:</p>
+                                                        <p className={"col-4 old--value text-truncate"}> {this.state.change.bigPicture.old}</p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value text-truncate"}>{this.state.change.bigPicture.new}</p>
+                                                        <p className={"col-4 new--value text-truncate"}>{this.state.change.bigPicture.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.pictures.change && this.state.change.pictures.new.length !== this.state.change.pictures.old.length ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Url des petites images: <span className={"old--value text-truncate"}> {this.state.change.color.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Url des petites images:</p>
+                                                        <p className={"col-4 old--value text-truncate"}> {this.state.change.color.old}</p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value text-truncate"}>Changées</p>
+                                                        <p className={"col-4 new--value text-truncate"}>Changées</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.available.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Disponible:
-                                                            <span className={"old--value"}>
+                                                        <p className={"col-3 d-flex title--compare"}>Disponible:</p>
+                                                        <span className={"col-4 old--value"}>
                                                                 {this.state.change.available.old?
-                                                                <i className={"far fa-check-circle text-success icon--availableP"}></i>:
-                                                                <i className={"fas fa-times-circle text-danger icon--availableP"}></i>
-                                                            }
+                                                                    <i className={"far fa-check-circle text-success icon--availableP"}></i>:
+                                                                    <i className={"fas fa-times-circle text-danger icon--availableP"}></i>
+                                                                }
                                                             </span>
-                                                        </p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>
+                                                        <p className={"col-4 new--value"}>
                                                             {this.state.change.available.new ?
                                                                 <i className={"far fa-check-circle text-success icon--availableP"}></i>:
                                                                 <i className={"fas fa-times-circle text-danger icon--availableP"}></i>
@@ -850,16 +854,15 @@ export default class BodyUpdateProduct extends Component{
                                                 }
                                                 {this.state.change.events.new.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Nouveauté:
-                                                            <span className={"old--value"}>
+                                                        <p className={"col-3 d-flex title--compare"}>Nouveauté:</p>
+                                                        <p className={"col-4 old--value"}>
                                                                 {this.state.change.events.new.old ?
                                                                     <i className={"far fa-check-circle text-success icon--availableP"}></i>:
                                                                     <i className={"fas fa-times-circle text-danger icon--availableP"}></i>
                                                                 }
-                                                            </span>
                                                         </p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>
+                                                        <p className={"col-4 new--value"}>
                                                             {this.state.change.events.new.new ?
                                                                 <i className={"far fa-check-circle text-success icon--availableP"}></i>:
                                                                 <i className={"fas fa-times-circle text-danger icon--availableP"}></i>
@@ -870,41 +873,46 @@ export default class BodyUpdateProduct extends Component{
                                                 }
                                                 {this.state.change.events.discount.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Solde: <span className={"old--value"}> {this.state.change.events.discount.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Solde:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.events.discount.old}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.events.discount.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.events.discount.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.quantity.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Quantité: <span className={"old--value"}> {this.state.change.quantity.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Quantité:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.quantity.old}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.quantity.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.quantity.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.weight.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Poids: <span className={"old--value"}> {this.state.change.weight.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Poids:</p>
+                                                        <span className={"col-4 old--value"}> {this.state.change.weight.old}</span>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.weight.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.weight.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.price.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Prix: <span className={"old--value"}> {this.state.change.price.old}</span></p>
+                                                        <p className={"col-3 d-flex title--compare"}>Prix:</p>
+                                                        <p className={"col-4 old--value"}> {this.state.change.price.old}</p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.price.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.price.new}</p>
                                                     </div>
                                                     :null
                                                 }
                                                 {this.state.change.description.change ?
                                                     <div className={"mt-3 row"}>
-                                                        <p className={"col-5 d-flex title--compare"}>Description: <span className={"old--value"}> {this.state.change.description.old}</span></p>
+                                                        <p className={"col-3 title--compare"}>Description:</p>
+                                                        <p className={" col-4 old--value"}> {this.state.change.description.old}</p>
                                                         <i className="col-1 fas fa-arrow-right arrow--compare"/>
-                                                        <p className={"col-5 new--value"}>{this.state.change.description.new}</p>
+                                                        <p className={"col-4 new--value"}>{this.state.change.description.new}</p>
                                                     </div>
                                                     :null
                                                 }

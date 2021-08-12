@@ -84,18 +84,34 @@ export default class DetailProduct extends Component {
                                         </div>
 
                                     </div>
-                                    <div className={"text-center"}>
-                                        <p>Disponible{this.state.product.available}</p>
+                                    <div className={"d-flex justify-content-around mt-4"}>
+                                        <div className={""}>
+                                            <p>Disponible</p>
+                                        </div>
+                                        <div className={""}>
+                                            <p>Nouveauté</p>
+                                        </div>
                                     </div>
+
                                 </div>
-                                {this.state.product.available ?
-                                    <div className={"text-center"}>
-                                        <i className="far fa-check-circle text-success icon--available"/>
-                                    </div> :
-                                    <div className={"text-center"}>
-                                        <i className="fas fa-times-circle text-danger icon--available"/>
-                                    </div>
-                                }
+                                <div className={"d-flex justify-content-around"}>
+                                    {this.state.product.available ?
+                                        <div>
+                                            <i className="far fa-check-circle text-success icon--available"/>
+                                        </div> :
+                                        <div>
+                                            <i className="fas fa-times-circle text-danger icon--available"/>
+                                        </div>
+                                    }
+                                    {this.state.product.events.new ?
+                                        <div>
+                                            <i className="far fa-check-circle text-success icon--available"/>
+                                        </div> :
+                                        <div>
+                                            <i className="fas fa-times-circle text-danger icon--available"/>
+                                        </div>
+                                    }
+                                </div>
                                 <div className={"ml-5"}>
                                     <div className={"d-flex justify-content-center mt-4"}>
                                         <img src={this.state.product.bigPicture} style={{height: "20em", margin: "1em 0.5em"}} alt={"Produit"}/>

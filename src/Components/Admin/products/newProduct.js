@@ -244,8 +244,8 @@ export default class NewProduct extends Component{
             canSend = false;
         }
 
-        if(this.state.name.length > 25 || this.state.name.length < 3) {
-            this.setState({nameError: "Le nom du produit doit contenir entre 3 et 25 caractères"})
+        if(this.state.name.length > 40 || this.state.name.length < 3) {
+            this.setState({nameError: "Le nom du produit doit contenir entre 3 et 40 caractères"})
             canSend = false;
         }
 
@@ -303,7 +303,7 @@ export default class NewProduct extends Component{
         if(isNaN(parseInt(this.state.weight))) {
             this.setState({weightError: "Vous devez rentrer un chiffre"});
             canSend = false;
-        } else if (this.state.price === 0 || this.state.price <= 0) {
+        } else if (this.state.weight === 0 || this.state.weight <= 0) {
             this.setState({ weightError: "Le poids doit être supérieur à 0" });
             canSend = false;
         }
