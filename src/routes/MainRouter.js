@@ -19,6 +19,12 @@ import DeleteProductPage from "../Views/Admin/products/deleteProductPage";
 import DetailProductPage from "../Views/Admin/products/detailproductPage";
 import ModifyProductPage from "../Views/Admin/products/modifyProductPage";
 
+//multiple product
+import DetailMultipleProductsPage from "../Views/Admin/products/multiple/DetailMultipleProductsPage";
+import UpdateMultipleProductsPage from "../Views/Admin/products/multiple/UpdateMultipleProductsPage";
+import DeleteMultipleProductsPage from "../Views/Admin/products/multiple/DeleteMultipleProductsPage";
+// end multiple
+
 import ViewCategoryPage from "../Views/Admin/Category/viewCategoryPage";
 import AddCategoryPage from "../Views/Admin/Category/addCategoryPage";
 import ViewOneCategoryPage from "../Views/Admin/Category/viewOneCategoryPage";
@@ -90,6 +96,12 @@ export default class MainRouter extends Component {
                         <PrivateRoute exact path={"/admin/product/delete/:id"} component={DeleteProductPage}/>
                         <PrivateRoute exact path={"/admin/product/detail/:id"} component={DetailProductPage}/>
                         <PrivateRoute exact path={"/admin/product/modify/:id"} component={ModifyProductPage}/>
+                            {/* Multiple Product */}
+                                <PrivateRoute exact path={"/admin/product/multiple/detail"} component={DetailMultipleProductsPage}/>
+                                <PrivateRoute exact path={"/admin/product/multiple/modify"} component={UpdateMultipleProductsPage}/>
+                                <PrivateRoute exact path={"/admin/product/multiple/delete"} component={DeleteMultipleProductsPage}/>
+                            {/* end Multiple Product */}
+
                         {/* end admin Products */}
 
                         {/* admin category */}

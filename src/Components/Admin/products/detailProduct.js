@@ -57,7 +57,7 @@ export default class DetailProduct extends Component {
                                 <div className={"row mt-2"}>
 
                                     <div className={"d-flex justify-content-center"}>
-                                        <p className={"badge bg-danger"} style={{width: "min-content" ,fontSize: "1.1em"}}> {this.state.product.events.discount}%</p>
+                                        <p className={"badge bg-danger"} style={{width: "min-content" ,fontSize: "1.1em"}}> -{this.state.product.events.discount}%</p>
                                     </div>
                                     <p className={"text-center"}>Prix actuel: <span className={"text-danger"} style={{fontWeight: "Bold"}}>{this.state.realPrice} €</span></p>
 
@@ -74,24 +74,44 @@ export default class DetailProduct extends Component {
                                         </div>
                                         <div className={"col-5 offset-2"}>
                                             <div className={"d-flex justify-content-between"}>
-                                                <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
+                                                {this.state.product.sale?
+                                                    <p>Nombre de vente: <span className={"text-bold"}>{this.state.product.sale}</span></p>
+                                                    : <p>Nombre de vente: <span className={"text-bold"}>0</span></p>
+                                                }
+
                                                 <p>Nombre de vue: <span className={"text-bold"}>{this.state.product.views}</span></p>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <div className={"text-center"}>
-                                        <p>Disponible{this.state.product.available}</p>
+                                    <div className={"d-flex justify-content-around mt-4"}>
+                                        <div className={""}>
+                                            <p>Disponible</p>
+                                        </div>
+                                        <div className={""}>
+                                            <p>Nouveauté</p>
+                                        </div>
                                     </div>
+
                                 </div>
-                                {this.state.product.available ?
-                                    <div className={"text-center"}>
-                                        <i className="far fa-check-circle text-success icon--available"/>
-                                    </div> :
-                                    <div className={"text-center"}>
-                                        <i className="fas fa-times-circle text-danger icon--available"/>
-                                    </div>
-                                }
+                                <div className={"d-flex justify-content-around"}>
+                                    {this.state.product.available ?
+                                        <div>
+                                            <i className="far fa-check-circle text-success icon--available"/>
+                                        </div> :
+                                        <div>
+                                            <i className="fas fa-times-circle text-danger icon--available"/>
+                                        </div>
+                                    }
+                                    {this.state.product.events.new ?
+                                        <div>
+                                            <i className="far fa-check-circle text-success icon--available"/>
+                                        </div> :
+                                        <div>
+                                            <i className="fas fa-times-circle text-danger icon--available"/>
+                                        </div>
+                                    }
+                                </div>
                                 <div className={"ml-5"}>
                                     <div className={"d-flex justify-content-center mt-4"}>
                                         <img src={this.state.product.bigPicture} style={{height: "20em", margin: "1em 0.5em"}} alt={"Produit"}/>

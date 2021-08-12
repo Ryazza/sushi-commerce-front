@@ -10,7 +10,6 @@ export default class ModifyProductPage extends Component {
         super(props);
         this.state = {
             product: this.props.location.state.product,
-            redirection: false
         }
     }
 
