@@ -33,19 +33,22 @@ export default class ProductsInSub extends Component {
 
     showModalAdd = (event) => {
         this.setState({nbrProductAddToLoad: event.target.id})
-        this.setState({ showAdd: true });
+        this.setState({showAdd: true });
     };
 
     hideModalAdd = () => {
+        this.setState({nbrProductAddToLoad: null})
         this.setState({ showAdd: false });
     };
 
     showModalDeduce = (event) => {
+
         this.setState({nbrProductDeduceToLoad: event.target.id})
         this.setState({ showDeduce: true });
     };
 
     hideModalDeduce = () => {
+        this.setState({nbrProductDeduceToLoad: null})
         this.setState({ showDeduce: false });
     };
 
@@ -230,7 +233,8 @@ export default class ProductsInSub extends Component {
 
                                                                     </Tooltip>
                                                                     <ModalDeduce show={this.state.showDeduce}
-                                                                               handleClose={this.hideModalDeduce} product={this.state.products[this.state.nbrProductDeduceToLoad]}
+                                                                               handleClose={this.hideModalDeduce}
+                                                                               product={this.state.products[this.state.nbrProductDeduceToLoad]}
                                                                     />
                                                                 </div>: null
                                                             }
@@ -251,7 +255,8 @@ export default class ProductsInSub extends Component {
 
                                                                     </Tooltip>
                                                                     <ModalAdd show={this.state.showAdd}
-                                                                               handleClose={this.hideModalAdd} product={this.state.products[this.state.nbrProductAddToLoad]}
+                                                                              handleClose={this.hideModalAdd}
+                                                                              product={this.state.products[this.state.nbrProductAddToLoad]}
                                                                     />
                                                                 </div>: null
                                                             }
