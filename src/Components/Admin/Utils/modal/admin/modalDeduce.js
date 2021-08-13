@@ -7,20 +7,26 @@ import React, { useEffect, useState } from 'react';
 import AuthService from "../../../../../services/auth.service";
 import {environement} from "../../../../../Environment/environment";
 
-export const ModalDeduce = ({ handleClose, show, product }) => {
+export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
     const [redirection, setRedirection] = useState(false);
     const [nbrError, setNbrError] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
     const [nbrToDeduce, setNbrToDeduce] = useState('');
     const [productId, setProductId] = useState(null);
+    const [productName, setProductName] = useState(null);
+    const [productQuantity, setProductQuantity] = useState(null);
 
     useEffect(() => {
-        setProductId(product._id)
+        if(show) {
+            setProductId(product._id)
+            setProductName(product.name)
+            setProductQuantity(product.quantity)
+        }
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setProductId(product._id)
+        // setProductId(product._id)
         setNbrError("");
         setErrorMsg("");
         let canSend = true;
@@ -32,7 +38,7 @@ export const ModalDeduce = ({ handleClose, show, product }) => {
             canSend = false;
         } else if((product.quantity - parseInt(nbrToDeduce)) < 0) {
             canSend = false;
-            setNbrError("la quantité du produit ne peu pas être inférieur à 0");
+            setNbrError("la quantité du produit ne peut pas être inférieur à 0");
         }
         const headers = {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
@@ -62,18 +68,19 @@ export const ModalDeduce = ({ handleClose, show, product }) => {
                 <section className="modal__main">
                     <div className={"box__deduce"}>
                         <div>
-                            <h5 className={"deduce__title text-center"}>Déduire la quantité à {product.name}</h5>
+                            <h5 className={"deduce__title text-center"}>Déduire la quantité à {productName?productName:null}</h5>
                         </div>
                         <hr/>
                         <div className="deduce__body">
                             <p className={"text-center"}>quantité actuelle: <span
-                                className={"quantity--actual"}>{product.quantity}</span></p>
+                                className={"quantity--actual"}>{productQuantity?productQuantity:null}</span></p>
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
 
                                     <div className={"box__nbr"}>
                                         <label htmlFor="quantityToDeduce">Quantité à déduire</label>
                                         <input type="number" className="form-control input__nbr quantityToDeduce"
+                                               id={"quantityToDeduce"}
                                                onChange={event => setNbrToDeduce(event.target.value)}
                                                value={nbrToDeduce}
                                         />
@@ -97,7 +104,7 @@ export const ModalDeduce = ({ handleClose, show, product }) => {
                     </div>
                     <div className="deduce__footer">
                         <div className={"d-flex justify-content-end"}>
-                            <button type="button" className="btn btn-warning" onClick={handleClose}>
+                            <button type="button" className="btn btn-warning" onClick={handleCloseDeduce}>
                                 Annuler
                             </button>
                         </div>

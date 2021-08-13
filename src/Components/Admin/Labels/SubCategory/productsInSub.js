@@ -233,7 +233,7 @@ export default class ProductsInSub extends Component {
 
                                                                     </Tooltip>
                                                                     <ModalDeduce show={this.state.showDeduce}
-                                                                               handleClose={this.hideModalDeduce}
+                                                                               handleCloseDeduce={this.hideModalDeduce}
                                                                                product={this.state.products[this.state.nbrProductDeduceToLoad]}
                                                                     />
                                                                 </div>: null
@@ -255,7 +255,7 @@ export default class ProductsInSub extends Component {
 
                                                                     </Tooltip>
                                                                     <ModalAdd show={this.state.showAdd}
-                                                                              handleClose={this.hideModalAdd}
+                                                                              handleCloseAdd={this.hideModalAdd}
                                                                               product={this.state.products[this.state.nbrProductAddToLoad]}
                                                                     />
                                                                 </div>: null

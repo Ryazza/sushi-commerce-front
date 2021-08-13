@@ -6,16 +6,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import AuthService from "../../../../../services/auth.service";
 import {environement} from "../../../../../Environment/environment";
 
-export const ModalAdd = ({ handleClose, show, product }) => {
+export const ModalAdd = ({ handleCloseAdd, show, product }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
     const [redirection, setRedirection] = useState(false);
     const [nbrError, setNbrError] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
     const [nbrToAdd, setNbrToAdd] = useState('');
     const [productId, setProductId] = useState(null);
+    const [productName, setProductName] = useState(null);
+    const [productQuantity, setProductQuantity] = useState(null);
 
     useEffect(() => {
-        setProductId(product._id)
+        if(show) {
+            setProductId(product._id)
+            setProductName(product.name)
+            setProductQuantity(product.quantity)
+        }
     });
 
     const handleSubmitAdd = (e) => {
@@ -58,18 +64,19 @@ export const ModalAdd = ({ handleClose, show, product }) => {
                     <section className="modal__main">
                         <div className={"box__add"}>
                             <div>
-                                <h5 className={"add__title text-center"}>Ajouter la quantité à {product.name}</h5>
+                                <h5 className={"add__title text-center"}>Ajouter la quantité à {productName}</h5>
                             </div>
                             <hr/>
                             <div className="add__body">
                                 <p className={"text-center"}>quantité actuelle: <span
-                                    className={"quantity--actual"}>{product.quantity}</span></p>
+                                    className={"quantity--actual"}>{productQuantity}</span></p>
                                 <form onSubmit={handleSubmitAdd}>
                                     <div className="form-group">
 
                                         <div className={"box__nbr"}>
                                             <label htmlFor="quantityToDeduce">Quantité à àjouter</label>
                                             <input type="number" className="form-control input__nbr quantityToAdd"
+                                                   id={"quantityToDeduce"}
                                                    onChange={event => setNbrToAdd(event.target.value)}
                                                    value={nbrToAdd}
                                             />
@@ -93,7 +100,7 @@ export const ModalAdd = ({ handleClose, show, product }) => {
 
                         <div className="deduce__footer">
                             <div className={"d-flex justify-content-end"}>
-                                <button type="button" className="btn btn-warning" onClick={handleClose}>
+                                <button type="button" className="btn btn-warning" onClick={handleCloseAdd}>
                                     Annuler
                                 </button>
                             </div>
