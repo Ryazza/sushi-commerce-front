@@ -120,7 +120,7 @@ export default class DetailProduct extends Component {
                                 </div>
                                 <div className={"row mt-4"}>
                                     <p>Marque: {this.state.product.brand}</p>
-                                    <p>Poids: {this.state.product.weight}</p>
+                                    <p>Poids: {this.state.product.weight} kg</p>
                                     <p>Couleur: {this.state.product.color}</p>
                                 </div>
                                 <h5 className={"text-center"}>Images</h5>
