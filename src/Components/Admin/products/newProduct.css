@@ -34,3 +34,53 @@
     /*margin: 1em 0.9em 0.5em 0.9em;*/
     height: 6em;
 }
+
+.box__quantity {
+    margin-right: 11%;
+}
+
+.icon--add, .icon--less {
+    font-size: 14px;
+}
+
+.icon--less {
+    position: relative;
+    bottom: 0.05em;
+}
+
+.icon--add {
+    color: #159a15;
+}
+
+#modalDeduce {
+    position: fixed;
+    top: 40vh;
+}
+
+.modal--deduce, .modal--add {
+    background: none;
+    border: none;
+}
+
+.box__nbr {
+    margin: 0 auto 0 auto;
+    width: 60%;
+}
+
+.quantityToDeduce {
+    color: red;
+}
+
+.quantityToAdd {
+    color: #159a15;
+}
+
+.quantity--actual {
+    font-weight: bold;
+    color: #159a15;
+}
+
+.btn--submit {
+    width: 40%;
+    margin: 1em auto 0 auto;
+}

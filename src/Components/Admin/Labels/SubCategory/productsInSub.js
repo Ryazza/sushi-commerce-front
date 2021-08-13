@@ -6,6 +6,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { environement } from "../../../../Environment/environment";
 import AuthService from "../../../../services/auth.service"
 import "./productsInsub.css";
+import {ModalAdd} from "../../Utils/modal/admin/modalAdd";
+import {ModalDeduce} from "../../Utils/modal/admin/modalDeduce";
 
 export default class ProductsInSub extends Component {
     constructor(props) {
@@ -15,10 +17,40 @@ export default class ProductsInSub extends Component {
             subName: this.props.subName,
             products: [],
             showSelectors: false,
+            showQuantity: false,
             selectAll: false,
             arrChecked: [],
+            showAdd: false,
+            showDeduce: false,
+            nbrProductAddToLoad: 0,
+            nbrProductDeduceToLoad: 0,
         }
+        this.showModalAdd = this.showModalAdd.bind(this);
+        this.hideModalAdd = this.hideModalAdd.bind(this);
+        this.showModalDeduce = this.showModalDeduce.bind(this);
+        this.hideModalDeduce = this.hideModalDeduce.bind(this);
     }
+
+    showModalAdd = (event) => {
+        this.setState({nbrProductAddToLoad: event.target.id})
+        this.setState({showAdd: true });
+    };
+
+    hideModalAdd = () => {
+        this.setState({nbrProductAddToLoad: null})
+        this.setState({ showAdd: false });
+    };
+
+    showModalDeduce = (event) => {
+
+        this.setState({nbrProductDeduceToLoad: event.target.id})
+        this.setState({ showDeduce: true });
+    };
+
+    hideModalDeduce = () => {
+        this.setState({nbrProductDeduceToLoad: null})
+        this.setState({ showDeduce: false });
+    };
 
     componentDidMount() {
         const headers = {
@@ -53,6 +85,14 @@ export default class ProductsInSub extends Component {
             }).catch(error => {
                 console.log(error.response)
             })
+        }
+    }
+
+    handleQuantitySelect = (event) => {
+        if(this.state.showQuantity === true) {
+            this.setState({showQuantity: false});
+        } else {
+            this.setState({showQuantity: true});
         }
     }
 
@@ -108,14 +148,29 @@ export default class ProductsInSub extends Component {
             <Fragment>
                 <div className={"row"}>
                     <div className={""}>
-                        <h2 className={"text-center mt-5"}>Voir les produits Associés
-                        </h2>
-                        <div className={"d-flex justify-content-end"}>
-                            <h5 className={"select--all text--small"}>Sélection Multiple</h5>
-                            <div className="form-check form-switch link--select">
-                                <input className="form-check-input" type="checkbox"
-                                       id="viewMultiSelect" value={this.state.showSelectors} onChange={this.handleViewSelect}/>
+                        <h2 className={"text-center mt-5 mb-5"}>Voir les produits Associés</h2>
+                        <div className={"row mt-2"}>
+
+                            <div className={"col-6"}>
+                                <div className={"d-flex justify-content-end box__quantity"}>
+                                        <h5 className={"select--all text--small"}>Gestion quantités</h5>
+                                        <div className="form-check form-switch link--select">
+                                            <input className="form-check-input" type="checkbox"
+                                                   id="viewMultiSelect" onChange={this.handleQuantitySelect}/>
+                                        </div>
+                                </div>
+
                             </div>
+                            <div className={"col-6"}>
+                                <div className={"d-flex justify-content-end"}>
+                                    <h5 className={"select--all text--small"}>Sélection Multiple</h5>
+                                    <div className="form-check form-switch link--select">
+                                        <input className="form-check-input" type="checkbox"
+                                               id="viewMultiSelect" value={this.state.showSelectors} onChange={this.handleViewSelect}/>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         {this.state.showSelectors === true ?
                             <div className={"d-flex justify-content-end"}>
@@ -140,7 +195,7 @@ export default class ProductsInSub extends Component {
                                 <tr>
                                     <th className={"col-1"}>#</th>
                                     <th className={"col-2"}>Nom</th>
-                                    <th className={"col-2"}>Quantité</th>
+                                    <th className={"col-2 quantity__title text-center"}>Quantité</th>
                                     <th className={"col-2"}>Prix</th>
                                     <th className={"col-1 text-center"}>Disponible</th>
                                     <th className={"col-3 text-center"}>Actions</th>
@@ -161,7 +216,53 @@ export default class ProductsInSub extends Component {
                                             <tr key={index}>
                                                 <td>{index}</td>
                                                 <td>{product.name}</td>
-                                                <td className={""} style={{padding: "0.5em 0 0 2.4em"}}>{product.quantity}</td>
+                                                <td className={"col-2"}>
+                                                    <div className={"row"}>
+                                                        <div className={"offset-3 col-2"}>
+                                                            {this.state.showQuantity?
+                                                                <div>
+                                                                    <Tooltip title="Déduire">
+                                                                        <button type="button"
+                                                                                className={"modal--deduce"}
+                                                                        onClick={this.showModalDeduce}
+                                                                        id={index}>
+                                                                            <i id={index} className="icon--less fas fa-minus text-danger"/>
+                                                                        </button>
+
+                                                                    </Tooltip>
+                                                                    <ModalDeduce show={this.state.showDeduce}
+                                                                               handleCloseDeduce={this.hideModalDeduce}
+                                                                               product={this.state.products[this.state.nbrProductDeduceToLoad]}
+                                                                    />
+                                                                </div>: null
+                                                            }
+                                                        </div>
+                                                        <div className={"col-2"}>
+                                                            <span className={"quantity__number"}>{product.quantity}</span>
+                                                        </div>
+                                                        <div className={"col-4 text-left"}>
+                                                            {this.state.showQuantity ?
+                                                                <div>
+                                                                    <Tooltip title="Ajouter">
+                                                                        <button type="button"
+                                                                                className={"modal--add"}
+                                                                                onClick={this.showModalAdd}
+                                                                                id={index}>
+                                                                            <i id={index} className="icon--add fas fa-plus"/>
+                                                                        </button>
+
+                                                                    </Tooltip>
+                                                                    <ModalAdd show={this.state.showAdd}
+                                                                              handleCloseAdd={this.hideModalAdd}
+                                                                              product={this.state.products[this.state.nbrProductAddToLoad]}
+                                                                    />
+                                                                </div>: null
+                                                            }
+                                                        </div>
+                                                    </div>
+
+
+                                                </td>
                                                 <td>{product.price} €</td>
                                                 { product.available ?
                                                     <td className={"text-center"}>

@@ -281,8 +281,8 @@ export default class BodyUpdateProduct extends Component{
                 canSend = false;
             }
 
-            if(this.state.name.length > 40 || this.state.name.length < 3) {
-                this.setState({nameError: "Le nom du produit doit contenir entre 3 et 40 caractères"})
+            if(this.state.name.length > 70 || this.state.name.length < 3) {
+                this.setState({nameError: "Le nom du produit doit contenir entre 3 et 70 caractères"})
                 canSend = false;
             }
 
