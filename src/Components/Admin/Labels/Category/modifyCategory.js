@@ -92,7 +92,7 @@ export default class ModifyCategory extends Component {
                     <h2 className={"text-center mt-5"}>Modifier la catégorie {this.state.nameCategory}</h2>
                     <div className={"row"}>
                         <div className={"d-flex justify-content-center mb-5"}>
-                            <div className={"col-4 box__category--color mt-4 mb-3"}>
+                            <div className={"col-4 box__category--color global_bgColor--whiteSmoke mt-4 mb-3"}>
                                 <div className={"mt-2"}>
                                     {this.state.errorMsg.length > 0 ? <ErrorForm error={this.state.errorMsg}/> : null}
                                     <form onSubmit={this.handleSubmit}>
