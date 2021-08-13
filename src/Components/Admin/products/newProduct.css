@@ -45,7 +45,7 @@
 
 .icon--less {
     position: relative;
-    bottom: 0.05em;
+    bottom: 0.1em;
 }
 
 .icon--add {
@@ -60,6 +60,10 @@
 .modal--deduce, .modal--add {
     background: none;
     border: none;
+}
+
+.modal--add {
+    padding: 0;
 }
 
 .box__nbr {
