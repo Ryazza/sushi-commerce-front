@@ -3,10 +3,9 @@ import './bodyModal.css';
 import axios from "axios";
 import ErrorForm from "../../../../error/ErrorForm";
 import ErrorFormLittle from "../../../../error/ErrorFormLittle";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthService from "../../../../../services/auth.service";
 import {environement} from "../../../../../Environment/environment";
-import {Redirect} from "react-router-dom";
 
 export const ModalDeduce = ({ handleClose, show, product }) => {
     const [redirection, setRedirection] = useState(false);
