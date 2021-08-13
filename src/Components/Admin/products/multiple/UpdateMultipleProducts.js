@@ -1,11 +1,9 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import '../newProduct.css'
-import ErrorFormLittle from "../../../error/ErrorFormLittle";
 import axios from "axios";
 import {environement} from "../../../../Environment/environment";
 import AuthService from "../../../../services/auth.service"
-import Tooltip from '@material-ui/core/Tooltip';
 import ErrorForm from "../../../error/ErrorForm";
 import {Redirect} from "react-router-dom";
 import BodyUpdateProduct from "../formBody/bodyUpdateProduct";

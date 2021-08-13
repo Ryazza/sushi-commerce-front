@@ -2,7 +2,7 @@ import './bodyModal.css';
 import axios from "axios";
 import ErrorForm from "../../../../error/ErrorForm";
 import ErrorFormLittle from "../../../../error/ErrorFormLittle";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthService from "../../../../../services/auth.service";
 import {environement} from "../../../../../Environment/environment";
 
@@ -26,7 +26,6 @@ export const ModalAdd = ({ handleCloseAdd, show, product }) => {
 
     const handleSubmitAdd = (e) => {
         e.preventDefault();
-        setProductId(product._id)
         setNbrError("");
         setErrorMsg("");
         let canSend = true;
@@ -74,11 +73,11 @@ export const ModalAdd = ({ handleCloseAdd, show, product }) => {
                                     <div className="form-group">
 
                                         <div className={"box__nbr"}>
-                                            <label htmlFor="quantityToDeduce">Quantité à àjouter</label>
+                                            <label htmlFor={productId}>Quantité à àjouter</label>
                                             <input type="number" className="form-control input__nbr quantityToAdd"
-                                                   id={"quantityToDeduce"}
                                                    onChange={event => setNbrToAdd(event.target.value)}
                                                    value={nbrToAdd}
+                                                   id={productId}
                                             />
                                             {nbrError && nbrError.length > 1 ?
                                                 <ErrorFormLittle error={nbrError}/>:null
@@ -88,7 +87,7 @@ export const ModalAdd = ({ handleCloseAdd, show, product }) => {
                                             <ErrorForm error={errorMsg}/>:null
                                         }
                                         <div className={"d-flex justify-content-center"}>
-                                            <button type="button"
+                                            <button
                                                     className="btn global_bgColor--blueSky global_fontColor--whiteSmoke btn--submit"
                                                     type={"submit"}>Ajouter
                                             </button>

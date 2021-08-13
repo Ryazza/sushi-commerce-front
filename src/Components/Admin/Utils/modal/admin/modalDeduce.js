@@ -1,4 +1,3 @@
-
 import './bodyModal.css';
 import axios from "axios";
 import ErrorForm from "../../../../error/ErrorForm";
@@ -26,7 +25,6 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setProductId(product._id)
         setNbrError("");
         setErrorMsg("");
         let canSend = true;
@@ -68,21 +66,21 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
                 <section className="modal__main">
                     <div className={"box__deduce"}>
                         <div>
-                            <h5 className={"deduce__title text-center"}>Déduire la quantité à {productName?productName:null}</h5>
+                            <h5 className={"deduce__title text-center"}>Déduire la quantité à {productName}</h5>
                         </div>
                         <hr/>
                         <div className="deduce__body">
                             <p className={"text-center"}>quantité actuelle: <span
-                                className={"quantity--actual"}>{productQuantity?productQuantity:null}</span></p>
+                                className={"quantity--actual"}>{productQuantity}</span></p>
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
 
                                     <div className={"box__nbr"}>
-                                        <label htmlFor="quantityToDeduce">Quantité à déduire</label>
+                                        <label htmlFor={productId}>Quantité à déduire</label>
                                         <input type="number" className="form-control input__nbr quantityToDeduce"
-                                               id={"quantityToDeduce"}
                                                onChange={event => setNbrToDeduce(event.target.value)}
                                                value={nbrToDeduce}
+                                               id={productId}
                                         />
                                         {nbrError && nbrError.length > 1 ?
                                             <ErrorFormLittle error={nbrError}/>:null
@@ -92,9 +90,9 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
                                         <ErrorForm error={errorMsg}/>:null
                                     }
                                     <div className={"d-flex justify-content-center"}>
-                                        <button type="button"
-                                                className="btn global_bgColor--blueSky global_fontColor--whiteSmoke btn--submit"
-                                                type={"submit"}
+                                        <button
+                                            type={"submit"}
+                                            className="btn global_bgColor--blueSky global_fontColor--whiteSmoke btn--submit"
                                         >Déduire
                                         </button>
                                     </div>

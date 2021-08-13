@@ -224,8 +224,6 @@ export default class ProductsInSub extends Component {
                                                                     <Tooltip title="Déduire">
                                                                         <button type="button"
                                                                                 className={"modal--deduce"}
-                                                                                data-bs-toggle="modal"
-                                                                                data-bs-target="#modalDeduce"
                                                                         onClick={this.showModalDeduce}
                                                                         id={index}>
                                                                             <i id={index} className="icon--less fas fa-minus text-danger"/>
