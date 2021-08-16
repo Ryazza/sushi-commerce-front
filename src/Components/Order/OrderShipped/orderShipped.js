@@ -18,7 +18,7 @@ export default class OrderShipped extends Component {
         const headers = {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
-        axios.get(environement.backBase+"/order/status/expédié/asc", {headers:headers}).then(response => {
+        axios.get(environement.backBase+"/order/status/expédiée/asc", {headers:headers}).then(response => {
             this.setState({order: response.data.order})
             console.log(response)
         })
@@ -42,7 +42,6 @@ export default class OrderShipped extends Component {
                                                 <th>#</th>
                                                 <th>nom</th>
                                                 <th>statut</th>
-                                                <th>action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -52,7 +51,6 @@ export default class OrderShipped extends Component {
                                                         <td>{index}</td>
                                                         <td>{order.client_ID}</td>
                                                         <td>{order.status}</td>
-                                                        <td><button><i className="fas fa-shipping-fast"></i></button></td>
                                                     </tr>
                                                 ]
                                             })}

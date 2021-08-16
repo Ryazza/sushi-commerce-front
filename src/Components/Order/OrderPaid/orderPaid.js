@@ -18,7 +18,7 @@ export default class OrderPaid extends Component{
         const headers = {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
-        axios.get(environement.backBase+"/order/status/préparation/asc", {headers:headers}).then(response => {
+        axios.get(environement.backBase+"/order/status/payée/asc", {headers:headers}).then(response => {
             this.setState({order: response.data.order})
             console.log(response)
         })
