@@ -22,15 +22,19 @@ class Navbar extends Component {
             redirection: false,
             goTo: null,
             category: null,
-            showCart: false
+            showCart: false,
+            cartSize: 0,
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.sendData = this.sendData.bind(this)
         this.goToLogin = this.goToLogin.bind(this)
+        this.getDataFromCart = this.getDataFromCart.bind(this)
     }
 
     componentDidMount() {
+        const cartSize = localStorage.getItem("cartSize");
+    this.setState({cartSize: cartSize})
         axios.get(Env.backBase + '/category/all')
             .then(res => {
                 this.setState({category: res.data.category})
@@ -73,9 +77,12 @@ class Navbar extends Component {
             showCart: !this.state.showCart
         });
     }
+    getDataFromCart(data){
+        console.log("data from Cart", data)
+        this.setState({cartSize: data.cartSize})
 
+    }
     render() {
-        console.log("dans le render",this.state.displayCart)
         let connected = localStorage.getItem('letShopToken');
         let itemMap = []
         if (this.state.goTo === "/login") {
@@ -163,11 +170,11 @@ class Navbar extends Component {
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
                                              alt=""  onClick={this.displayCart.bind(this)} />
-                                        <span className="badge rounded-pill bg-danger align-top" >99+</span> <br/>
+                                        <span className="badge rounded-pill bg-danger align-top" >{this.state.cartSize}</span> <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
                                     <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
-                                        className="badge rounded-pill bg-danger align-top">99+</span></span>
+                                        className="badge rounded-pill bg-danger align-top">{this.state.cartSize}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +184,7 @@ class Navbar extends Component {
                     {itemMap}
                 </div>
                 {this.state.showCart ?
-                    <Cart
+                    <Cart parentCallback={this.getDataFromCart}
                         closePopup={this.displayCart.bind(this)}
                     />
                     : null

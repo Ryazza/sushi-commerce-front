@@ -15,6 +15,8 @@ class Cart extends Component {
             cartSize: 0
         }
         this.changeQuantity = this.changeQuantity.bind(this)
+        this.sendData = this.sendData.bind(this)
+
 
     }
 
@@ -71,17 +73,18 @@ class Cart extends Component {
         let forSave = JSON.stringify(this.state.myCart);
         let newSize = this.state.cartSize;
         let newPrice = this.state.cartPrice;
+        this.sendData();
         localStorage.setItem("cart", forSave);
         localStorage.setItem('cartSize', newSize.toString());
         localStorage.setItem('cartPrice', newPrice.toString());
     }
 
     calculate() {
-        let size= 0;
-        let price=0;
+        let size = 0;
+        let price = 0;
         this.state.myCart.forEach(product => {
             size = size + parseInt(product.qty);
-            price = price+ parseFloat(product.price);
+            price = price + parseFloat(product.price);
         })
         return {size: size, price: price}
     }
@@ -118,6 +121,14 @@ class Cart extends Component {
         localStorage.removeItem('cartPrice');
         localStorage.removeItem('cartSize');
 
+    }
+
+    sendData = () => {
+        console.log("sendData")
+        this.props.parentCallback(
+            {
+                cartSize: this.state.cartSize,
+            });
     }
 
     render() {

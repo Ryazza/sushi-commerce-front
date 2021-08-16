@@ -12,7 +12,13 @@ export default class ChangeProduct extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {product: null, reductedPrice: null, checked: true, descCat: null}
+        this.state = {
+            product: null,
+            reductedPrice: null,
+            checked: true,
+            descCat: null,
+            cartSize: 0
+        }
         this.displayInStock = this.displayInStock.bind(this)
         this.displayReductPrice = this.displayReductPrice.bind(this)
         this.displayCommandButton = this.displayCommandButton.bind(this)
@@ -25,6 +31,7 @@ export default class ChangeProduct extends Component {
     }
 
     componentDidUpdate() {
+
         if (this.state.product.events.discount && this.state.checked) {
             this.setState({checked: false})
             let reduction = (this.state.product.price * this.state.product.events.discount) / 100;
@@ -84,12 +91,16 @@ export default class ChangeProduct extends Component {
             newPrice = myCartPrice + productToCart.price
             localStorage.setItem('cartPrice', newPrice.toString());
             localStorage.setItem('cartSize', newSize.toString());
+            this.setState({cartSize: newSize})
         }
         // console.log("mon cart", myCart)
         localStorage.setItem('cart', JSON.stringify(myCart));
+      window.location.href = "/"
 
 
     }
+
+
 
     getThisProduct() {
         this.id = this.props.match.params.id
