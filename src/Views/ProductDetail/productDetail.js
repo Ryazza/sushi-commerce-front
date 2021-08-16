@@ -62,7 +62,7 @@ export default class ChangeProduct extends Component {
     sendToCart(e) {
         e.preventDefault();
         let storage = this.checkLocalStorage();
-        console.log(storage)
+        // console.log(storage)
         let myCart = storage.cart;
         let myCartPrice = storage.price;
         let myCartSize = storage.size;
@@ -72,6 +72,7 @@ export default class ChangeProduct extends Component {
             name: this.state.product.name,
             id: this.state.product._id,
             price: this.state.product.price,
+            unitPrice: this.state.product.price,
             qty: 1
         }
         let newSize;
@@ -81,11 +82,12 @@ export default class ChangeProduct extends Component {
             myCart.push(productToCart)
             newSize = myCartSize + productToCart.qty;
             newPrice = myCartPrice + productToCart.price
+            localStorage.setItem('cartPrice', newPrice.toString());
+            localStorage.setItem('cartSize', newSize.toString());
         }
         // console.log("mon cart", myCart)
         localStorage.setItem('cart', JSON.stringify(myCart));
-        localStorage.setItem('cartSize', newSize.toString());
-        localStorage.setItem('cartPrice', newPrice.toString());
+
 
     }
 
