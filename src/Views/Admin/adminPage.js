@@ -17,7 +17,6 @@ export default class AdminPage extends Component {
                 <NavbarAdmin/>
                 <div className="d-flex Admin_orders_preview container justify-content-evenly">
                     <OrderPaid/>
-                    <OrderWaiting/>
                     <OrderShipped/>
                 </div>
             </Fragment>
