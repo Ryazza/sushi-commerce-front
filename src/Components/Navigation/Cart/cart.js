@@ -68,6 +68,13 @@ class Cart extends Component {
         this.saveCart();
 
     }
+    deleteLocalStorage(e){
+        e.preventDefault();
+        localStorage.removeItem('cart');
+        localStorage.removeItem('cartPrice');
+        localStorage.removeItem('cartSize');
+
+    }
 
     render() {
         let cart = [];
@@ -76,7 +83,7 @@ class Cart extends Component {
             cart = this.state.myCart.map((product, index) => {
                 return (
                     <div>
-                        {JSON.stringify(product)}
+
                         <tr>nom : {product.name}</tr>
                         <tr>prix : {product.price}</tr>
                         <tr>quantité :
@@ -96,7 +103,8 @@ class Cart extends Component {
         }
         return (
             <Fragment>
-                <div className="Popup">hello Cart World !
+                <div className="Popup">
+                    <div className="btn" onClick={this.deleteLocalStorage}>vider local storage</div>
                     <div>{cart}</div>
                 </div>
 
