@@ -20,7 +20,6 @@ export default class GetStockOut extends Component {
         }
         axios.get(environement.backBase+"/product/verifyStock", {headers:headers}).then(response => {
             this.setState({products: response.data.products})
-            console.log(response)
         })
 
     }

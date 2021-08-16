@@ -1,7 +1,0 @@
-.orderWaiting_data {
-    height: 30px;
-    width: 100%;
-}
-.orderWaiting_data:nth-child(2n) {
-    background-color: #F2E6D6;
-}

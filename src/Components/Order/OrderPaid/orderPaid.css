@@ -2,6 +2,7 @@
     height: 30px;
     width: 100%;
 }
-.orderPaid_data:nth-child(2n) {
+.orderpaid_data_bgColor:nth-child(2n-1) {
     background-color: #BFDEC9;
 }
+
