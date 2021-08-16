@@ -87,9 +87,6 @@ class MyAccount extends Component {
         let adress = this.state.adress;
         let ordered = this.state.ordered;
         let panier = this.state.panier;
-        if (this.state.redirect === true || !localStorage.getItem('letShopToken')) {
-            // return (<Redirect to="/login"/>)
-        }
         if (this.state.user !== null) {
             return (
                 <Fragment>
@@ -129,7 +126,7 @@ class MyAccount extends Component {
                                         case me:
                                             return (<Me data={this.state.user}/>);
                                         case adress:
-                                            return (<Adress/>);
+                                            return (<Adress data={this.state.user}/>);
                                         case ordered:
                                             return (<Ordered/>);
                                         case panier:
