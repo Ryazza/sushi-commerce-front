@@ -24,6 +24,11 @@ export default class OrderPaid extends Component{
         })
     }
 
+    handleSubmit() {
+
+    }
+
+
     render() {
         return(
             <Fragment>
@@ -53,7 +58,7 @@ export default class OrderPaid extends Component{
                                                                 <td>{index}</td>
                                                                 <td>{order.client_ID}</td>
                                                                 <td>{order.status}</td>
-                                                                <td><button className={"Orderpaid__changes"}><i className="fas fa-shipping-fast"></i></button></td>
+                                                                <td><input type={"submit"} value={"expédier"} className={"Orderpaid__changes"}/></td>
                                                             </tr>
                                                         ]
                                                     })}
