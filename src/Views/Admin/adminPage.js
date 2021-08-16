@@ -14,6 +14,7 @@ export default class AdminPage extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
+                <h1 className={"AdminPage_title text-center"}>Dashboard Admin - Accueil</h1>
                 <div className="d-flex Admin_orders_preview container justify-content-evenly">
                     <OrderPaid/>
                     <OrderShipped/>
