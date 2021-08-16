@@ -159,7 +159,7 @@ class Cart extends Component {
         return (
             <Fragment>
                 <div className="Popup">
-                    <div className="btn" onClick={this.deleteLocalStorage}>vider local storage</div>
+                    {/*<div className="btn" onClick={this.deleteLocalStorage}>vider local storage</div>*/}
                     <div>{cart}</div>
                 </div>
 
