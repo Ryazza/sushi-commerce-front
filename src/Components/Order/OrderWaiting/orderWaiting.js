@@ -17,7 +17,7 @@ export default class OrderWaiting extends Component{
                         <form className="input-group orderWaiting_search rounded">
                             <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <span className="input-group-text border-0" id="search-addon">
-                                <button className="fas fa-search orderWaiting_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
+                                <button className="orderWaiting_search_btn"><i className={"fas fa-search "}></i></button>
                             </span>
                         </form>
                         <div className="Admin_orderWaiting_container">

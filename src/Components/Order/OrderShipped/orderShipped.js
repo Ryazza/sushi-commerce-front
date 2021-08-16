@@ -17,7 +17,7 @@ export default class OrderShipped extends Component {
                         <div className="input-group order_shipped_search rounded">
                             <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <span className="input-group-text border-0" id="search-addon">
-                                <button className="fas fa-search orderShipped_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
+                                <button className="orderShipped_search_btn"><i className={"fas fa-search "}></i></button>
                             </span>
                         </div>
                         <div className="Admin_orderShipped_container">

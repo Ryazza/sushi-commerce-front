@@ -1,6 +1,9 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import NavbarAdmin from "../../Components/Admin/NavbarAdmin/navbarAdmin";
+import OrderPaid from "../../Components/Order/OrderPaid/orderPaid";
+import OrderWaiting from "../../Components/Order/OrderWaiting/orderWaiting";
+import OrderShipped from "../../Components/Order/OrderShipped/orderShipped";
 
 export default class AdminPage extends Component {
     constructor(props) {
@@ -12,6 +15,11 @@ export default class AdminPage extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
+                <div className="d-flex Admin_orders_preview container justify-content-around">
+                    <OrderPaid/>
+                    <OrderWaiting/>
+                    <OrderShipped/>
+                </div>
             </Fragment>
         )
     }

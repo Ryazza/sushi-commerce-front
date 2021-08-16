@@ -1,8 +1,8 @@
 import React, {Component,Fragment} from "react";
 import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
-import OrderPaid from "../../component/Order/OrderPaid/orderPaid";
-import OrderShipped from "../../component/Order/OrderShipped/orderShipped";
-import OrderWaiting from "../../component/Order/OrderWaiting/orderWaiting";
+import OrderPaid from "../../../Components/Order/OrderPaid/orderPaid";
+import OrderShipped from "../../../Components/Order/OrderShipped/orderShipped";
+import OrderWaiting from "../../../Components/Order/OrderWaiting/orderWaiting";
 import './admin.css';
 
 export default  class Admin extends Component {
