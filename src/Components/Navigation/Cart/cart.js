@@ -10,23 +10,27 @@ class Cart extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            myCart: []
+            myCart: [],
+            cartPrice: 0,
+            cartSize: 0
         }
-        this.changeQuantity=this.changeQuantity.bind(this)
+        this.changeQuantity = this.changeQuantity.bind(this)
+        this.sendData = this.sendData.bind(this)
+
 
     }
 
     componentDidMount() {
-        const cart = localStorage.getItem("cart");
-        let myCart;
-        if (!cart) {
-            myCart = [];
-        } else {
-            myCart = JSON.parse(cart);
-        }
-        this.setState({myCart: myCart})
+        let storage = this.checkLocalStorage();
+
+        this.setState({
+            myCart: storage.cart,
+            cartPrice: storage.price,
+            cartSize: storage.size
+        })
 
     }
+
 
     passOrder() {
         axios.get(Env.backBase + '/category/all')
@@ -38,22 +42,64 @@ class Cart extends Component {
             );
     }
 
-    saveCart() {
-        let forSave = JSON.stringify(this.state.myCart);
-        localStorage.setItem("cart", forSave)
+    checkLocalStorage() {
+        const cart = localStorage.getItem("cart");
+        const cartPrice = localStorage.getItem("cartPrice");
+        const cartSize = localStorage.getItem("cartSize");
+        let myCart;
+        if (!cart) {
+            myCart = [];
+        } else {
+            myCart = JSON.parse(cart);
+        }
+        let myCartPrice;
+        if (!cartPrice) {
+            myCartPrice = 0;
+        } else {
+            myCartPrice = parseInt(cartPrice);
+        }
+        let myCartSize;
+        if (!cartSize) {
+            myCartSize = 0;
+        } else {
+            myCartSize = parseInt(cartSize);
+        }
+        return {cart: myCart, size: myCartSize, price: myCartPrice}
+
     }
 
-    changeQuantity(e,id) {
+
+    saveCart() {
+        let forSave = JSON.stringify(this.state.myCart);
+        let newSize = this.state.cartSize;
+        let newPrice = this.state.cartPrice;
+        this.sendData();
+        localStorage.setItem("cart", forSave);
+        localStorage.setItem('cartSize', newSize.toString());
+        localStorage.setItem('cartPrice', newPrice.toString());
+    }
+
+    calculate() {
+        let size = 0;
+        let price = 0;
+        this.state.myCart.forEach(product => {
+            size = size + parseInt(product.qty);
+            price = price + parseFloat(product.price);
+        })
+        return {size: size, price: price}
+    }
+
+    async changeQuantity(e, id) {
         let product = this.state.myCart.find(el => el.id === id)
         let cart = this.state.myCart;
         cart.forEach((element) => {
             if (element === product) {
                 element.qty = e.target.value
+                element.price = element.unitPrice * e.target.value
             }
         })
-        console.log("value = ", this.state.value)
-        console.log("cart = ", this.state.myCart)
-        this.setState({myCart: cart})
+        let totals = this.calculate();
+        await this.setState({myCart: cart, cartSize: totals.size, cartPrice: totals.price})
         this.saveCart();
     }
 
@@ -69,6 +115,22 @@ class Cart extends Component {
 
     }
 
+    deleteLocalStorage(e) {
+        e.preventDefault();
+        localStorage.removeItem('cart');
+        localStorage.removeItem('cartPrice');
+        localStorage.removeItem('cartSize');
+
+    }
+
+    sendData = () => {
+        console.log("sendData")
+        this.props.parentCallback(
+            {
+                cartSize: this.state.cartSize,
+            });
+    }
+
     render() {
         let cart = [];
 
@@ -76,11 +138,11 @@ class Cart extends Component {
             cart = this.state.myCart.map((product, index) => {
                 return (
                     <div>
-                        {JSON.stringify(product)}
+
                         <tr>nom : {product.name}</tr>
                         <tr>prix : {product.price}</tr>
                         <tr>quantité :
-                            <input onChange={(e) => this.changeQuantity(e,product.id)}
+                            <input onChange={(e) => this.changeQuantity(e, product.id)}
                                    className="saison-score pastille" type="number" min="1"
                                    max="100" placeholder={product.qty} size="2"/>
                         </tr>
@@ -96,7 +158,8 @@ class Cart extends Component {
         }
         return (
             <Fragment>
-                <div className="Popup">hello Cart World !
+                <div className="Popup">
+                    {/*<div className="btn" onClick={this.deleteLocalStorage}>vider local storage</div>*/}
                     <div>{cart}</div>
                 </div>
 

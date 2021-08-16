@@ -1,8 +1,7 @@
-import React from "react";
-import {Component, Fragment} from "react";
+import React, {Component, Fragment} from "react";
 import {Link} from "react-router-dom";
 import './productDetail.css'
-import {ImageGroup, Image} from 'react-fullscreen-image'
+import {Image, ImageGroup} from 'react-fullscreen-image'
 import axios from "axios";
 
 const Environement = require('../../Environment/environment')
@@ -13,7 +12,13 @@ export default class ChangeProduct extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {product: null, reductedPrice: null, checked: true, descCat: null}
+        this.state = {
+            product: null,
+            reductedPrice: null,
+            checked: true,
+            descCat: null,
+            cartSize: 0
+        }
         this.displayInStock = this.displayInStock.bind(this)
         this.displayReductPrice = this.displayReductPrice.bind(this)
         this.displayCommandButton = this.displayCommandButton.bind(this)
@@ -26,6 +31,7 @@ export default class ChangeProduct extends Component {
     }
 
     componentDidUpdate() {
+
         if (this.state.product.events.discount && this.state.checked) {
             this.setState({checked: false})
             let reduction = (this.state.product.price * this.state.product.events.discount) / 100;
@@ -33,31 +39,68 @@ export default class ChangeProduct extends Component {
             this.setState({reductedPrice: realPrice.toFixed(2)})
         }
     }
-    sendToCart(e){
-        e.preventDefault();
-        // localStorage.removeItem('cart');
+
+    checkLocalStorage() {
         const cart = localStorage.getItem("cart");
+        const cartPrice = localStorage.getItem("cartPrice");
+        const cartSize = localStorage.getItem("cartSize");
         let myCart;
         if (!cart) {
             myCart = [];
         } else {
             myCart = JSON.parse(cart);
         }
+        let myCartPrice;
+        if (!cartPrice) {
+            myCartPrice = 0;
+        } else {
+            myCartPrice = parseInt(cartPrice);
+        }
+        let myCartSize;
+        if (!cartSize) {
+            myCartSize = 0;
+        } else {
+            myCartSize = parseInt(cartSize);
+        }
+        return {cart: myCart, size: myCartSize, price: myCartPrice}
+
+    }
+
+    sendToCart(e) {
+        e.preventDefault();
+        let storage = this.checkLocalStorage();
+        // console.log(storage)
+        let myCart = storage.cart;
+        let myCartPrice = storage.price;
+        let myCartSize = storage.size;
+
 
         let productToCart = {
             name: this.state.product.name,
-            id : this.state.product._id,
+            id: this.state.product._id,
             price: this.state.product.price,
-            qty : 1
+            unitPrice: this.state.product.price,
+            qty: 1
         }
+        let newSize;
+        let newPrice;
         const ids = myCart.map(el => el.id);
-        if(!ids.includes(productToCart.id)){
+        if (!ids.includes(productToCart.id)) {
             myCart.push(productToCart)
+            newSize = myCartSize + productToCart.qty;
+            newPrice = myCartPrice + productToCart.price
+            localStorage.setItem('cartPrice', newPrice.toString());
+            localStorage.setItem('cartSize', newSize.toString());
+            this.setState({cartSize: newSize})
         }
         // console.log("mon cart", myCart)
         localStorage.setItem('cart', JSON.stringify(myCart));
+      window.location.href = "/"
+
 
     }
+
+
 
     getThisProduct() {
         this.id = this.props.match.params.id
@@ -66,7 +109,7 @@ export default class ChangeProduct extends Component {
                 this.setState({product: res.data.products})
                 axios.get(Env.backBase + '/subCategory/' + res.data.products.subCategoryId._id)
                     .then(res => {
-                        console.log(res.data.subCategory)
+                        // console.log(res.data.subCategory)
                         this.setState({descCat: res.data.subCategory})
                     })
                     .catch(error =>
@@ -99,7 +142,8 @@ export default class ChangeProduct extends Component {
                 return (
                     <Fragment>
                         <div className="row text-center text-danger  mt-5 mb-0 ">
-                            <span className="h1 productDetail_textLine">{this.state.product.price} €<span className="badge rounded-pill bg-danger align-top productDetail_badgeReduction">-{this.state.product.events.discount}%</span></span>
+                            <span className="h1 productDetail_textLine">{this.state.product.price} €<span
+                                className="badge rounded-pill bg-danger align-top productDetail_badgeReduction">-{this.state.product.events.discount}%</span></span>
                         </div>
                         <h1 className="text-center text-danger mb-0">{this.state.reductedPrice} €</h1>
                     </Fragment>
@@ -158,11 +202,11 @@ export default class ChangeProduct extends Component {
                 })
             }
         }
-        console.log(this.state.descCat)
-        if(this.state.descCat) {
+        // console.log(this.state.descCat)
+        if (this.state.descCat) {
             subCat = this.state.descCat
-            console.log(subCat)
-            if(this.state.descCat.category) {
+            // console.log(subCat)
+            if (this.state.descCat.category) {
                 Cat = this.state.descCat.category
                 console.log(Cat)
 
@@ -177,10 +221,14 @@ export default class ChangeProduct extends Component {
                                 <div className="row m-0 p-2 productDetail_breadcrumb bg-light">
                                     <div aria-label="breadcrumb">
                                         <ol className="breadcrumb m-0">
-                                            <li className="breadcrumb-item"><Link className="productDetail_LinkBreadcrumb" to="/">Let's shop</Link></li>
+                                            <li className="breadcrumb-item"><Link
+                                                className="productDetail_LinkBreadcrumb" to="/">Let's shop</Link></li>
                                             <li className="breadcrumb-item">{Cat.name}</li>
-                                            <li className="breadcrumb-item"><Link className="productDetail_LinkBreadcrumb" to={"/subCat/" + subCat._id}>{subCat.name}</Link></li>
-                                            <li className="breadcrumb-item active" aria-current="page">{product.name}</li>
+                                            <li className="breadcrumb-item"><Link
+                                                className="productDetail_LinkBreadcrumb"
+                                                to={"/subCat/" + subCat._id}>{subCat.name}</Link></li>
+                                            <li className="breadcrumb-item active"
+                                                aria-current="page">{product.name}</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -220,10 +268,13 @@ export default class ChangeProduct extends Component {
                             </div>
                         </div>
                         <div className="col-2">
-                            <div className="row bg-light mt-2 p-0 productDetail_rightPart rounded-3 justify-content-center sticky-top" style={{zIndex: 0}}>
+                            <div
+                                className="row bg-light mt-2 p-0 productDetail_rightPart rounded-3 justify-content-center sticky-top"
+                                style={{zIndex: 0}}>
                                 {this.displayInStock()}
                                 {this.displayReductPrice()}
-                                <div className="text-center text-secondary mb-3">Encore {product.quantity} en stock</div>
+                                <div className="text-center text-secondary mb-3">Encore {product.quantity} en stock
+                                </div>
                                 {this.displayCommandButton()}
                             </div>
                         </div>
