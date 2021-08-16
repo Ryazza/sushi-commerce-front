@@ -84,8 +84,8 @@ export default class ChangeProduct extends Component {
         }
         // console.log("mon cart", myCart)
         localStorage.setItem('cart', JSON.stringify(myCart));
-        localStorage.setItem('cartSize', JSON.stringify(newSize));
-        localStorage.setItem('cartPrice', JSON.stringify(newPrice));
+        localStorage.setItem('cartSize', newSize.toString());
+        localStorage.setItem('cartPrice', newPrice.toString());
 
     }
 
