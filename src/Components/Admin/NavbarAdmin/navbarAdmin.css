@@ -15,3 +15,7 @@
 .NavBarAdmin_navLink:hover {
     opacity: 0.4;
 }
+
+.NavBarAdmin_navLink:first-child{
+    background-color: #BFDEC9;
+}
