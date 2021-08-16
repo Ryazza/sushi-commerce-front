@@ -5,7 +5,3 @@
 .orderPaid_data:nth-child(2n) {
     background-color: #BFDEC9;
 }
-
-.orderPaid_search_btn {
-    border: none;
-}

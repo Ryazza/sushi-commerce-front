@@ -12,23 +12,17 @@ export default class OrderWaiting extends Component{
                         <p className="order_waiting_title">Commandes en préparation <i className="fas fa-history"></i></p>
                     </div>
                     <div>
-                        <form className="input-group orderWaiting_search rounded">
-                            <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-                            <span className="input-group-text border-0" id="search-addon">
-                                <button className="orderWaiting_search_btn"><i className={"fas fa-search "}></i></button>
-                            </span>
-                        </form>
-                        <div className="Admin_orderWaiting_container">
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                            <div className="orderWaiting_data" ></div>
-                        </div>
+                    <div className="Admin_orderWaiting_container">
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
+                        <div className="orderWaiting_data" ></div>
                     </div>
+                </div>
                 </div>
             </Fragment>
         )

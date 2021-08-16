@@ -5,7 +5,3 @@
 .orderWaiting_data:nth-child(2n) {
     background-color: #F2E6D6;
 }
-
-.orderWaiting_search_btn {
-    border: none;
-}
