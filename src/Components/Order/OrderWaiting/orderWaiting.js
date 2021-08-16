@@ -1,7 +1,5 @@
 import React from "react"
 import {Component, Fragment} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './orderWaiting.css'
 
 export default class OrderWaiting extends Component{
@@ -11,7 +9,7 @@ export default class OrderWaiting extends Component{
             <Fragment>
                 <div className="Admin_order_waiting">
                     <div className="order_waiting_icone">
-                        <p className="order_waiting_title">Commandes en préparation</p>
+                        <p className="order_waiting_title">Commandes en préparation <i className="fas fa-history"></i></p>
                     </div>
                     <div>
                         <form className="input-group orderWaiting_search rounded">

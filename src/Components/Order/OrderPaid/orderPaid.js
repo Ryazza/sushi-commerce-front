@@ -1,7 +1,5 @@
 import React from "react"
 import {Component, Fragment} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './orderPaid.css'
 
 export default class OrderPaid extends Component{
@@ -12,7 +10,7 @@ export default class OrderPaid extends Component{
             <Fragment>
                 <div className="Admin_order_paid">
                     <div className="order_paid_icone">
-                       <p className="order_paid_title">Commandes payées</p>
+                       <p className="order_paid_title">Commandes payées <i className="fas fa-euro-sign"></i></p>
                     </div>
                     <div>
                         <form className="input-group orderPaid_search rounded">
