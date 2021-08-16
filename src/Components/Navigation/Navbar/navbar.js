@@ -34,7 +34,7 @@ class Navbar extends Component {
 
     componentDidMount() {
         const cartSize = localStorage.getItem("cartSize");
-    this.setState({cartSize: cartSize})
+        this.setState({cartSize: cartSize})
         axios.get(Env.backBase + '/category/all')
             .then(res => {
                 this.setState({category: res.data.category})
@@ -47,8 +47,8 @@ class Navbar extends Component {
     sendData = () => {
         this.props.parentCallback(
             {
-            research : '/products/productsFromResearch/' +this.state.searchName,
-                displayCart : this.state.displayCart
+                research: '/products/productsFromResearch/' + this.state.searchName,
+                displayCart: this.state.displayCart
             });
     }
 
@@ -77,11 +77,16 @@ class Navbar extends Component {
             showCart: !this.state.showCart
         });
     }
-    getDataFromCart(data){
-        console.log("data from Cart", data)
-        this.setState({cartSize: data.cartSize})
 
+    getDataFromCart(data) {
+        console.log("data from Cart", data)
+        if (data.cartSize < 1000) {
+            this.setState({cartSize: data.cartSize})
+        } else {
+            this.setState({cartSize: "999+"})
+        }
     }
+
     render() {
         let connected = localStorage.getItem('letShopToken');
         let itemMap = []
@@ -91,14 +96,17 @@ class Navbar extends Component {
         if (this.state.category) {
             itemMap = this.state.category.map((item) => {
                 return (
-                    <div className="dropdown" key={item._id} >
-                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown" aria-expanded="false">{item.name}</button>
+                    <div className="dropdown" key={item._id}>
+                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown"
+                                aria-expanded="false">{item.name}</button>
                         <ul className="dropdown-menu" aria-labelledby={item._id}>
                             {(() => item.subCategory.map((subItem) => {
-                                return(
-                                    <li key={subItem._id}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
-                                )
-                            })
+                                    return (
+                                        <li key={subItem._id}><Link className="dropdown-item"
+                                                                    to={"/subCat/" + subItem._id}>{subItem.name}</Link>
+                                        </li>
+                                    )
+                                })
                             )()}
                         </ul>
                     </div>
@@ -166,11 +174,13 @@ class Navbar extends Component {
                             </div>
                             <div className="nav-item pt-xl-0 pt-lg-2">
                                 <div className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
-                                    >
+                                >
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
-                                             alt=""  onClick={this.displayCart.bind(this)} />
-                                        <span className="badge rounded-pill bg-danger align-top" >{this.state.cartSize}</span> <br/>
+                                             alt="" onClick={this.displayCart.bind(this)}/>
+                                        <span
+                                            className="badge rounded-pill bg-danger align-top">{this.state.cartSize}</span>
+                                        <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
                                     <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
@@ -185,7 +195,7 @@ class Navbar extends Component {
                 </div>
                 {this.state.showCart ?
                     <Cart parentCallback={this.getDataFromCart}
-                        closePopup={this.displayCart.bind(this)}
+                          closePopup={this.displayCart.bind(this)}
                     />
                     : null
                 }
