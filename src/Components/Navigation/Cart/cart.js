@@ -76,12 +76,14 @@ class Cart extends Component {
         localStorage.setItem('cartPrice', newPrice.toString());
     }
 
-    calculateSize() {
+    calculate() {
         let size= 0;
+        let price=0;
         this.state.myCart.forEach(product => {
             size = size + parseInt(product.qty);
+            price = price+ parseFloat(product.price);
         })
-        return size
+        return {size: size, price: price}
     }
 
     async changeQuantity(e, id) {
@@ -93,8 +95,8 @@ class Cart extends Component {
                 element.price = element.unitPrice * e.target.value
             }
         })
-        let size = this.calculateSize();
-        await this.setState({myCart: cart, cartSize: size})
+        let totals = this.calculate();
+        await this.setState({myCart: cart, cartSize: totals.size, cartPrice: totals.price})
         this.saveCart();
     }
 
