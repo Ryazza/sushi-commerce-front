@@ -1,6 +1,6 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 import AddSubCategory from "../../../Components/Admin/Labels/SubCategory/addSubcategory";
 
 export default class AddSubCategoryPage extends Component {

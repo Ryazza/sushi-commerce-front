@@ -64,7 +64,7 @@ export default class ChangeProduct extends Component {
         axios.get(Env.backBase + "/product/one/" + this.id)
             .then(res => {
                 this.setState({product: res.data.products})
-                axios.get(Env.backBase + '/subCategory/' + res.data.products.subCategoryId)
+                axios.get(Env.backBase + '/subCategory/' + res.data.products.subCategoryId._id)
                     .then(res => {
                         console.log(res.data.subCategory)
                         this.setState({descCat: res.data.subCategory})

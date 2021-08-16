@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 import logoBigBlack from '../../Assets/logo-big-white.png';
 import Flash from "../../Components/Flash/flash";
 
+const Environement = require('../../Environment/environment')
+const Env = Environement.environement
+
 export default class Connexion extends Component {
 
     constructor(props) {
@@ -24,7 +27,7 @@ export default class Connexion extends Component {
 
     handleSubmitLogin(event){
         event.preventDefault();
-        const url = "http://localhost:4244/user/login";
+        const url = Env.backBase + "/user/login";
         const requestOptions = {
             method: 'POST',
             headers: {"Content-Type": 'application/json'},
