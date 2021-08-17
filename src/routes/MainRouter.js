@@ -8,7 +8,6 @@ import Register from "../Views/RegisterPage/register";
 import HomePage from "../Views/HomePage/homepage";
 import ProductDetail from "../Views/ProductDetail/productDetail"
 import Navbar from "../Components/Navigation/Navbar/navbar";
-import Cart from "../Components/Navigation/Cart/cart";
 import {createBrowserHistory} from "history";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import AdminPage from "../Views/Admin/adminPage";
