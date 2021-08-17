@@ -149,24 +149,24 @@ class Adress extends Component {
         event.preventDefault();
         let valid = await this.validateForm();
         if (valid === true) {
-            const option =
-                {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem('letShopToken')
-                    },
-                    body: {
-                        no: this.state.no,
-                        address: this.state.address,
-                        complement: this.state.complement,
-                        cp: this.state.cp,
-                        city: this.state.city,
-                        country: this.state.country,
-                        phone: this.state.phone
-                    }
+            const params = {
+                method: "put",
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                },
+                body: {
+                    no: this.state.no,
+                    address: this.state.address,
+                    complement: this.state.complement,
+                    cp: this.state.cp,
+                    city: this.state.city,
+                    country: this.state.country,
+                    phone: this.state.phone
                 }
-            axios.put(this.state.api + "/user/adress", option)
-                .then(res => console.log(res))
-                .catch(error => console.log(error))
+            }
+            fetch(this.state.api + "/user/adress", params)
+                .then(res => res.json())
+                .then(data => console.log(data))
         }
     }
 
