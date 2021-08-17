@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './adress.css';
 import {environement} from "../../../Environment/environment";
-import axios from "axios";
 
 class Adress extends Component {
 
@@ -149,24 +148,30 @@ class Adress extends Component {
         event.preventDefault();
         let valid = await this.validateForm();
         if (valid === true) {
-            const params = {
-                method: "put",
+            let token = await localStorage.getItem('letShopToken')
+            let params = {
+                method: "PUT",
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem('letShopToken')
+                    "Authorization": "Bearer " + token,
+                    'Content-Type': 'application/json'
                 },
-                body: {
+                body: JSON.stringify({
                     no: this.state.no,
-                    address: this.state.address,
+                    address: this.state.adress,
                     complement: this.state.complement,
                     cp: this.state.cp,
                     city: this.state.city,
                     country: this.state.country,
                     phone: this.state.phone
-                }
+                })
             }
-            fetch(this.state.api + "/user/adress", params)
+            console.log(params)
+            return await fetch(this.state.api + "/user/adress", params)
                 .then(res => res.json())
                 .then(data => console.log(data))
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 
