@@ -19,6 +19,8 @@ import DeleteProductPage from "../Views/Admin/products/deleteProductPage";
 import DetailProductPage from "../Views/Admin/products/detailproductPage";
 import ModifyProductPage from "../Views/Admin/products/modifyProductPage";
 
+import ViewOneOrder from "../Components/UserAccount/OneOrder/viewOneOrder";
+
 //multiple product
 import DetailMultipleProductsPage from "../Views/Admin/products/multiple/DetailMultipleProductsPage";
 import UpdateMultipleProductsPage from "../Views/Admin/products/multiple/UpdateMultipleProductsPage";
@@ -88,10 +90,13 @@ export default class MainRouter extends Component {
                         <Route path="/account" component={UserAccount}/>
                         <Route path="/admin/home" component={AdminPage}/>
                         <Route path="/produit/:id" component={ProductDetail}/>
+                        <Route path="/account/:id" component={ViewOneOrder}/>
                         <Route path="/subCat/:id" component={SubCatDetail}/>
                         <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
 
+
                         {/* admin Products */}
+
                         <PrivateRoute exact path={"/admin/viewProducts"} component={ViewProductsPage}/>
                         <PrivateRoute exact path={"/admin/newProduct"} component={AddProductPage}/>
                         <PrivateRoute exact path={"/admin/product/delete/:id"} component={DeleteProductPage}/>
@@ -127,6 +132,9 @@ export default class MainRouter extends Component {
                         {/* end admin SubCategory */}
                         <PrivateRoute exact path={"/admin"} component={AdminPage}/>
                         <Route path="/" component={HomePage}/>
+
+
+
                     </Switch>
                 </Router>
             </Fragment>
