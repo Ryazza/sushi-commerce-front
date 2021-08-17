@@ -4,6 +4,7 @@ import './manageUsers.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
+import DisplayInfo from "../../../Components/Admin/ManageUsers/DisplayInfo/displayInfo";
 
 export default class ManageUsers extends Component {
 
@@ -15,51 +16,12 @@ export default class ManageUsers extends Component {
                     <form className="input-group ManageUsers_search rounded">
                         <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                         <span className="input-group-text border-0" id="search-addon">
-                                <button className="fas fa-search ManageUsers_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
+                                <button className="ManageUsers_search_btn"><FontAwesomeIcon icon={faSearch} /></button>
                             </span>
                     </form>
                     <h2 className="text-center font_montserrat">Fiche utilisateur</h2>
                     <div className="ManageUsers_container_info container">
-                        <div className="ManageUsers_info_profil">
-                            <fieldset disabled>
-                                <div class="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput " className="font_montserrat col-form-label col-2">Nom :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div class="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Prénom :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Prénom :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">E-mail :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Téléphone :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">N° et voie :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Code postal :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Ville :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                                <div className="form-group row ManageUsers_field_input">
-                                    <label htmlFor="disabledTextInput" className="font_montserrat col-form-label col-2">Pays :</label>
-                                    <input type="text" className="col-8"/>
-                                </div>
-                            </fieldset>
-                        </div>
+                        <DisplayInfo/>
                         <div className="ManageUsers_info_orders">
                             <h4 className="font_montserrat">Historique des commandes :</h4>
                         </div>

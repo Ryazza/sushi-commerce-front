@@ -94,7 +94,7 @@ class MyAccount extends Component {
                                     </div>
                                     { AuthService.isAdmin() ?
                                         <div className="row justify-content-center myAccount_separatorMenu text-center pt-2 pb-2">
-                                            <Link to={"/admin/manageLabels"}><i className="fas fa-user-cog text--admin text-info"> Gestion du site</i></Link>
+                                            <Link to={"/admin/home"}><i className="fas fa-user-cog text--admin text-info"> Gestion du site</i></Link>
                                         </div> : null
                                     }
                                     <div className="row myAccount_separatorMenu" id="myAccount_btnMe">
