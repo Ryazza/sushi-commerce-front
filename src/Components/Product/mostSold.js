@@ -9,12 +9,13 @@ export default class MostSold extends Component {
         super(props);
         this.state = {items: null, name: "", id: ""}
         this.name = this.props.data.name;
+        console.log("props=", this.props.data)
 
     }
 
-    async componentDidMount() {
+     componentDidMount() {
         this.name = this.props.data.name;
-        await this.setState({name: this.name});
+         this.setState({name: this.name});
         this.getItems();
         // this.setState({items: mostSold}) //todo cette ligne est remplacée par fetch
     }
@@ -41,7 +42,9 @@ export default class MostSold extends Component {
         this.newName = this.props.data.name
         if (this.name !== this.newName) {
             this.name = this.props.data.name
-            this.setState({name: this.name})
+            this.setState({name: this.name});
+            this.getItems();
+
         }
     }
 
