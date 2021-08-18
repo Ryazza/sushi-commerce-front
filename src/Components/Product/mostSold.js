@@ -1,50 +1,27 @@
 import React, {Component, Fragment} from 'react';
+import {mostSold} from '../../Environment/object'
 import {Link} from "react-router-dom";
 import './mostSold.css'
-import {environement as Env} from "../../Environment/environment";
 
 export default class MostSold extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null, name: "", id: ""}
-        this.name = this.props.data.name;
-        console.log("props=", this.props.data)
-
+        this.state = {items: null, name: ""}
+        this.name = this.props.data.name
     }
 
-     componentDidMount() {
-        this.name = this.props.data.name;
-         this.setState({name: this.name});
-        this.getItems();
-        // this.setState({items: mostSold}) //todo cette ligne est remplacée par fetch
-    }
-
-    getItems() {
-        console.log("id getItems", this.props.data.id);
-
-        const url = Env.backBase + "/product/best_sales/" + this.props.data.id;
-        console.log("url", url)
-        const requestOptions = {
-            method: 'GET',
-            headers: {"Content-Type": 'application/json'},
-        };
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                console.log("data", data)
-                this.setState({items: data.products})
-            });
-
+    componentDidMount() {
+        this.name = this.props.data.name
+        this.setState({name: this.name})
+        this.setState({items: mostSold})
     }
 
     componentDidUpdate() {
         this.newName = this.props.data.name
         if (this.name !== this.newName) {
             this.name = this.props.data.name
-            this.setState({name: this.name});
-            this.getItems();
-
+            this.setState({name: this.name})
         }
     }
 
@@ -56,13 +33,9 @@ export default class MostSold extends Component {
         let badgeSolde;
         let badgeEnd;
 
-        if (newProduct === true) badgeNew = <div className="col-3 p-0 text-center"><span
-            className="badge rounded-pill bg-success align-top">New !</span></div>
-        if (soldePercent !== null) badgeSolde = <div className="col-3 p-0 text-center"><span
-            className="badge rounded-pill bg-danger align-top">-{soldePercent}%</span></div>
-        if (serialEnding === true) badgeEnd =
-            <div className="col-3 p-0 text-center"><span className="badge rounded-pill bg-warning align-top">Fin de série</span>
-            </div>
+        if (newProduct === true) badgeNew = <div className="col-3 p-0 text-center"><span className="badge rounded-pill bg-success align-top">New !</span></div>
+        if (soldePercent !== null) badgeSolde = <div className="col-3 p-0 text-center"><span className="badge rounded-pill bg-danger align-top">-{soldePercent}%</span></div>
+        if (serialEnding === true) badgeEnd = <div className="col-3 p-0 text-center"><span className="badge rounded-pill bg-warning align-top">Fin de série</span></div>
 
         return (
             <Fragment>
@@ -81,11 +54,9 @@ export default class MostSold extends Component {
     }
 
     render() {
-        console.log('items', this.state.items)
-
         let itemsMap = []
         if (this.state.items) {
-            itemsMap = this.state.items.map((item, index) => {
+            itemsMap = this.state.items.items.map((item, index) => {
                 return (
                     <Link className="col-2 subCatDetail_Link" to={"/produit/" + item._id} key={index}>
                         <div className="row p-2 justify-content-center">
@@ -101,8 +72,7 @@ export default class MostSold extends Component {
         return (
             <Fragment>
                 <div className="row rounded-3 mt-1 mostSold_container">
-                    <div className="global_bgColor--orange rounded-1 text-light">Meilleur vente
-                        de {this.state.name}</div>
+                    <div className="global_bgColor--orange rounded-1 text-light">Meilleur vente de {this.state.name}</div>
                     {itemsMap}
                 </div>
             </Fragment>

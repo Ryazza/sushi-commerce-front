@@ -150,8 +150,7 @@ export default class SubCatDetail extends Component {
                         </div>
                         <div className="row justify-content-center m-0">
                             <div className="col-12">
-
-                                <MostSold data={{name: subCat.name, id: subCat._id}}/>
+                                <MostSold data={{name: subCat.name}}/>
                             </div>
                         </div>
                         <div className="col-2">
