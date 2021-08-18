@@ -7,24 +7,26 @@ export default class MostSold extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: null, name: "", id: ""}
+        this.state = {
+            items: null,
+            name: "",
+            id: ""
+        }
         this.name = this.props.data.name;
-        console.log("props=", this.props.data)
+        this.id = this.props.data.id;
 
     }
 
-     componentDidMount() {
+    componentDidMount() {
         this.name = this.props.data.name;
-         this.setState({name: this.name});
+        this.id = this.props.data.id;
+        this.setState({name: this.name, id: this.id});
         this.getItems();
-        // this.setState({items: mostSold}) //todo cette ligne est remplacée par fetch
     }
 
     getItems() {
-        console.log("id getItems", this.props.data.id);
 
         const url = Env.backBase + "/product/best_sales/" + this.props.data.id;
-        console.log("url", url)
         const requestOptions = {
             method: 'GET',
             headers: {"Content-Type": 'application/json'},
@@ -32,10 +34,8 @@ export default class MostSold extends Component {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log("data", data)
                 this.setState({items: data.products})
             });
-
     }
 
     componentDidUpdate() {
@@ -43,9 +43,9 @@ export default class MostSold extends Component {
         if (this.name !== this.newName) {
             this.name = this.props.data.name
             this.setState({name: this.name});
-            this.getItems();
-
+             this.getItems();
         }
+
     }
 
     displayBadgeProduct(events) {
@@ -81,7 +81,6 @@ export default class MostSold extends Component {
     }
 
     render() {
-        console.log('items', this.state.items)
 
         let itemsMap = []
         if (this.state.items) {
