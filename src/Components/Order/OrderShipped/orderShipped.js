@@ -20,7 +20,6 @@ export default class OrderShipped extends Component {
         }
         axios.get(environement.backBase+"/order/status/expédiée/asc", {headers:headers}).then(response => {
             this.setState({order: response.data.order})
-            console.log(response)
         })
     }
     render() {

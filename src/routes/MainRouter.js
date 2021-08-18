@@ -19,7 +19,7 @@ import DetailProductPage from "../Views/Admin/products/detailproductPage";
 import ModifyProductPage from "../Views/Admin/products/modifyProductPage";
 
 import ViewOneOrder from "../Components/UserAccount/OneOrder/viewOneOrder";
-
+import ManageOneUserPage from "../Views/Admin/ManageOneUserPage/manageOneUserPage";
 //multiple product
 import DetailMultipleProductsPage from "../Views/Admin/products/multiple/DetailMultipleProductsPage";
 import UpdateMultipleProductsPage from "../Views/Admin/products/multiple/UpdateMultipleProductsPage";
@@ -119,6 +119,7 @@ export default class MainRouter extends Component {
 
                         {/*admin manage user*/}
                         <PrivateRoute exact path={"/admin/manageUsers"} component={ManageUsers}/>
+                        <PrivateRoute exact path={"/admin/manageUsers/:id"} component={ManageOneUserPage}/>
                         {/*end admin manage user*/}
 
 
