@@ -14,14 +14,9 @@ export default class Promotion extends Component {
 
     componentDidMount() {
         this.getAllProduct()
-        this.getThisCat()
     }
 
     componentDidUpdate() {
-
-            this.getAllProduct()
-            this.getThisCat()
-
     }
 
     getAllProduct() {
@@ -35,15 +30,7 @@ export default class Promotion extends Component {
             );
     }
 
-    getThisCat() {
-        axios.get(Env.backBase + '/subCategory/' + this.id)
-            .then(res => {
-                this.setState({descCat: res.data.subCategory})
-            })
-            .catch(error =>
-                console.log(error)
-            );
-    }
+
 
     displayReductPrice(item) {
         if (item.events.discount !== null) {
