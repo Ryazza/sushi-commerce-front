@@ -21,9 +21,6 @@ export default class ManageOneUser extends Component {
         }
         axios.get(environement.backBase+"/admin/oneUser/"+ this.state.userId, {headers:headers}).then(response => {
             this.setState({user: response.data.users})
-            console.log(this.state.user)
-
-            console.log(response.data.users)
         })
     }
 

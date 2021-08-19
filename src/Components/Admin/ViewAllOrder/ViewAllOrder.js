@@ -61,7 +61,7 @@ export default class ViewAllOrder extends Component {
                                     <td>{roundedQuantity}</td>
                                     <td>{}</td>
                                     <td>
-                                        <Link className={"link--modify"} to={{pathname:"/admin/manageUsers/"+order._id}}>
+                                        <Link className={"link--modify"} to={{pathname:"/admin/manageOrder/"+order._id}}>
                                             <i className="far fa-eye icon--view" />
                                         </Link>
                                     </td>

@@ -41,6 +41,7 @@ import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategori
 import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
 import ViewAllOrder from "../Components/Admin/ViewAllOrder/ViewAllOrder";
+import ManageOrderPage from "../Views/Admin/ViewOrder/ManageOrder/ManageOrderPage";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -124,6 +125,7 @@ export default class MainRouter extends Component {
                         {/*end admin manage user*/}
 
                         <PrivateRoute exact path={"/admin/viewAllOrder"} component={ViewAll}/>
+                        <PrivateRoute exact path={"/admin/manageOrder/:id"} component={ManageOrderPage}/>
 
                         {/* admin SubCategory */}
                         <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>
