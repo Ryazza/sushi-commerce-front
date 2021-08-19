@@ -1,24 +1,26 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import {environement} from "../../../../Environment/environment";
-import AuthService from "../../../../services/auth.service";
+import {environement} from "../../../Environment/environment";
+import AuthService from "../../../services/auth.service";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
 
-export default class DisplayInfo extends Component {
+export default class ViewAllOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users : [{}]
+            allOrder : [{}]
         };
+
+        console.log(this.state.allOrder)
     }
 
     componentDidMount() {
         const headers = {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
-        axios.get(environement.backBase+"/admin/all", {headers:headers}).then(response => {
+        axios.get(environement.backBase+"/order", {headers:headers}).then(response => {
             this.setState({users: response.data.users})
         })
     }
@@ -42,30 +44,30 @@ export default class DisplayInfo extends Component {
                 <div className={"container font_cabin"}>
                     <table className={"table"}>
                         <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Email</th>
-                                <th>Depuis le :</th>
-                                <th>Action</th>
-                            </tr>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Depuis le :</th>
+                            <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
                         {this.state.users.map((user, index) => {
-                           return[
-                               <tr key={index}>
-                                   <td>{user.firstName}</td>
-                                   <td>{user.lastName}</td>
-                                   <td>{user.email}</td>
-                                   <td>{this.cleanDate(user.createdAt)}</td>
-                                   <td>
-                                       <Link className={"link--modify"} to={{pathname:"/admin/manageUsers/"+user._id}}>
-                                           <i className="far fa-eye icon--view" />
-                                       </Link>
-                                   </td>
-                               </tr>
-                               ]
-                            })
+                            return[
+                                <tr key={index}>
+                                    <td>{user.firstName}</td>
+                                    <td>{user.lastName}</td>
+                                    <td>{user.email}</td>
+                                    <td>{this.cleanDate(user.createdAt)}</td>
+                                    <td>
+                                        <Link className={"link--modify"} to={{pathname:"/admin/manageUsers/"+user._id}}>
+                                            <i className="far fa-eye icon--view" />
+                                        </Link>
+                                    </td>
+                                </tr>
+                            ]
+                        })
                         }
                         </tbody>
                     </table>

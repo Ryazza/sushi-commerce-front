@@ -20,14 +20,8 @@ export default class OrderPaid extends Component{
         }
         axios.get(environement.backBase+"/order/status/payée/asc", {headers:headers}).then(response => {
             this.setState({order: response.data.order})
-            console.log(response)
         })
     }
-
-    handleSubmit() {
-
-    }
-
 
     render() {
         return(
@@ -48,7 +42,6 @@ export default class OrderPaid extends Component{
                                                     <th>#</th>
                                                     <th>nom</th>
                                                     <th>statut</th>
-                                                    <th>action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -58,7 +51,6 @@ export default class OrderPaid extends Component{
                                                                 <td>{index}</td>
                                                                 <td>{order.client_ID}</td>
                                                                 <td>{order.status}</td>
-                                                                <td><input type={"submit"} value={"expédier"} className={"Orderpaid__changes"}/></td>
                                                             </tr>
                                                         ]
                                                     })}

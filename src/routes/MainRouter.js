@@ -19,7 +19,7 @@ import DetailProductPage from "../Views/Admin/products/detailproductPage";
 import ModifyProductPage from "../Views/Admin/products/modifyProductPage";
 
 import ViewOneOrder from "../Components/UserAccount/OneOrder/viewOneOrder";
-
+import ManageOneUserPage from "../Views/Admin/ManageOneUserPage/manageOneUserPage";
 //multiple product
 import DetailMultipleProductsPage from "../Views/Admin/products/multiple/DetailMultipleProductsPage";
 import UpdateMultipleProductsPage from "../Views/Admin/products/multiple/UpdateMultipleProductsPage";
@@ -39,13 +39,13 @@ import ResearchProduct from "../Views/Products/products";
 import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategoriePage";
 import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
+import ViewAllOrder from "../Components/Admin/ViewAllOrder/ViewAllOrder";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
 // import ManageUsers from "./Pioche/views/ManageUsers/manageUsers";
 // import ChangeProduct from "./Pioche/views/ChangeProduct/changeProduct";
 // import ManageLabels from "./Pioche/views/ManageLabels/manageLabels";
-// import OrdersView from "./Pioche/views/OrdersView/ordersView";
 
 export default class MainRouter extends Component {
 
@@ -119,9 +119,10 @@ export default class MainRouter extends Component {
 
                         {/*admin manage user*/}
                         <PrivateRoute exact path={"/admin/manageUsers"} component={ManageUsers}/>
+                        <PrivateRoute exact path={"/admin/manageUsers/:id"} component={ManageOneUserPage}/>
                         {/*end admin manage user*/}
 
-
+                        <PrivateRoute exact path={"/admin/viewAllOrder"} component={ViewAllOrder}/>
 
                         {/* admin SubCategory */}
                         <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>
