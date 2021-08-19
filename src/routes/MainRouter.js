@@ -42,6 +42,7 @@ import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
 import ViewAllOrder from "../Components/Admin/ViewAllOrder/ViewAllOrder";
 import ManageOrderPage from "../Views/Admin/ViewOrder/ManageOrder/ManageOrderPage";
+import TakeAnOrder from "../Views/TakeAnOrder/takeAnOrder";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -94,6 +95,7 @@ export default class MainRouter extends Component {
                         <Route path="/account/:id" component={ViewOneOrder}/>
                         <Route path="/subCat/:id" component={SubCatDetail}/>
                         <Route path="/products/productsFromResearch/:research" component={ResearchProduct}/>
+                        <Route path="/takeAnOrder" component={TakeAnOrder}/>
 
 
                         {/* admin Products */}

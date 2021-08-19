@@ -16,6 +16,7 @@ class Cart extends Component {
         }
         this.changeQuantity = this.changeQuantity.bind(this)
         this.sendData = this.sendData.bind(this)
+        this.takeAnOrder = this.takeAnOrder.bind(this)
 
 
     }
@@ -130,6 +131,9 @@ class Cart extends Component {
                 cartSize: this.state.cartSize,
             });
     }
+    takeAnOrder = (e) =>{
+        window.location.href = '/takeAnOrder'
+    }
 
     render() {
         let cart = [];
@@ -161,6 +165,8 @@ class Cart extends Component {
                 <div className="Popup">
                     {/*<div className="btn" onClick={this.deleteLocalStorage}>vider local storage</div>*/}
                     <div>{cart}</div>
+                    <button className="btn btn-default col-3 fs-5 global_bgColor--blueSky" onClick={this.takeAnOrder}>commander</button>
+
                 </div>
 
             </Fragment>
