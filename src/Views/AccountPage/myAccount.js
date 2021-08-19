@@ -5,6 +5,7 @@ import Ordered from "../../Components/UserAccount/Ordered/ordered"
 import './myAccount.css';
 import {Link} from "react-router-dom";
 import AuthService from "../../services/auth.service"
+import Flash from "../../Components/Flash/flash";
 
 class MyAccount extends Component {
 
@@ -131,6 +132,7 @@ class MyAccount extends Component {
             return (
                 <Fragment>
                     <div className="container">
+                        <Flash />
                         <div className="row justify-content-center text-center">
                             <div className="spinner-border" role="status">
                                 <span className="visually-hidden">Chargement de votre profil</span>
