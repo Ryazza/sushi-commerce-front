@@ -2,10 +2,7 @@
     height: 30px;
     width: 100%;
 }
-.orderShipped_data:nth-child(2n) {
+.orderShipped_data_bgColor:nth-child(2n-1) {
     background-color: #DDF4FF;
 }
 
-.orderShipped_search_btn {
-    border: none;
-}
