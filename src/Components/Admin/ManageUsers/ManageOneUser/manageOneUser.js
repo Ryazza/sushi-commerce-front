@@ -29,6 +29,8 @@ export default class ManageOneUser extends Component {
             return data.substr(0,10);
     }
 
+
+
     render() {
         return (
             <Fragment>

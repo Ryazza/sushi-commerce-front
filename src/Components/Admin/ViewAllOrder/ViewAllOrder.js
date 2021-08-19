@@ -12,8 +12,6 @@ export default class ViewAllOrder extends Component {
         this.state = {
             allOrder : [{}]
         };
-
-        console.log(this.state.allOrder)
     }
 
     componentDidMount() {
@@ -21,7 +19,6 @@ export default class ViewAllOrder extends Component {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
         axios.get(environement.backBase+"/order", {headers:headers}).then(response => {
-            console.log(response)
             this.setState({allOrder: response.data.order})
         })
     }
