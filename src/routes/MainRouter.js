@@ -17,6 +17,7 @@ import AddProductPage from "../Views/Admin/products/addProductPage";
 import DeleteProductPage from "../Views/Admin/products/deleteProductPage";
 import DetailProductPage from "../Views/Admin/products/detailproductPage";
 import ModifyProductPage from "../Views/Admin/products/modifyProductPage";
+import ViewAll from "../Views/Admin/ViewOrder/ViewAll/ViewAll";
 
 import ViewOneOrder from "../Components/UserAccount/OneOrder/viewOneOrder";
 import ManageOneUserPage from "../Views/Admin/ManageOneUserPage/manageOneUserPage";
@@ -40,6 +41,7 @@ import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategori
 import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
 import ViewAllOrder from "../Components/Admin/ViewAllOrder/ViewAllOrder";
+import ManageOrderPage from "../Views/Admin/ViewOrder/ManageOrder/ManageOrderPage";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
 // import Products from "./Pioche/views/Products/products";
@@ -122,7 +124,8 @@ export default class MainRouter extends Component {
                         <PrivateRoute exact path={"/admin/manageUsers/:id"} component={ManageOneUserPage}/>
                         {/*end admin manage user*/}
 
-                        <PrivateRoute exact path={"/admin/viewAllOrder"} component={ViewAllOrder}/>
+                        <PrivateRoute exact path={"/admin/viewAllOrder"} component={ViewAll}/>
+                        <PrivateRoute exact path={"/admin/manageOrder/:id"} component={ManageOrderPage}/>
 
                         {/* admin SubCategory */}
                         <PrivateRoute exact path={"/admin/subCategory/:id"} component={ViewOneSubCategoryPage}/>
