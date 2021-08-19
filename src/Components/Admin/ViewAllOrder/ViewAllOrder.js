@@ -21,11 +21,15 @@ export default class ViewAllOrder extends Component {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
         axios.get(environement.backBase+"/order", {headers:headers}).then(response => {
-            this.setState({users: response.data.users})
+            console.log(response)
+            this.setState({allOrder: response.data.order})
         })
     }
 
-
+    countProducts(data) {
+        if (data)
+            return data.length;
+    }
 
     cleanDate(data) {
         if (data)
@@ -35,33 +39,29 @@ export default class ViewAllOrder extends Component {
     render() {
         return(
             <Fragment>
-                <div className="input-group rounded col-sg-12 container">
-                    <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
-                           aria-describedby="search-addon"/>
-                    <span className="input-group-text border-0" id="search-addon"><i className="fas fa-search"></i></span>
-                </div>
-
                 <div className={"container font_cabin"}>
                     <table className={"table"}>
                         <thead>
                         <tr>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Email</th>
-                            <th>Depuis le :</th>
+                            <th>Id</th>
+                            <th>Créé le :</th>
+                            <th>Nombre d'articles</th>
+                            <th>Prix total</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {this.state.users.map((user, index) => {
+                        {this.state.allOrder.map((order, index) => {
+                            let roundedQuantity = (Math.round(order.totalAmount*100) / 100).toFixed(2);
                             return[
                                 <tr key={index}>
-                                    <td>{user.firstName}</td>
-                                    <td>{user.lastName}</td>
-                                    <td>{user.email}</td>
-                                    <td>{this.cleanDate(user.createdAt)}</td>
+                                    <td>{order._id}</td>
+                                    <td>{this.cleanDate(order.createdAt)}</td>
+                                    <td>{this.countProducts(order.articles)}</td>
+                                    <td>{roundedQuantity}</td>
+                                    <td>{}</td>
                                     <td>
-                                        <Link className={"link--modify"} to={{pathname:"/admin/manageUsers/"+user._id}}>
+                                        <Link className={"link--modify"} to={{pathname:"/admin/manageUsers/"+order._id}}>
                                             <i className="far fa-eye icon--view" />
                                         </Link>
                                     </td>
