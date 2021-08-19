@@ -18,8 +18,8 @@ export default class ManageOneOrder extends Component {
         const headers = {
             'Authorization': `Bearer ${AuthService.getCurrentAuth()}`
         }
-        axios.get(environement.backBase+"/admin/order/"+ this.state.userId, {headers:headers}).then(response => {
-            this.setState({user: response.data.users})
+        axios.get(environement.backBase+"order/admin/order/"+ this.state.orderId, {headers:headers}).then(response => {
+            this.setState({order: response.data.order})
         })
     }
 
