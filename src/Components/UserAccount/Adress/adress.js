@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './adress.css';
 import {environement} from "../../../Environment/environment";
-import {Redirect} from "react-router-dom";
+// import {Redirect} from "react-router-dom";
 import Flash from "../../Flash/flash";
 
 class Adress extends Component {
@@ -220,9 +220,9 @@ class Adress extends Component {
             }
             return await fetch(this.state.api + "/user/address", params)
                 .then(res => res.json())
-                .then(data => {
+                .then(() => {
                     window.flash("", "Votre adresse a bien été ajoutée", "success");
-                    var joined = this.state.carnet.concat(form);
+                    const joined = this.state.carnet.concat(form);
                     this.setState({carnet: joined})
                     document.getElementById('closeAddingModal').click();
                 })
@@ -291,7 +291,7 @@ class Adress extends Component {
                                                                     <div className="modal-content">
                                                                         <div className="modal-header">
                                                                             <h5 className="modal-title font_montserrat h3" id="exampleModalLabel">Modifier une adresse</h5>
-                                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddingModal"></button>
+                                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddingModal"/>
                                                                         </div>
                                                                         <div className="modal-body">
                                                                             <div className="row justify-content-center">
@@ -362,7 +362,7 @@ class Adress extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title font_montserrat h3" id="exampleModalLabel">Ajouter une adresse</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddingModal"></button>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddingModal"/>
                             </div>
                             <div className="modal-body">
                                 <div className="row justify-content-center">

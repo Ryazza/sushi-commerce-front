@@ -33,21 +33,23 @@ export default class GetStockOut extends Component {
                                 <table className={"table table-striped"}>
                                     <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>nom</th>
                                         <th>statut</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {this.state.products.map((products, index) => {
+                                    {this.state.products.map((products) => {
+
                                         if(products.quantity === 0) {
                                             return [
-                                                <tr key={index}>
-                                                    <td>{index}</td>
+                                                <tr key={products._id}>
                                                     <td>{products.name}</td>
                                                     <td><i className={"productsOut__rupture"}>Rupture Stock</i></td>
                                                 </tr>
                                             ]
+                                        }
+                                        else{
+                                            return (<span/>)
                                         }
                                     })}
                                     </tbody>

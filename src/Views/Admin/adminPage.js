@@ -5,9 +5,6 @@ import OrderPaid from "../../Components/Order/OrderPaid/orderPaid";
 import OrderShipped from "../../Components/Order/OrderShipped/orderShipped";
 
 export default class AdminPage extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return(

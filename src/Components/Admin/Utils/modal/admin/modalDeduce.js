@@ -21,7 +21,7 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
             setProductName(product.name)
             setProductQuantity(product.quantity)
         }
-    });
+    }, [show, product._id, product.name, product.quantity]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,7 +45,7 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
         if(canSend) {
             axios.put(environement.backBase+"/product/deduceStock/"+productId, {
                 quantity: parseInt(nbrToDeduce)
-            }, { headers: headers}).then( res => {
+            }, { headers: headers}).then( () => {
                 setRedirection(true)
             }).catch( error => {
                 console.log(error.response)
