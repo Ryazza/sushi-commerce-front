@@ -9,6 +9,7 @@ export default class ViewCategoryPage extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
+                <h1 className={"text-center font_montserrat"}>Dashboard Admin - Gestion des catégories</h1>
                 <ViewAllCategory/>
             </Fragment>
         )

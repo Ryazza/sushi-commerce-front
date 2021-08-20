@@ -9,6 +9,7 @@ export default class ViewAll extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
+                <h1 className={"text-center font_montserrat"}>Dashboard Admin - Gestion des commandes</h1>
                 <ViewAllOrder/>
             </Fragment>
         )
