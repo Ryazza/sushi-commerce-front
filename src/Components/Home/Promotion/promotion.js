@@ -115,24 +115,9 @@ export default class Promotion extends Component {
             <Fragment>
                 <div className="container-fluid p-4">
                     <div className="row rounded-3 subCatDetail_item">
-                        <div className="row m-0 p-2 subCatDetail_breadcrumb bg-light">
-                            <div aria-label="breadcrumb">
-                                <ol className="breadcrumb m-0">
-                                    <li className="breadcrumb-item"><Link className="subCatDetail_LinkBreadcrumb" to="/">Let's shop</Link></li>
-                                    <li className="breadcrumb-item">{Cat.name}</li>
-                                    <li className="breadcrumb-item active" aria-current="page">{subCat.name}</li>
-                                </ol>
-                            </div>
-                        </div>
                         <div className="row justify-content-center pt-2 pb-2">
                             <div className="col-12">
                                 {subCat.description}
-                            </div>
-                        </div>
-                        <div className="row justify-content-center m-0">
-                            <div className="col-12">
-
-                                <MostSold data={{name: subCat.name, id: subCat._id}}/>
                             </div>
                         </div>
                         <div className="col-2">

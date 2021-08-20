@@ -48,7 +48,7 @@ export default class Connexion extends Component {
                     inputPassword.classList.remove('is-valid');
                     inputEmail.classList.add('is-invalid');
                     inputPassword.classList.add('is-invalid');
-                    window.flash("", "Vos identifiant sont incorect !", "danger")
+                    window.flash("", "Vos identifiants sont incorrects !", "danger")
                 } else {
                     inputEmail.classList.remove('is-invalid');
                     inputPassword.classList.remove('is-invalid');
