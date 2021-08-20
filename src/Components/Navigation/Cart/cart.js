@@ -124,7 +124,6 @@ class Cart extends Component {
     }
 
     sendData = () => {
-        console.log("sendData")
         this.props.parentCallback(
             {
                 cartSize: this.state.cartSize,

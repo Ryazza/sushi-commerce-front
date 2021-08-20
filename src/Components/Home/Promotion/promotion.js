@@ -1,6 +1,5 @@
 import React from "react";
 import {Component, Fragment} from "react";
-import MostSold from "../../Product/mostSold";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {environement as Env} from "../../../Environment/environment";
@@ -29,7 +28,6 @@ export default class Promotion extends Component {
                 console.log(error)
             );
     }
-
 
 
     displayReductPrice(item) {
@@ -83,7 +81,6 @@ export default class Promotion extends Component {
     render() {
         let itemsMap = [];
         let subCat = "";
-        let Cat = "";
         if (this.state.items) {
             itemsMap = this.state.items.map((item) => {
                 return (
@@ -105,10 +102,9 @@ export default class Promotion extends Component {
                 )
             })
         }
-        if(this.state.descCat) {
+        if (this.state.descCat) {
             subCat = this.state.descCat
-            if(this.state.descCat.category) {
-                Cat = this.state.descCat.category
+            if (this.state.descCat.category) {
             }
         }
         return (

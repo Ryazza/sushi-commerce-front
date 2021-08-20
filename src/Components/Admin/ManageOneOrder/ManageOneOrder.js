@@ -40,7 +40,6 @@ export default class ManageOneOrder extends Component {
     displayProduct(data) {
         if (data) {
             return data.map((product, index) => {
-                console.log(product.pictures[0].url)
                 return (
                     <div key={index} className={"articles__box col-3 font_montserrat text-center"}>
                         <button id={"btn__delete_article"} type={"submit"}><span className={"fas fa-trash-alt ManageOne__delete_articles"}/></button>

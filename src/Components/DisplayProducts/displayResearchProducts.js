@@ -25,9 +25,9 @@ export default class DisplayResearchProducts extends Component {
     }
 
     render() {
-        let toto = [];
+        let productsToDisplay = [];
         if (this.state.products) {
-                        toto = this.state.products.map((product, index) => {
+                        productsToDisplay = this.state.products.map((product, index) => {
                 return (
                     <div>
                         <p>nom : {product.name}</p>
@@ -55,7 +55,7 @@ export default class DisplayResearchProducts extends Component {
                                 <p>Catégorie</p>
                                 <p>Stock</p>
                             </div>
-                            <div>{toto}</div>
+                            <div>{productsToDisplay}</div>
                         </div>
                         <div>
 

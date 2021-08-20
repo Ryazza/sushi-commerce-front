@@ -10,7 +10,6 @@ class AuthService {
 
     getCurrentAuth() {
         if(localStorage.getItem('letShopToken')) {
-            //console.log(jwt(localStorage.getItem('token')));
             return localStorage.getItem('letShopToken');
         } else {
             return false;

@@ -40,7 +40,6 @@ export default class Connexion extends Component {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 let inputEmail = document.getElementById('Login_email');
                 let inputPassword = document.getElementById('Login_password');
                 if (!data.success) {

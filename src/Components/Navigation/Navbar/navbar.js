@@ -79,7 +79,6 @@ class Navbar extends Component {
     }
 
     getDataFromCart(data) {
-        console.log("data from Cart", data)
         if (data.cartSize < 1000) {
             this.setState({cartSize: data.cartSize})
         } else {
