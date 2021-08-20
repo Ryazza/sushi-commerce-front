@@ -9,7 +9,6 @@ export default class DeleteSubCategory extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.category.subCategory.img)
         this.state = {
             category: this.props.category,
             categoryId: this.props.category._id,

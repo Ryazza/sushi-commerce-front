@@ -62,7 +62,6 @@ export default class MainRouter extends Component {
     }
 
     getDataFromSearchBar = (data) => {
-        console.log("data from nav bar = ",data)
         this.setState({
             research: data.research,
             redirection: true,
