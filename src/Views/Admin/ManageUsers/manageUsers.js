@@ -10,7 +10,7 @@ export default class ManageUsers extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
-                <h1 className={"text-center font_montserrat"}>Gestion des utilisateurs</h1>
+                <h1 className={"text-center font_montserrat"}>Dashboard Admin - Gestion des utilisateurs</h1>
                 <DisplayInfo/>
             </Fragment>
         )
