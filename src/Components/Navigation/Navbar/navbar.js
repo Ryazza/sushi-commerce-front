@@ -6,9 +6,10 @@ import userImage from "../../../Assets/utilisateur.png"
 import cartImage from "../../../Assets/panier.png"
 import './navbar.css';
 import axios from "axios";
+import Cart from "../Cart/cart"
 
-const Environement = require('../../../Environment/environment')
-const Env = Environement.environement
+const Environnement = require('../../../Environment/environment')
+const Env = Environnement.environement
 
 class Navbar extends Component {
 
@@ -20,15 +21,20 @@ class Navbar extends Component {
             searchDesc: "",
             redirection: false,
             goTo: null,
-            category: null
+            category: null,
+            showCart: false,
+            cartSize: 0,
         }
         this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.sendData = this.sendData.bind(this)
         this.goToLogin = this.goToLogin.bind(this)
+        this.getDataFromCart = this.getDataFromCart.bind(this)
     }
 
     componentDidMount() {
+        const cartSize = localStorage.getItem("cartSize");
+        this.setState({cartSize: cartSize})
         axios.get(Env.backBase + '/category/all')
             .then(res => {
                 this.setState({category: res.data.category})
@@ -39,8 +45,13 @@ class Navbar extends Component {
     }
 
     sendData = () => {
-        this.props.parentCallback('/products/productsFromResearch/' + this.state.searchName);
+        this.props.parentCallback(
+            {
+                research: '/products/productsFromResearch/' + this.state.searchName,
+                displayCart: this.state.displayCart
+            });
     }
+
 
     handleChangeSearchBar(event) {
         this.setState({
@@ -61,6 +72,21 @@ class Navbar extends Component {
         this.setState({goTo: "/login"})
     }
 
+    displayCart() {
+        this.setState({
+            showCart: !this.state.showCart
+        });
+    }
+
+    getDataFromCart(data) {
+        console.log("data from Cart", data)
+        if (data.cartSize < 1000) {
+            this.setState({cartSize: data.cartSize})
+        } else {
+            this.setState({cartSize: "999+"})
+        }
+    }
+
     render() {
         let connected = localStorage.getItem('letShopToken');
         let itemMap = []
@@ -70,14 +96,17 @@ class Navbar extends Component {
         if (this.state.category) {
             itemMap = this.state.category.map((item) => {
                 return (
-                    <div className="dropdown" key={item._id} >
-                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown" aria-expanded="false">{item.name}</button>
+                    <div className="dropdown" key={item._id}>
+                        <button className="btn btn-default" id={item._id} data-bs-toggle="dropdown"
+                                aria-expanded="false">{item.name}</button>
                         <ul className="dropdown-menu" aria-labelledby={item._id}>
                             {(() => item.subCategory.map((subItem) => {
-                                return(
-                                    <li key={subItem._id}><Link className="dropdown-item" to={"/subCat/" + subItem._id}>{subItem.name}</Link></li>
-                                )
-                            })
+                                    return (
+                                        <li key={subItem._id}><Link className="dropdown-item"
+                                                                    to={"/subCat/" + subItem._id}>{subItem.name}</Link>
+                                        </li>
+                                    )
+                                })
                             )()}
                         </ul>
                     </div>
@@ -144,17 +173,19 @@ class Navbar extends Component {
                                 })()}
                             </div>
                             <div className="nav-item pt-xl-0 pt-lg-2">
-                                <Link className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
-                                      to="/panier">
+                                <div className="btn btn-default global_fontColor--whiteSmoke font_montserrat"
+                                >
                                     <div className="navBar_link--image">
                                         <img src={process.env.PUBLIC_URL + cartImage} className="navBar_Image--size"
-                                             alt=""/>
-                                        <span className="badge rounded-pill bg-danger align-top">99+</span> <br/>
+                                             alt="" onClick={this.displayCart.bind(this)}/>
+                                        <span
+                                            className="badge rounded-pill bg-danger align-top">{this.state.cartSize}</span>
+                                        <br/>
                                         <span className="align-bottom">Caddie</span>
                                     </div>
-                                    <span className="navBar_link--title">Mon panier <span
-                                        className="badge rounded-pill bg-danger align-top">99+</span></span>
-                                </Link>
+                                    <span className="navBar_link--title" onClick={this.displayCart.bind(this)}>Mon panier <span
+                                        className="badge rounded-pill bg-danger align-top">{this.state.cartSize}</span></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +193,13 @@ class Navbar extends Component {
                 <div className="container-fluid global_bgColor--blueSky btn-group">
                     {itemMap}
                 </div>
+                {this.state.showCart ?
+                    <Cart parentCallback={this.getDataFromCart}
+                          closePopup={this.displayCart.bind(this)}
+                    />
+                    : null
+                }
+
             </Fragment>
         )
     }

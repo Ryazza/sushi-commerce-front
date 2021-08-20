@@ -1,7 +1,7 @@
 import React from "react";
 import {Component, Fragment} from "react";
 import ViewAllCategory from "../../../Components/Admin/Labels/Category/viewAllCategory";
-import NavbarAdmin from "../../../Pioche/component/NavbarAdmin/navbarAdmin";
+import NavbarAdmin from "../../../Components/Admin/NavbarAdmin/navbarAdmin";
 
 export default class ViewCategoryPage extends Component {
 
@@ -9,6 +9,7 @@ export default class ViewCategoryPage extends Component {
         return(
             <Fragment>
                 <NavbarAdmin/>
+                <h1 className={"text-center font_montserrat"}>Dashboard Admin - Gestion des catégories</h1>
                 <ViewAllCategory/>
             </Fragment>
         )

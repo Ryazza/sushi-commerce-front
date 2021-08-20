@@ -2,10 +2,10 @@ import React, {Component, Fragment} from 'react';
 import Me from "../../Components/UserAccount/Me/me"
 import Adress from "../../Components/UserAccount/Adress/adress"
 import Ordered from "../../Components/UserAccount/Ordered/ordered"
-import Panier from "../../Components/UserAccount/Panier/panier"
 import './myAccount.css';
 import {Link} from "react-router-dom";
 import AuthService from "../../services/auth.service"
+import Flash from "../../Components/Flash/flash";
 
 class MyAccount extends Component {
 
@@ -15,7 +15,6 @@ class MyAccount extends Component {
             me: true,
             adress: false,
             ordered: false,
-            panier: false,
             user: null,
             redirect: false,
         };
@@ -23,7 +22,6 @@ class MyAccount extends Component {
         this.handleChangeForMe = this.handleChangeForMe.bind(this);
         this.handleChangeForAdress = this.handleChangeForAdress.bind(this);
         this.handleChangeForOrdered = this.handleChangeForOrdered.bind(this);
-        this.handleChangeForPanier = this.handleChangeForPanier.bind(this);
         this.handleDisconnect = this.handleDisconnect.bind(this);
     }
 
@@ -53,26 +51,21 @@ class MyAccount extends Component {
             else document.getElementById('myAccount_btnAdress').classList.remove('myAccount_selectedBtn');
             if (this.state.ordered === true) document.getElementById('myAccount_btnOrdered').classList.add('myAccount_selectedBtn');
             else document.getElementById('myAccount_btnOrdered').classList.remove('myAccount_selectedBtn');
-            if (this.state.panier === true) document.getElementById('myAccount_btnPanier').classList.add('myAccount_selectedBtn');
-            else document.getElementById('myAccount_btnPanier').classList.remove('myAccount_selectedBtn');
         }
     }
 
     handleChangeForMe() {
-        this.setState({me: true, adress: false, ordered: false, panier: false})
+        this.setState({me: true, adress: false, ordered: false})
     }
 
     handleChangeForAdress() {
-        this.setState({me: false, adress: true, ordered: false, panier: false})
+        this.setState({me: false, adress: true, ordered: false})
     }
 
     handleChangeForOrdered() {
-        this.setState({me: false, adress: false, ordered: true, panier: false})
+        this.setState({me: false, adress: false, ordered: true})
     }
 
-    handleChangeForPanier() {
-        this.setState({me: false, adress: false, ordered: false, panier: true})
-    }
 
     handleDisconnect() {
         localStorage.removeItem('letShopToken');
@@ -86,10 +79,6 @@ class MyAccount extends Component {
         let me = this.state.me;
         let adress = this.state.adress;
         let ordered = this.state.ordered;
-        let panier = this.state.panier;
-        if (this.state.redirect === true || !localStorage.getItem('letShopToken')) {
-            // return (<Redirect to="/login"/>)
-        }
         if (this.state.user !== null) {
             return (
                 <Fragment>
@@ -106,7 +95,7 @@ class MyAccount extends Component {
                                     </div>
                                     { AuthService.isAdmin() ?
                                         <div className="row justify-content-center myAccount_separatorMenu text-center pt-2 pb-2">
-                                            <Link to={"/admin/manageLabels"}><i className="fas fa-user-cog text--admin text-info"> Gestion du site</i></Link>
+                                            <Link to={"/admin/home"}><i className="fas fa-user-cog text--admin text-info"> Gestion du site</i></Link>
                                         </div> : null
                                     }
                                     <div className="row myAccount_separatorMenu" id="myAccount_btnMe">
@@ -118,9 +107,7 @@ class MyAccount extends Component {
                                     <div className="row myAccount_separatorMenu" id="myAccount_btnOrdered">
                                         <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForOrdered}>Mes commandes</button>
                                     </div>
-                                    <div className="row myAccount_separatorMenu" id="myAccount_btnPanier">
-                                        <button className="btn btn-default global_fontColor--whiteSmoke text-center pt-2 pb-2" onClick={this.handleChangeForPanier}>Mon panier</button>
-                                    </div>
+
                                 </div>
                             </div>
                             <div className="col-7">
@@ -129,11 +116,9 @@ class MyAccount extends Component {
                                         case me:
                                             return (<Me data={this.state.user}/>);
                                         case adress:
-                                            return (<Adress/>);
+                                            return (<Adress data={this.state.user}/>);
                                         case ordered:
                                             return (<Ordered/>);
-                                        case panier:
-                                            return (<Panier/>);
                                         default:
                                             return (<Me data={this.state.user}/>);
                                     }
@@ -147,6 +132,7 @@ class MyAccount extends Component {
             return (
                 <Fragment>
                     <div className="container">
+                        <Flash />
                         <div className="row justify-content-center text-center">
                             <div className="spinner-border" role="status">
                                 <span className="visually-hidden">Chargement de votre profil</span>
