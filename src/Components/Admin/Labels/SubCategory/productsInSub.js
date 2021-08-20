@@ -39,6 +39,8 @@ export default class ProductsInSub extends Component {
     hideModalAdd = () => {
         this.setState({nbrProductAddToLoad: null})
         this.setState({ showAdd: false });
+        window.location.href = "/admin/viewProducts"
+
     };
 
     showModalDeduce = (event) => {
@@ -50,6 +52,7 @@ export default class ProductsInSub extends Component {
     hideModalDeduce = () => {
         this.setState({nbrProductDeduceToLoad: null})
         this.setState({ showDeduce: false });
+        window.location.href = "/admin/viewProducts"
     };
 
     componentDidMount() {

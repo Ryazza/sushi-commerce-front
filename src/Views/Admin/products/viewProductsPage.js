@@ -33,6 +33,7 @@ export default class ViewProductsPage extends Component {
                         </div>:
                         // <ViewOneSubCategory subCategoryId={this.state.subCategoryId}/>
                         <div className={"mb-5"}>
+
                             <ProductsInSub subCategoryId={this.state.subCategoryId} subName={this.state.subCategoryName}/>
                         </div>
                     }

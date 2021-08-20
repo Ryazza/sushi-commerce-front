@@ -22,7 +22,7 @@ export const ModalAdd = ({ handleCloseAdd, show, product }) => {
             setProductName(product.name)
             setProductQuantity(product.quantity)
         }
-    });
+    }, [show, product._id, product.name, product.quantity]);
 
     const handleSubmitAdd = (e) => {
         e.preventDefault();
@@ -43,7 +43,7 @@ export const ModalAdd = ({ handleCloseAdd, show, product }) => {
         if(canSend) {
             axios.put(environement.backBase+"/product/addStock/"+productId, {
                 quantity: parseInt(nbrToAdd)
-            }, { headers: headers}).then( res => {
+            }, { headers: headers}).then( () => {
                 setRedirection(true)
             }).catch( error => {
                 console.log(error.response)

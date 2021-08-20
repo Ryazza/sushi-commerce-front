@@ -21,7 +21,7 @@ export const ModalDeduce = ({ handleCloseDeduce, show, product }) => {
             setProductName(product.name)
             setProductQuantity(product.quantity)
         }
-    });
+    }, [show, product._id, product.name, product.quantity]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
