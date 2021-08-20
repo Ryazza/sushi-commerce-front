@@ -49,6 +49,9 @@ export default class GetStockOut extends Component {
                                                 </tr>
                                             ]
                                         }
+                                        else{
+                                            return (<span/>)
+                                        }
                                     })}
                                     </tbody>
                                 </table>
