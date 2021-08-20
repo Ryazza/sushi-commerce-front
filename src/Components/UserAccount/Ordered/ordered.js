@@ -1,9 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
 import './ordered.css';
 import {environement} from "../../../Environment/environment";
 
-import {productByCategory} from "../../../Environment/object";
 
 class Ordered extends Component {
     constructor(props) {
@@ -88,7 +86,7 @@ class Ordered extends Component {
                                                         <div className="modal-content">
                                                             <div className="modal-header">
                                                                 <h5 className="modal-title" id="exampleModalLabel">Votre commande du {this.cleanDate(order.createdAt)}</h5>
-                                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                                                             </div>
                                                             <div className="modal-body">
 

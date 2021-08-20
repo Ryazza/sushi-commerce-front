@@ -40,7 +40,6 @@ import ResearchProduct from "../Views/Products/products";
 import DeleteSubCategoriePage from "../Views/Admin/SubCategory/deleteSubCategoriePage";
 import SubCatDetail from "../Views/subCatDetail/subCatDetail";
 import ManageUsers from "../Views/Admin/ManageUsers/manageUsers";
-import ViewAllOrder from "../Components/Admin/ViewAllOrder/ViewAllOrder";
 import ManageOrderPage from "../Views/Admin/ViewOrder/ManageOrder/ManageOrderPage";
 
 // import Admin from "./Pioche/views/AdminAccount/admin";
